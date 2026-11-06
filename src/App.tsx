@@ -16,7 +16,7 @@ import { DeliveryModel } from './components/DeliveryModel';
 import { TechnologyBedrock } from './components/TechnologyBedrock';
 import { ArchitectureSection } from './components/ArchitectureSection';
 import { LeadershipSection } from './components/LeadershipSection';
-import { AdvisoryInsightsVideo } from './components/AdvisoryInsightsVideo';
+import { CinematicKeynoteSection } from './components/CinematicKeynoteSection';
 import { TechnologyNascar } from './components/TechnologyNascar';
 import { WorkInActionGallery } from './components/WorkInActionGallery';
 import { ClientTestimonials } from './components/ClientTestimonials';
@@ -149,9 +149,7 @@ export default function App() {
         <ArchitectureSection />
 
         {/* Executive Keynote Video Series & Architectural Insights */}
-        <AdvisoryInsightsVideo
-          onScheduleBriefing={() => handleOpenDiagnosticModal('Advisory Briefing with Sean Rusinko')}
-        />
+        <CinematicKeynoteSection onScheduleBriefing={() => handleOpenDiagnosticModal('Advisory Briefing with Sean Rusinko')} />
 
         {/* Backed by 17+ Years of Enterprise DX Leadership */}
         <LeadershipSection
