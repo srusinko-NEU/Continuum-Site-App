@@ -1,0 +1,20 @@
+# GitHub Pages Configuration for Continuum DX
+title: Continuum DX Advisory
+url: https://continuum-dx.com
+
+exclude:
+  - src
+  - scripts
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - tailwind.config.js
+  - vite.config.ts
+  - server.ts
+  - metadata.json
+  - firebase-applet-config.json
+  - firestore.rules
+  - bun.lock
+  - .env.example
+  - CONTINUUM_AI_CONTEXT.md
