@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuum DX Advisory | Enterprise AI Governance & Strategic CoE Overlay</title>
+  <meta name="description" content="Synthesizing McKinsey strategy gravitas, Deloitte architectural rigor, and R/GA digital craft to operationalize enterprise AI. We own the space between.">
+
+  <!-- Favicon / Meta -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090A0F'/><path d='M30 50 A20 20 0 0 1 70 50' stroke='%232563EB' stroke-width='10' fill='none'/><circle cx='50' cy='50' r='8' fill='%2310B981'/></svg>">
+
+  <!-- Google Fonts: Instrument Serif, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              DEFAULT: '#090A0F',
+              50: '#151821',
+              100: '#11131B',
+              200: '#0C0E14',
+              900: '#090A0F'
+            },
+            cobalt: {
+              DEFAULT: '#2563EB',
+              hover: '#1D4ED8',
+              muted: '#1E40AF',
+              subtle: 'rgba(37, 99, 235, 0.12)',
+              glow: 'rgba(37, 99, 235, 0.25)'
+            },
+            emeraldGuard: '#10B981',
+            amberGold: '#F59E0B'
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Ambient Grid & Film Grain */
+    .bg-obsidian-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+    .custom-scroll-clear {
+      scroll-margin-top: 6rem;
+    }
+    
+    /* Radial Ambient Glows */
+    .radial-glow-cobalt {
+      background: radial-gradient(circle 600px at 50% 0%, rgba(37, 99, 235, 0.14), transparent 70%);
+    }
+
+    /* Keynote Act Card Active State */
+    .act-card.active {
+      border-color: #2563EB;
+      background-color: rgba(37, 99, 235, 0.08);
+      box-shadow: 0 12px 32px -8px rgba(37, 99, 235, 0.28);
+    }
+
+    /* EQ Animation */
+    @keyframes eqBar {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-1 { animation: eqBar 0.8s ease-in-out infinite; }
+    .eq-2 { animation: eqBar 1.1s ease-in-out infinite 0.2s; }
+    .eq-3 { animation: eqBar 0.9s ease-in-out infinite 0.4s; }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-200 font-sans antialiased selection:bg-cobalt selection:text-white bg-obsidian-grid min-h-screen flex flex-col">
+
+  <!-- ==================== EXECUTIVE NAVIGATION ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#090A0F]/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Wordmark -->
+      <div class="flex items-center gap-3">
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-md border border-cobalt/60 bg-cobalt/10 flex items-center justify-center font-mono text-xs text-cobalt font-semibold group-hover:border-cobalt group-hover:bg-cobalt/20 transition-all">
+            C/DX
+          </div>
+          <div class="flex flex-col">
+            <span class="font-mono text-sm tracking-wider font-bold text-white uppercase whitespace-nowrap">
+              Continuum DX
+            </span>
+            <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Strategic Advisory & CoE Overlay</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-x-8 text-sm font-medium text-slate-300">
+        <a href="#dilemma" class="hover:text-white transition-colors">The Dilemma</a>
+        <a href="#space-between" class="hover:text-white transition-colors">The Space Between</a>
+        <a href="#methodology" class="hover:text-white transition-colors">AI DXMM™</a>
+        <a href="#overlay-model" class="hover:text-white transition-colors">Project-Overlay Model</a>
+        <a href="#keynote" class="hover:text-white transition-colors text-amberGold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amberGold animate-ping"></span>
+          Keynote Manifesto
+        </a>
+        <a href="#platforms" class="hover:text-white transition-colors">Enterprise Platforms</a>
+        <a href="#leadership" class="hover:text-white transition-colors">Leadership</a>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <a href="#diagnostic-intake" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-semibold tracking-wider uppercase text-white bg-cobalt hover:bg-cobalt-hover rounded transition-all shadow-md shadow-cobalt/20">
+          Book Diagnostic
+        </a>
+        <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-[#090A0F] px-6 py-6 space-y-4">
+      <a href="#dilemma" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">The Enterprise Dilemma</a>
+      <a href="#space-between" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">The Space Between</a>
+      <a href="#methodology" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">AI DXMM™ Framework</a>
+      <a href="#overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Project-Overlay Model</a>
+      <a href="#keynote" class="mobile-link block text-sm font-medium text-amberGold hover:text-white">Keynote Manifesto (3:42)</a>
+      <a href="#platforms" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Enterprise Platforms</a>
+      <a href="#leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Leadership Pedigree</a>
+      <a href="#diagnostic-intake" class="mobile-link block w-full text-center py-2.5 text-xs font-mono uppercase bg-cobalt text-white rounded font-semibold">Book Diagnostic</a>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 px-6 border-b border-slate-800/80 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none radial-glow-cobalt"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+      
+      <!-- Kicker -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/70 mb-8 backdrop-blur-sm">
+        <span class="w-2 h-2 rounded-full bg-emeraldGuard animate-pulse"></span>
+        <span class="font-mono text-xs tracking-wider uppercase text-slate-300">
+          Enterprise AI Governance & Strategic CoE Overlay
+        </span>
+      </div>
+
+      <!-- Monumental Headline -->
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-normal leading-[1.05] tracking-tight mb-8">
+        Tools Don't Transform Enterprises.<br>
+        <span class="italic text-slate-400">Operating Models Do.</span>
+      </h1>
+
+      <!-- Executive Core Thesis -->
+      <p class="text-lg md:text-2xl text-slate-300 max-w-3xl leading-relaxed mb-10 font-light">
+        Between the boardroom's mandate (<span class="text-white font-medium italic">The Why</span>) and engineering pipelines (<span class="text-white font-medium italic">The How</span>) lies the treacherous execution chasm where digital transformation dies. 
+        <strong class="text-white font-semibold">Continuum DX embeds directly inside active, funded initiatives</strong> to build the governance control plane, verified prompt registries, and turnkey Center of Excellence that turns tool-first chaos into compounding enterprise value.
+      </p>
+
+      <!-- Primary Action Row -->
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#keynote" class="inline-flex items-center gap-3 px-6 py-4 bg-cobalt hover:bg-cobalt-hover text-white font-mono text-xs uppercase tracking-wider font-semibold rounded shadow-lg shadow-cobalt/30 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Experience The Keynote (3:42)
+        </a>
+        <a href="#overlay-model" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all">
+          How The Overlay Works
+        </a>
+        <a href="#diagnostic-intake" class="px-6 py-4 border border-cobalt/40 text-cobalt hover:text-white hover:bg-cobalt/10 font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all">
+          Request Diagnostic
+        </a>
+      </div>
+
+      <!-- Trust Metrics & In-Flight Benchmarks -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-14 mt-14 border-t border-slate-800/80">
+        <div>
+          <div class="font-mono text-3xl font-bold text-white">0</div>
+          <div class="text-xs text-slate-400 mt-1">New Budget Lines Required (Overlay embeds into existing programs)</div>
+        </div>
+        <div>
+          <div class="font-mono text-3xl font-bold text-emeraldGuard">100%</div>
+          <div class="text-xs text-slate-400 mt-1">Deterministic Brand Voice & Prompt Guardrail Adherence</div>
+        </div>
+        <div>
+          <div class="font-mono text-3xl font-bold text-cobalt">65%</div>
+          <div class="text-xs text-slate-400 mt-1">Reduction in Content Review & Production Latency</div>
+        </div>
+        <div>
+          <div class="font-mono text-3xl font-bold text-amberGold">Turnkey</div>
+          <div class="text-xs text-slate-400 mt-1">CoE in a Box Operational Transfer across Business Units</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 1. THE ENTERPRISE DILEMMA ==================== -->
+  <section id="dilemma" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 max-w-7xl mx-auto w-full">
+    <div class="max-w-3xl mb-16">
+      <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">01 // The Reality Check</div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+        Speed Without Velocity Is Just Friction.
+      </h2>
+      <p class="text-slate-400 leading-relaxed text-base">
+        Over the past 24 months, Global 2000 enterprises ran faster than they have ever run. Steering committees signed purchase orders for foundational models, enterprise copilot seats, and vector clouds. But when boardrooms ask for the return on capital, the room goes silent.
+      </p>
+    </div>
+
+    <!-- The Two Failure Modes vs. The Continuum Resolution -->
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Trap 1: The Mega-Consultancy Slide Deck -->
+      <div class="bg-slate-900/30 border border-red-500/30 rounded-xl p-8 relative">
+        <div class="inline-block px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 font-mono text-[10px] text-red-400 uppercase tracking-wider mb-6">
+          Failure Mode 01
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">The 200-Page Slide Deck</h3>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+          Strategy consultancies billing multi-million-dollar retainers from 30,000 feet. They deliver abstract frameworks, leave zero operational code or guardrails behind, and walk away before the first sprint starts.
+        </p>
+        <div class="font-mono text-xs text-red-400">Result: Millions spent, zero runtime capability.</div>
+      </div>
+
+      <!-- Trap 2: The Systems Integrator Churn -->
+      <div class="bg-slate-900/30 border border-red-500/30 rounded-xl p-8 relative">
+        <div class="inline-block px-2.5 py-1 rounded bg-red-500/10 border border-red-500/20 font-mono text-[10px] text-red-400 uppercase tracking-wider mb-6">
+          Failure Mode 02
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">The Billable Hour Churn</h3>
+        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+          Systems integrators and offshore delivery pods incentivized by volume, not velocity. They stand up disconnected pilot wrappers, copy-paste prompts into silos, and drown enterprise architecture in unmaintainable technical debt.
+        </p>
+        <div class="font-mono text-xs text-red-400">Result: Pilot paralysis and catastrophic brand hallucination risk.</div>
+      </div>
+
+      <!-- The Continuum Solution -->
+      <div class="bg-slate-900/60 border border-cobalt/50 rounded-xl p-8 relative shadow-xl shadow-cobalt/10">
+        <div class="inline-block px-2.5 py-1 rounded bg-cobalt/10 border border-cobalt/30 font-mono text-[10px] text-cobalt uppercase tracking-wider mb-6">
+          The Continuum Resolution
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">The Strategic CoE Overlay</h3>
+        <p class="text-sm text-slate-300 leading-relaxed mb-6">
+          We embed seasoned strategists directly inside your in-flight, funded projects. We infuse prompt registries, human QA control gates, and composable governance directly into existing sprint cycles, extracting a turnkey CoE in a Box for the entire enterprise.
+        </p>
+        <div class="font-mono text-xs text-emeraldGuard font-semibold">Outcome: Compounding enterprise velocity on day one.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 2. THE SPACE BETWEEN ==================== -->
+  <section id="space-between" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 bg-obsidian-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6">
+          <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">02 // The Architectural Philosophy</div>
+          <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+            We Own The Space Between.
+          </h2>
+          <p class="text-slate-300 leading-relaxed text-base mb-6">
+            Software is a commodity. Algorithms are table stakes. The tool you lease from someone else will never be your competitive moat.
+          </p>
+          <p class="text-slate-400 leading-relaxed text-sm mb-6">
+            Your moat is the <strong class="text-white">operating model and governance control plane</strong> you build inside your walls. The space between executive vision and engineering reality is where uncoordinated budgets die, where data context evaporates, and where governance turns into bureaucratic concrete.
+          </p>
+          <div class="border-l-2 border-cobalt pl-4 py-2 my-6">
+            <blockquote class="font-serif text-xl italic text-slate-200">
+              "Most consultancies fear that space. Systems integrators drown it in billable hours. For us, that space is our nirvana. We don't fear it. We live in it. We master it."
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-xl p-8">
+          <div class="font-mono text-xs text-slate-400 uppercase tracking-wider mb-6 flex items-center justify-between">
+            <span>Enterprise Anatomy: The Chasm</span>
+            <span class="text-cobalt">Continuum Overlay</span>
+          </div>
+
+          <div class="space-y-4 font-mono text-xs">
+            <div class="p-4 rounded bg-slate-950/80 border border-slate-800">
+              <div class="text-slate-400 uppercase tracking-widest text-[11px] mb-1">Executive Layer (The Why)</div>
+              <div class="text-white font-sans text-sm font-semibold">Board Mandate · ROI Demands · Brand Safety · Capital Allocation</div>
+            </div>
+
+            <div class="p-4 rounded bg-cobalt/10 border-2 border-cobalt/60 relative">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-cobalt font-bold uppercase tracking-widest text-[11px]">THE SPACE BETWEEN (Continuum DX Overlay)</span>
+                <span class="w-2 h-2 rounded-full bg-cobalt animate-ping"></span>
+              </div>
+              <p class="text-slate-200 font-sans text-xs leading-relaxed">
+                Operating Model Control Plane · AI Digital Experience Maturity Model (AI DXMM™) · Prompt Registries · Human-in-the-Loop QA Gates · Turnkey CoE in a Box
+              </p>
+            </div>
+
+            <div class="p-4 rounded bg-slate-950/80 border border-slate-800">
+              <div class="text-slate-400 uppercase tracking-widest text-[11px] mb-1">Execution Layer (The How)</div>
+              <div class="text-white font-sans text-sm font-semibold">Headless CMS · CDP Data Pipelines · Multi-Agent Workflows · Edge APIs</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3. PROPRIETARY IP: THE MODERN AI DXMM ==================== -->
+  <section id="methodology" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 max-w-7xl mx-auto w-full">
+    <div class="max-w-3xl mb-16">
+      <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">03 // Proprietary IP & Lineage</div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+        The Modern AI DXMM™ Framework
+      </h2>
+      <p class="text-slate-400 leading-relaxed text-base">
+        Directly evolved from the author's leadership directing Sitecore's Strategic Business Optimization Services (SBOS). We modernized the definitive enterprise customer experience maturity model for the generative, composable, and multi-agent AI era.
+      </p>
+    </div>
+
+    <!-- 5-Stage Maturity Table -->
+    <div class="overflow-x-auto border border-slate-800 rounded-xl">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead>
+          <tr class="bg-slate-900/90 border-b border-slate-800 font-mono text-xs uppercase text-slate-400">
+            <th class="p-4 border-r border-slate-800">Stage</th>
+            <th class="p-4 border-r border-slate-800">Operational Characteristic</th>
+            <th class="p-4 border-r border-slate-800">Platform & Data Stack</th>
+            <th class="p-4">Executive Governance Metric</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/60 font-sans">
+          
+          <tr class="hover:bg-slate-900/30 transition-colors">
+            <td class="p-4 border-r border-slate-800 font-mono font-semibold text-white whitespace-nowrap">
+              Stage 01: Ad-Hoc
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Individual seat experimentation; unstructured copy-paste prompt workflows in departmental silos.
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Siloed SaaS subscriptions; zero unified context layer.
+            </td>
+            <td class="p-4 text-red-400 font-mono text-xs">
+              Severe Brand & Hallucination Risk
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-900/30 transition-colors">
+            <td class="p-4 border-r border-slate-800 font-mono font-semibold text-white whitespace-nowrap">
+              Stage 02: Aligned
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Initial BU pilots; baseline prompt templates distributed via internal wikis and Slack.
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Headless CMS prototypes; point-to-point API connectors.
+            </td>
+            <td class="p-4 text-slate-400 font-mono text-xs">
+              Informal Review Signoffs
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-900/40 transition-colors bg-cobalt/10 border-l-4 border-l-cobalt">
+            <td class="p-4 border-r border-slate-800 font-mono font-bold text-white whitespace-nowrap flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cobalt"></span>
+              Stage 03: Governed (Continuum Entry)
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-200">
+              Formal CoE established; verified prompt registries with automated human QA gates and audit trails.
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-200">
+              Composable DXP + Customer Data Platform (CDP) synchronization.
+            </td>
+            <td class="p-4 text-cobalt font-mono font-bold text-xs">
+              65% Lower Content Cycle Latency
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-900/30 transition-colors">
+            <td class="p-4 border-r border-slate-800 font-mono font-semibold text-white whitespace-nowrap">
+              Stage 04: Predictive
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Dynamic multi-variant testing; multi-armed bandit optimization across continuous user touchpoints.
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Streaming edge personalization; unified customer 360 data layer.
+            </td>
+            <td class="p-4 text-emeraldGuard font-mono font-semibold text-xs">
+              Statistically Proven P&L Lift
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-900/30 transition-colors">
+            <td class="p-4 border-r border-slate-800 font-mono font-semibold text-white whitespace-nowrap">
+              Stage 05: Autonomous Control Plane
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Federated multi-agent workflows executing cross-business-unit tasks within strict policy guardrails.
+            </td>
+            <td class="p-4 border-r border-slate-800 text-slate-400">
+              Semantic knowledge graphs, agentic middleware, sub-second edge cache.
+            </td>
+            <td class="p-4 text-emeraldGuard font-mono font-bold text-xs">
+              Deterministic Brand Autonomy
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== 4. THE PROJECT-OVERLAY MODEL ==================== -->
+  <section id="overlay-model" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 bg-obsidian-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="max-w-3xl mb-16">
+        <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">04 // Delivery Mechanics</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+          The In-Flight Project-Overlay Model
+        </h2>
+        <p class="text-slate-400 leading-relaxed text-base">
+          How we eliminate corporate capital friction: we don’t ask executive steering committees for speculative, unbudgeted transformation funds. We embed directly inside active, funded initiatives already in flight.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-8 relative">
+          <div class="font-mono text-cobalt text-xs font-bold mb-4 tracking-wider">PHASE 01 // BEACHHEAD EMBED</div>
+          <h3 class="text-xl font-semibold text-white mb-3">Anchor in Active Initiatives</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            We latch directly onto an existing, high-visibility initiative—such as an ongoing Sitecore XM Cloud migration, Salesforce Data Cloud rollout, or global portal modernization. Zero new corporate budget lines required.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-8 relative">
+          <div class="font-mono text-cobalt text-xs font-bold mb-4 tracking-wider">PHASE 02 // GOVERNANCE INJECTION</div>
+          <h3 class="text-xl font-semibold text-white mb-3">Infuse Standards In-Flight</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            We infuse verified prompt registries, automated QA guardrails, and deterministic testing frameworks directly into the active sprint cycles of the sponsoring delivery pod. The existing team delivers faster and safer immediately.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/50 border border-emeraldGuard/50 rounded-xl p-8 relative shadow-lg shadow-emeraldGuard/5">
+          <div class="font-mono text-emeraldGuard text-xs font-bold mb-4 tracking-wider">PHASE 03 // ENTERPRISE SATURATION</div>
+          <h3 class="text-xl font-semibold text-white mb-3">Deploy "CoE in a Box"</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            We harvest the in-flight project's battle-tested governance playbooks, prompt libraries, and control planes into a turnkey "CoE in a Box" that is operationalized across all remaining business units in the portfolio.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. THE KEYNOTE MANIFESTO EXPERIENCE ==================== -->
+  <section id="keynote" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 max-w-7xl mx-auto w-full">
+    
+    <div class="max-w-3xl mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30 text-amberGold font-mono text-xs uppercase tracking-widest mb-4">
+        <span>Master Keynote Oration // 3:42 Experience</span>
+      </div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-4">
+        The Space Between: Las Vegas Keynote
+      </h2>
+      <p class="text-slate-400 text-base leading-relaxed">
+        Listen to the approved master orchestral score and read the complete 5-Act manifesto delivered by Managing Director Sean Rusinko.
+      </p>
+    </div>
+
+    <!-- Audio Player Dock -->
+    <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 mb-12 shadow-2xl">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
+        <div>
+          <div class="font-mono text-xs text-cobalt uppercase tracking-widest flex items-center gap-2">
+            <span class="flex items-end gap-0.5 h-3">
+              <span class="w-1 bg-cobalt eq-1 rounded-full"></span>
+              <span class="w-1 bg-cobalt eq-2 rounded-full"></span>
+              <span class="w-1 bg-cobalt eq-3 rounded-full"></span>
+            </span>
+            Original Master Score · 108 BPM Neoclassical Electronic
+          </div>
+          <h4 class="font-serif text-xl text-white mt-1">The Space Between (Master Keynote Cut)</h4>
+        </div>
+        <div class="font-mono text-xs text-slate-400">
+          Max Richter × Nils Frahm × Jon Hopkins Aesthetic
+        </div>
+      </div>
+
+      <!-- Suno Embed / Audio Player Integration -->
+      <div class="mt-6 rounded-xl overflow-hidden border border-slate-800 bg-obsidian">
+        <iframe
+          src="https://suno.com/embed/0s8gNHvw5k9aGQ8q"
+          title="The Space Between — Keynote Master Score"
+          class="w-full"
+          style="height: 120px; border: none;"
+          allow="autoplay; encrypted-media"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- 5 Acts Interactive Accordion / Cards -->
+    <div class="space-y-4">
+      
+      <!-- Act 1 -->
+      <div class="act-card active rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this)">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT I</span>
+            <h3 class="text-xl font-serif text-white">The Commodity Trap</h3>
+          </div>
+          <span class="font-mono text-xs text-slate-400">0:00 – 0:45 · Sparse Felt-Piano & Sub-Bass (32Hz)</span>
+        </div>
+        <div class="font-serif text-lg italic text-cobalt mb-3">
+          "Speed without velocity is just friction."
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          For two years, the enterprise ran faster than it has ever run in history. Every board demanded an AI strategy. Every CIO signed purchase orders for models, copilot seats, and cloud vector layers. Every business unit stood up a pilot. We celebrated the speed. We tallied up the experiments. And yet, behind closed boardroom doors, a quiet, uncomfortable truth began to set in: We were moving at blinding speed... but we hadn't moved an inch. Because speed without velocity is just friction.
+        </p>
+      </div>
+
+      <!-- Act 2 -->
+      <div class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this)">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-xs font-bold">ACT II</span>
+            <h3 class="text-xl font-serif text-white">The Torpedoed Whale</h3>
+          </div>
+          <span class="font-mono text-xs text-slate-400">0:45 – 1:30 · Acoustic Cello Enters · Harmonic Tension</span>
+        </div>
+        <div class="font-serif text-lg italic text-amberGold mb-3">
+          "It wasn't the holy grail. Hell, it wasn't even the map."
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          The industry sold you a seductive fantasy: that if you bought the software, the transformation would follow. They told you that the tool was the holy grail. It wasn't the holy grail. Hell, it wasn't even the map. So what happened? Enterprises built a minefield of trial-and-error projects. Rogue business units testing prompts in silos. Multi-million-dollar software licenses sitting dormant. A slow, gentle torpedoing of the enterprise—eroding capital, exhausting teams, until the company drifts toward becoming... just another brand we used to know. And when the steering committee asks for the return on capital... the room goes silent. Because in the rush to adopt the tools, nobody stopped to answer the most fundamental question in business: Where are you going?
+        </p>
+      </div>
+
+      <!-- Act 3 -->
+      <div class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this)">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT III</span>
+            <h3 class="text-xl font-serif text-white">The Space Between</h3>
+          </div>
+          <span class="font-mono text-xs text-slate-400">1:30 – 2:30 · Modular Synth Pulse 108 BPM · Forward Momentum</span>
+        </div>
+        <div class="font-serif text-lg italic text-cobalt mb-3">
+          "That space is our nirvana. We live in it. We master it."
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Here is what seventeen years in the enterprise trenches taught me: Software is a commodity. Algorithms are table stakes. Tools do not transform enterprises. Operating models do. Between the boardroom's mandate—the executive Why... and the engineering pipeline—the technical How... lies the most treacherous chasm in digital transformation. The Space Between. That space is where uncoordinated budgets die. It’s where data context gets lost. It’s where governance turns into bureaucratic concrete, or where the lack of it exposes the brand to catastrophic risk. Most consultancies fear that space. They hand you a 200-page deck from 30,000 feet and walk away. Most systems integrators drown it in billable engineering hours. But for us? That space is our nirvana. We don't fear it. We live in it. We master it. Because the space between is where the real architecture happens.
+        </p>
+      </div>
+
+      <!-- Act 4 -->
+      <div class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this)">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-xs font-bold">ACT IV</span>
+            <h3 class="text-xl font-serif text-white">The Operating Model as the Moat</h3>
+          </div>
+          <span class="font-mono text-xs text-slate-400">2:30 – 3:15 · Full Orchestral Apex · Acoustic Toms & Cello</span>
+        </div>
+        <div class="font-serif text-lg italic text-amberGold mb-3">
+          "Your moat is the governance discipline you build inside your walls."
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Your competitive moat in the age of AI will not be the software you lease from someone else. Your moat is the governance discipline you build inside your walls. It is the map. It is the operating overlay that synchronizes Marketing, Product, and IT into a single, unstoppable delivery engine. We don’t ask executive committees for speculative budgets. We embed directly inside your active, funded initiatives—your platform rollouts, your composable migrations, your customer portals. We infuse verified prompt registries, automated QA guardrails, and human-in-the-loop workflows directly into your active sprints. We turn a single project beachhead into a turnkey Center of Excellence in a Box—scaling governance, velocity, and brand safety across every business unit in your portfolio. We replace pilot paralysis with compounding enterprise value.
+        </p>
+      </div>
+
+      <!-- Act 5 -->
+      <div class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this)">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded bg-emeraldGuard text-obsidian font-mono text-xs font-bold">ACT V</span>
+            <h3 class="text-xl font-serif text-white">The Continuum Mandate</h3>
+          </div>
+          <span class="font-mono text-xs text-slate-400">3:15 – 3:42 · Harmonic Ring-Out · Cathedral Decay</span>
+        </div>
+        <div class="font-serif text-lg italic text-emeraldGuard mb-3">
+          "Software is the commodity. Governance is the holy grail."
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Before you sign another software contract... know where you are going. Before you launch another disconnected pilot... build the model. Software is the commodity. Governance is the holy grail. We are Continuum DX Advisory. And we own the space between.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. TECHNOLOGY BEDROCK ==================== -->
+  <section id="platforms" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 bg-obsidian-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="max-w-3xl mb-16">
+        <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">05 // Platform Anchors</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+          Architected for Fortune 2000 Platforms
+        </h2>
+        <p class="text-slate-400 leading-relaxed text-base">
+          Our governance frameworks and prompt control planes don’t operate in a laboratory. They integrate directly into the commercial enterprise engines running your active digital touchpoints.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">HEADLESS DXP & COMMERCE</div>
+          <h3 class="text-xl font-bold text-white mb-2">Sitecore</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            XM Cloud, Sitecore CDP, Personalize, and OrderCloud. Deep architectural governance designed by former Sitecore SBOS leadership.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: In-flight XM Cloud Governance</div>
+        </div>
+
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">DATA & AGENTIC CLOUD</div>
+          <h3 class="text-xl font-bold text-white mb-2">Salesforce</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Data Cloud, Marketing Cloud, and Agentforce. Building deterministic brand guardrails around autonomous customer agents.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: Agentforce Policy & Guardrail Registry</div>
+        </div>
+
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">STRUCTURED CONTENT</div>
+          <h3 class="text-xl font-bold text-white mb-2">Contentful</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Composable Content Platform and Studio. Semantic knowledge graph structuring for generative LLM ingestion.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: Composable Content Graph Governance</div>
+        </div>
+
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">ENTERPRISE EXPERIENCE</div>
+          <h3 class="text-xl font-bold text-white mb-2">Adobe</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Adobe Experience Manager (AEM), Workfront, and Firefly. Orchestrating enterprise creative ops with verified brand compliance.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: Human-in-the-Loop Creative Control</div>
+        </div>
+
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">CONTINUOUS EXPERIMENTATION</div>
+          <h3 class="text-xl font-bold text-white mb-2">Optimizely</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            One DXP, Feature Experimentation, and Content Marketing Platform. Algorithmic multi-variant personalization at the edge.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: Multi-Armed Bandit Test Frameworks</div>
+        </div>
+
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/40 hover:border-slate-700 transition-all">
+          <div class="font-mono text-xs text-cobalt font-semibold mb-2">ENTERPRISE AI BEDROCK</div>
+          <h3 class="text-xl font-bold text-white mb-2">Microsoft Azure</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Azure OpenAI, Semantic Kernel, and Fabric. Enterprise security boundaries, data tenancy isolation, and vector search.
+          </p>
+          <div class="font-mono text-[11px] text-slate-500">Overlay: Private Tenant RAG Governance</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. LEADERSHIP PEDIGREE ==================== -->
+  <section id="leadership" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 max-w-7xl mx-auto w-full">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-6">
+        <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">06 // Leadership & Pedigree</div>
+        <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-6">
+          High-Judgment Practitioner Leadership.
+        </h2>
+        <p class="text-slate-300 leading-relaxed text-base mb-6">
+          Continuum DX is founded and led by <strong>Sean Rusinko</strong>, an enterprise digital strategist and architect with over 17 years of frontline delivery experience across enterprise software vendors, tier-one digital agencies, and executive advisory practices.
+        </p>
+
+        <div class="grid grid-cols-2 gap-4 font-mono text-xs text-slate-300 mb-8">
+          <div class="p-4 rounded bg-slate-900/60 border border-slate-800">
+            <div class="text-cobalt font-bold text-lg">6x MVP</div>
+            <div class="text-slate-400 mt-1">Sitecore Strategy & Ambassador Honoree</div>
+          </div>
+          <div class="p-4 rounded bg-slate-900/60 border border-slate-800">
+            <div class="text-emeraldGuard font-bold text-lg">$80M+</div>
+            <div class="text-slate-400 mt-1">Enterprise Programs & Digital Solutions Delivered</div>
+          </div>
+          <div class="p-4 rounded bg-slate-900/60 border border-slate-800">
+            <div class="text-amberGold font-bold text-lg">Sitecore SBOS</div>
+            <div class="text-slate-400 mt-1">Former Global Leader in CXMM & Optimization</div>
+          </div>
+          <div class="p-4 rounded bg-slate-900/60 border border-slate-800">
+            <div class="text-white font-bold text-lg">Gartner Validated</div>
+            <div class="text-slate-400 mt-1">Direct Magic Quadrant DXP Positioning Experience</div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 font-mono">
+          Operating under SMR Holdings LLC. Engaged strictly at partner and principal level.
+        </p>
+      </div>
+
+      <div class="lg:col-span-6 bg-slate-900/60 border border-slate-800 rounded-2xl p-8 relative">
+        <div class="w-12 h-12 rounded-full border border-cobalt/40 bg-cobalt/10 flex items-center justify-center font-mono text-cobalt font-bold mb-6">
+          SR
+        </div>
+        <blockquote class="font-serif text-2xl text-slate-200 leading-snug mb-6 italic">
+          "Before an enterprise asks how to build an AI tool, it must answer why that tool deserves to exist in the operating model. The space between boardroom intent and technical execution is where transformations are won or lost."
+        </blockquote>
+        <div class="border-t border-slate-800 pt-4">
+          <div class="font-bold text-white text-sm">Sean Rusinko</div>
+          <div class="font-mono text-xs text-slate-400 uppercase tracking-wider mt-0.5">
+            Founder & Managing Director — Continuum DX Advisory
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. EXECUTIVE INTAKE ENGINE ==================== -->
+  <section id="diagnostic-intake" class="custom-scroll-clear py-24 px-6 max-w-4xl mx-auto w-full">
+    <div class="text-center mb-12">
+      <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">07 // Engagement Intake</div>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-4">
+        Request an Executive AI CoE Diagnostic
+      </h2>
+      <p class="text-slate-400 text-sm max-w-xl mx-auto">
+        A structured, fixed-scope 2–3 week assessment of your active programs, prompt governance control plane, and composable architecture readiness.
+      </p>
+    </div>
+
+    <!-- Intake Form -->
+    <form name="diagnostic-intake" method="POST" data-netlify="true" class="bg-slate-900/40 border border-slate-800 p-8 rounded-xl space-y-6 shadow-2xl">
+      <input type="hidden" name="form-name" value="diagnostic-intake" />
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Executive Name</label>
+          <input type="text" name="name" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-cobalt transition-colors" placeholder="e.g. Sarah Jenkins">
+        </div>
+        <div>
+          <label class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Enterprise Email</label>
+          <input type="email" name="email" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-cobalt transition-colors" placeholder="sjenkins@enterprise.com">
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Organization & Title</label>
+          <input type="text" name="organization" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-cobalt transition-colors" placeholder="Global 2000 Org / VP Digital Architecture">
+        </div>
+        <div>
+          <label class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Primary DX Platform In Flight</label>
+          <select name="stack" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-cobalt transition-colors">
+            <option value="sitecore">Sitecore (XM Cloud / XP / CDP)</option>
+            <option value="salesforce">Salesforce (Data Cloud / Agentforce)</option>
+            <option value="contentful">Contentful / Composable DXP</option>
+            <option value="adobe">Adobe Experience Manager (AEM)</option>
+            <option value="optimizely">Optimizely DXP</option>
+            <option value="multi-cloud">Multi-Cloud Enterprise Mesh</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-2">Transformation Challenge & In-Flight Context</label>
+        <textarea name="pain-point" rows="3" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-cobalt transition-colors" placeholder="Describe the in-flight project, uncoordinated pilot sprawl, or governance gap you need operationalized..."></textarea>
+      </div>
+
+      <button type="submit" class="w-full py-4 bg-cobalt hover:bg-cobalt-hover text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-lg shadow-lg shadow-cobalt/25 transition-all">
+        Initiate Strategic Diagnostic Request
+      </button>
+
+      <p class="text-center font-mono text-[11px] text-slate-500">
+        Direct principal NDA and confidentiality guaranteed. No junior sales gatekeepers.
+      </p>
+    </form>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-800/80 bg-[#090A0F] py-12 px-6 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-slate-500">
+      <div>
+        © 2026 Continuum DX Advisory. SMR Holdings LLC. All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://continuum-dx.com" class="hover:text-white transition-colors">continuum-dx.com</a>
+        <a href="#keynote" class="hover:text-white transition-colors">Keynote Manifesto</a>
+        <a href="#diagnostic-intake" class="hover:text-white transition-colors">Diagnostic Intake</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTION SCRIPT ==================== -->
+  <script>
+    // Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Keynote Act Selector
+    function setActiveAct(selectedCard) {
+      document.querySelectorAll('.act-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      selectedCard.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
