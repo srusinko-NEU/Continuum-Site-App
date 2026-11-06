@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuum DX Advisory · Close The Space Between Keynote Manifesto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #090A0F;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif {
+      font-family: 'Instrument Serif', Georgia, serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    .ambient-glow {
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#090A0F] text-[#F8FAFC] selection:bg-[#2563EB] selection:text-white pb-24">
+
+  <!-- Fixed Top HUD Bar -->
+  <header class="fixed top-0 inset-x-0 h-16 bg-slate-950/85 backdrop-blur-xl border-b border-white/10 z-50 px-6 sm:px-10 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="/" class="flex items-center gap-2 text-white font-extrabold tracking-tight text-sm sm:text-base">
+        <span>CONTINUUM</span>
+        <span class="text-cyan-300 font-mono text-xs px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">DX ADVISORY</span>
+      </a>
+      <span class="hidden md:inline-block w-px h-4 bg-white/20 mx-1"></span>
+      <span class="hidden md:inline-flex text-[10px] font-mono uppercase tracking-widest text-slate-400">Las Vegas Mainstage Keynote HUD</span>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="https://suno.com/s/0s8gNHvw5k9aGQ8q" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-xs font-mono text-cyan-300 transition">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>Suno Master Score</span>
+        <span>↗</span>
+      </a>
+      <a href="/" class="text-xs text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 transition">
+        Return to Site
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Hero Area -->
+  <main class="max-w-5xl mx-auto px-6 pt-28 space-y-12">
+    <!-- Header Hero -->
+    <div class="text-center space-y-4 max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/30 text-xs font-mono text-cyan-300">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>MAINSTAGE KEYNOTE ORATION · THE 5 ACTS</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight text-white leading-tight">
+        Close The Space Between
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+        "Speed without velocity is just friction. We architect the living operating model that transforms raw enterprise AI into compounding enterprise gravity."
+      </p>
+      <div class="text-xs font-mono text-slate-400">
+        Keynote Address by <strong class="text-white">Sean Rusinko</strong> · Founder &amp; Principal Advisory
+      </div>
+    </div>
+
+    <!-- Integrated Audio Player & Suno Embed HUD -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <!-- 1. Native High-Res Master Audio Console (320kbps Master) -->
+      <div class="p-6 rounded-2xl bg-white/[0.03] border border-cyan-500/20 backdrop-blur-xl flex flex-col justify-between space-y-6">
+        <div>
+          <div class="flex items-center justify-between text-xs font-mono text-cyan-300 uppercase tracking-wider mb-2">
+            <span>Direct Master Score Track</span>
+            <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-[10px]">320 kbps Master</span>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-tight">The Space Between (Keynote Master)</h3>
+          <p class="text-xs text-slate-400 mt-1">
+            Neoclassical electronic felt piano, emotional resonant cello, modular analog pulse, and live acoustic percussion.
+          </p>
+        </div>
+
+        <audio controls class="w-full filter invert opacity-90 brightness-150">
+          <source src="/assets/audio/the_space_between_score.mp3" type="audio/mpeg">
+          Your browser does not support HTML5 audio.
+        </audio>
+
+        <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between border-t border-white/10 pt-3">
+          <span>Length: 03:42</span>
+          <span>BPM: 108</span>
+          <span class="text-emerald-400">Decrypted &amp; Cached Locally</span>
+        </div>
+      </div>
+
+      <!-- 2. Embedded Official Suno Web Player Widget -->
+      <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl flex flex-col justify-between">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">
+          <span>Official Suno Embed Widget</span>
+          <a href="https://suno.com/s/0s8gNHvw5k9aGQ8q" target="_blank" class="text-cyan-400 hover:underline">Track ↗</a>
+        </div>
+        <div class="w-full rounded-xl overflow-hidden shadow-lg bg-black/40 border border-white/10">
+          <iframe 
+            src="https://suno.com/embed/0s8gNHvw5k9aGQ8q" 
+            width="100%" 
+            height="152" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media; fullscreen" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="text-[10px] font-mono text-slate-500 mt-2 text-center">
+          Interactive Suno Player with live synchronized wave viewer
+        </div>
+      </div>
+    </div>
+
+    <!-- The 5 Synchronized Acts of the Manifesto -->
+    <div class="space-y-6 pt-6">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="text-2xl font-serif font-bold text-white">The Five Keynote Movements</h2>
+        <p class="text-xs font-mono text-slate-400 mt-1">Synchronized with the orchestral transitions of the score</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Act 1 -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-700/40 hover:border-cyan-500/40 transition">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-cyan-400 font-bold">ACT 01 · 00:00 – 00:25</span>
+            <span class="text-slate-500">The Trap</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">The Unbudgeted Pilot Bottleneck</h3>
+          <p class="text-sm text-slate-300 font-serif italic mb-2">
+            "95% of enterprise AI pilots produce zero measurable balance sheet impact. The algorithms are flawless; the operating models are broken."
+          </p>
+          <p class="text-xs text-slate-400">
+            Sparse upright felt piano opens with intimate mechanical hammer clicks and a deep 32Hz sub-bass pulse, capturing the quiet isolation of the executive boardroom at dusk.
+          </p>
+        </div>
+
+        <!-- Act 2 -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-700/40 hover:border-cyan-500/40 transition">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-cyan-400 font-bold">ACT 02 · 00:25 – 00:45</span>
+            <span class="text-slate-500">The Monolith Drag</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">The Architectural Divide</h3>
+          <p class="text-sm text-slate-300 font-serif italic mb-2">
+            "Traditional DXPs were built for page-by-page rendering. Composable AI requires real-time semantic context layers and sub-100ms edge personalization."
+          </p>
+          <p class="text-xs text-slate-400">
+            Emotional solo cello enters with warm resonant vibrato, building harmonic tension as the friction between legacy architectures and modern AI capabilities is revealed.
+          </p>
+        </div>
+
+        <!-- Act 3 -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-700/40 hover:border-cyan-500/40 transition">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-cyan-400 font-bold">ACT 03 · 00:45 – 01:05</span>
+            <span class="text-slate-500">The Control Plane</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">The Composable Operating System</h3>
+          <p class="text-sm text-slate-300 font-serif italic mb-2">
+            "We don't sell another SaaS wrapper. We deploy the control plane: verified prompt registries, automated PII redaction, and multi-model dynamic routing."
+          </p>
+          <p class="text-xs text-slate-400">
+            Driving modular analog synth pulse enters with live acoustic toms and organic shakers, creating relentless, structured forward momentum.
+          </p>
+        </div>
+
+        <!-- Act 4 -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-700/40 hover:border-cyan-500/40 transition">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-cyan-400 font-bold">ACT 04 · 01:05 – 01:30</span>
+            <span class="text-slate-500">The Project-Overlay Model</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Bypassing Ivory Tower Delays</h3>
+          <p class="text-sm text-slate-300 font-serif italic mb-2">
+            "Standalone CoE committees spend 9 to 12 months writing theoretical charters. Continuum overlays directly onto active, funded business unit projects—proving value in weeks, not quarters."
+          </p>
+          <p class="text-xs text-slate-400">
+            Full modern symphonic sweep rises to triumphant piano and cello unison in an electrifying keynote crescendo.
+          </p>
+        </div>
+
+        <!-- Act 5 -->
+        <div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-700/40 hover:border-cyan-500/40 transition">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-emerald-400 font-bold">ACT 05 · 01:30 – 03:42</span>
+            <span class="text-slate-500">Compounding Enterprise Gravity</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">The Permanent Transformation</h3>
+          <p class="text-sm text-slate-300 font-serif italic mb-2">
+            "With governance codified at the edge and decentralized squads executing autonomously, enterprise AI ceases to be an experiment and becomes compounding enterprise gravity."
+          </p>
+          <p class="text-xs text-slate-400">
+            Resonant sustaining piano chord with natural hall decay and deep, calm sub-bass fade, leaving the audience in commanding silence.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Card -->
+    <div class="p-8 rounded-3xl bg-gradient-to-r from-blue-900/30 via-slate-900/60 to-cyan-900/30 border border-cyan-500/30 text-center space-y-4">
+      <h3 class="text-2xl font-serif font-bold text-white">Bring Continuum DX Advisory to Your Leadership Team</h3>
+      <p class="text-slate-300 text-sm max-w-xl mx-auto">
+        Schedule a private 45-minute executive briefing with Sean Rusinko or benchmark your current maturity across the 5 stages of the AI DXMM framework.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <a href="/#diagnostic-tool" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-xs font-semibold text-white transition">
+          Benchmark Maturity (AI DXMM)
+        </a>
+        <a href="/#leadership" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-xs font-semibold text-white transition shadow-lg shadow-blue-500/25">
+          Schedule Executive Briefing
+        </a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
