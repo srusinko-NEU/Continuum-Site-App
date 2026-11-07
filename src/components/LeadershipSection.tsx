@@ -23,7 +23,7 @@ interface LeadershipSectionProps {
   onResetBio?: () => void;
 }
 
-const DEFAULT_HEADSHOT = '/assets/aistudio/headshot_Generated_Image_October_26__2026_-_10_04AM_8cb9d674.jpg';
+const DEFAULT_HEADSHOT = '/assets/sean_rusinko_portrait.jpg';
 
 export const LeadershipSection: React.FC<LeadershipSectionProps> = ({
   onScheduleBriefing,

@@ -114,12 +114,12 @@
           Keynote Manifesto
         </a>
         <a href="#platforms" class="hover:text-white transition-colors">Enterprise Platforms</a>
-        <a href="#leadership" class="hover:text-white transition-colors">Leadership</a>
+        <a href="#leadership" class="hover:text-white transition-colors">Leadership & Field Practice</a>
       </nav>
 
-      <!-- Action Button & Mobile Toggle -->
-      <div class="flex items-center gap-4">
-        <a href="#diagnostic-intake" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-semibold tracking-wider uppercase text-white bg-cobalt hover:bg-cobalt-hover rounded transition-all shadow-md shadow-cobalt/20">
+      <!-- Action Button & Mobile Toggle with Architectural Buffer -->
+      <div class="flex items-center gap-6 pl-8 ml-6 border-l border-slate-800">
+        <a href="#diagnostic-intake" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-xs font-mono font-semibold tracking-wider uppercase text-white bg-cobalt hover:bg-cobalt-hover rounded-lg transition-all shadow-md shadow-cobalt/25">
           Book Diagnostic
         </a>
         <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
@@ -139,8 +139,10 @@
       <a href="#overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Project-Overlay Model</a>
       <a href="#keynote" class="mobile-link block text-sm font-medium text-amberGold hover:text-white">Keynote Manifesto (3:42)</a>
       <a href="#platforms" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Enterprise Platforms</a>
-      <a href="#leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Leadership Pedigree</a>
-      <a href="#diagnostic-intake" class="mobile-link block w-full text-center py-2.5 text-xs font-mono uppercase bg-cobalt text-white rounded font-semibold">Book Diagnostic</a>
+      <a href="#leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Leadership & Field Practice</a>
+      <div class="pt-6 mt-3 border-t border-slate-800">
+        <a href="#diagnostic-intake" class="mobile-link block w-full text-center py-3.5 text-xs font-mono uppercase tracking-wider bg-cobalt text-white rounded-lg font-semibold shadow-lg shadow-cobalt/20">Book Diagnostic</a>
+      </div>
     </div>
   </header>
 
@@ -753,7 +755,7 @@
   </section>
 
   <!-- ==================== 7. LEADERSHIP PEDIGREE & FIELD PRACTICE ==================== -->
-  <section id="leadership" class="custom-scroll-clear py-24 px-6 border-b border-slate-800/80 max-w-7xl mx-auto w-full">
+  <section id="leadership" class="custom-scroll-clear pt-24 pb-36 md:pt-32 md:pb-48 px-6 max-w-7xl mx-auto w-full">
     
     <!-- Top Row: Founder Profile & Pedigree -->
     <div class="grid lg:grid-cols-12 gap-12 items-center mb-20">
@@ -794,7 +796,7 @@
       <!-- Founder Card with Executive Portrait -->
       <div class="lg:col-span-5 bg-slate-900/70 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
         <div class="flex items-center gap-4 mb-6">
-          <img src="/assets/sean_rusinko_executive.jpg" alt="Sean Rusinko" class="w-16 h-16 rounded-xl object-cover border border-slate-700 shadow-md flex-shrink-0" />
+          <img src="/assets/sean_rusinko_portrait.jpg" alt="Sean Rusinko, Founder & Managing Director" class="w-20 h-20 rounded-2xl object-cover object-top border-2 border-slate-700/80 shadow-xl flex-shrink-0" />
           <div>
             <div class="font-bold text-white text-base">Sean Rusinko</div>
             <div class="font-mono text-xs text-slate-400 uppercase tracking-wider">
@@ -1024,8 +1026,38 @@
     </div>
   </section>
 
+  <!-- ==================== ARCHITECTURAL SEPARATION HORIZON ==================== -->
+  <div class="w-full border-y border-slate-800/80 bg-gradient-to-b from-[#090A0F] via-slate-950 to-[#090A0F] py-24 md:py-32 my-12 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none radial-glow-cobalt opacity-20"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-300 font-mono text-[11px] uppercase tracking-widest mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-cobalt"></span>
+        <span>From Field Proof to Enterprise Execution</span>
+      </div>
+      <p class="font-serif text-2xl sm:text-3xl md:text-4xl text-slate-200 font-normal leading-snug max-w-3xl mx-auto mb-8">
+        "The fastest route from fragmented AI sprawl to a governed, scalable control plane begins with a single, high-velocity diagnostic."
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-xs text-slate-400">
+        <span class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+          Fixed 2–3 Week Engagement
+        </span>
+        <span class="text-slate-700 hidden sm:inline">|</span>
+        <span class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-cobalt"></span>
+          Direct Principal-Level Advisory
+        </span>
+        <span class="text-slate-700 hidden sm:inline">|</span>
+        <span class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amberGold"></span>
+          Zero Vendor Lock-In
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== 8. EXECUTIVE INTAKE ENGINE ==================== -->
-  <section id="diagnostic-intake" class="custom-scroll-clear py-24 px-6 max-w-4xl mx-auto w-full">
+  <section id="diagnostic-intake" class="custom-scroll-clear pt-20 pb-36 md:pt-28 md:pb-48 px-6 max-w-4xl mx-auto w-full">
     <div class="text-center mb-12">
       <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-3">07 // Engagement Intake</div>
       <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-4">

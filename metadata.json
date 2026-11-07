@@ -1,0 +1,7 @@
+{
+  "name": "Continuum DX Advisory",
+  "description": "Enterprise Digital Experience, Composable Architecture & Scalable AI Control Plane Advisory founded by Sean Rusinko.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

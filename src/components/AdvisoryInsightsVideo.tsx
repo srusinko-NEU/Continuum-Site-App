@@ -69,7 +69,7 @@ const CLIPS: VideoClip[] = [
     speakerTitle: "Former Sitecore SBOS & Verndale Practice Lead",
     durationSeconds: 225,
     durationLabel: "3:45",
-    poster: "/assets/aistudio/headshot_Generated_Image_October_26__2026_-_10_04AM_8cb9d674.jpg",
+    poster: "/assets/sean_rusinko_portrait.jpg",
     venue: "Global DXP & Composable Web Summit",
     summary: "A deep dive into decoupled headless CMS integration, semantic vector grounding, and edge-level prompt arbitration across enterprise ecosystems.",
     keyTakeaway: "Decoupling content delivery from model routing guarantees sub-100ms response times while preventing vendor lock-in.",
