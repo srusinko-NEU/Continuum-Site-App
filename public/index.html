@@ -796,9 +796,9 @@
       <!-- Founder Card with Executive Portrait -->
       <div class="lg:col-span-5 bg-slate-900/70 border border-slate-800 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
         <div class="flex items-center gap-4 mb-6">
-          <img src="/assets/sean_rusinko_portrait.jpg" alt="Sean Rusinko, Founder & Managing Director" class="w-20 h-20 rounded-2xl object-cover object-top border-2 border-slate-700/80 shadow-xl flex-shrink-0" />
+          <img src="/assets/sean_rusinko_portrait.jpg" alt="Sean Rusinko, Founder & Managing Director" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover object-center border-2 border-slate-700/80 shadow-xl flex-shrink-0" />
           <div>
-            <div class="font-bold text-white text-base">Sean Rusinko</div>
+            <div class="font-bold text-white text-base sm:text-lg">Sean Rusinko</div>
             <div class="font-mono text-xs text-slate-400 uppercase tracking-wider">
               Founder & Managing Director
             </div>
@@ -833,11 +833,19 @@
         </p>
       </div>
 
-      <!-- 6 Subtle Enterprise-Grade Cards Grid -->
+      <!-- Interactive Filter Pills -->
+      <div class="flex flex-wrap items-center gap-2 mb-8" id="field-work-filters">
+        <button type="button" data-filter="all" class="field-filter-btn px-4 py-2 rounded-lg font-mono text-xs tracking-wider uppercase bg-cobalt text-white border border-cobalt shadow-sm transition-all">All Engagements (10)</button>
+        <button type="button" data-filter="keynotes" class="field-filter-btn px-4 py-2 rounded-lg font-mono text-xs tracking-wider uppercase bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all">Keynotes & Stage (3)</button>
+        <button type="button" data-filter="warrooms" class="field-filter-btn px-4 py-2 rounded-lg font-mono text-xs tracking-wider uppercase bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all">War Rooms & Sprints (4)</button>
+        <button type="button" data-filter="operations" class="field-filter-btn px-4 py-2 rounded-lg font-mono text-xs tracking-wider uppercase bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all">Digital Operations (3)</button>
+      </div>
+
+      <!-- 10 Authentic Documentary Field Practice Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- 1. Atlantis Keynote -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="keynotes">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/IMG_3144_934d3f5e.JPG" 
@@ -868,7 +876,7 @@
         </div>
 
         <!-- 2. Benfica Stadium War Room -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="warrooms">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/IMG_3145_02e9353b.JPG" 
@@ -899,7 +907,7 @@
         </div>
 
         <!-- 3. Microsoft Briefing Center Keynote -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="keynotes">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/Screenshot_2026-10-21_183318_466cc4c9.png" 
@@ -930,7 +938,7 @@
         </div>
 
         <!-- 4. Visit Dubai Command Center -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="operations">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/IMG_1461_050d34f4.JPG" 
@@ -961,7 +969,7 @@
         </div>
 
         <!-- 5. Benfica Stadium 70/20/10 Sprint -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="warrooms">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/IMG_1109_bf12ff61.jpg" 
@@ -992,7 +1000,7 @@
         </div>
 
         <!-- 6. TechNexus Leadership -->
-        <div class="group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl">
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="keynotes">
           <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
             <img 
               src="/assets/aistudio/IMG_6836_eab8735d.JPG" 
@@ -1018,6 +1026,130 @@
             <div class="pt-3 border-t border-slate-800/80 font-mono text-[11px] text-emeraldGuard flex items-center gap-1.5">
               <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
               15+ years cultivating enterprise practitioner communities
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. NRF NXT Executive Summit -->
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="operations">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+            <img 
+              src="/assets/aistudio/IMG_2432_6d4e58b0.jpg" 
+              alt="NRF NXT Executive Summit on Headless Commerce and Unified Architecture in Austin" 
+              loading="lazy"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-cobalt uppercase tracking-widest">
+              Executive Forum // Austin
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h4 class="font-serif text-xl text-white group-hover:text-cobalt transition-colors mb-1.5">
+              NRF NXT: Retail's Digital Deep Dive
+            </h4>
+            <div class="font-mono text-xs text-slate-400 mb-3 flex items-center gap-1.5">
+              <span>National Retail Federation Executive Forum</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-1">
+              Engaging C-suite and VP retail leaders on navigating headless commerce migrations, unifying customer lifetime value models, and dismantling disconnected legacy e-commerce stacks.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 font-mono text-[11px] text-emeraldGuard flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+              Direct executive advisory on headless DXP migrations
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Enterprise Agile Ideation Sprint -->
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="warrooms">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+            <img 
+              src="/assets/aistudio/IMG_3586_2f9a13f4.jpg" 
+              alt="Enterprise Roadmap and Agile Ideation Sprint War Room" 
+              loading="lazy"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-cobalt uppercase tracking-widest">
+              Agile Roadmap // War Room
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h4 class="font-serif text-xl text-white group-hover:text-cobalt transition-colors mb-1.5">
+              Enterprise Roadmap & Ideation Sprint
+            </h4>
+            <div class="font-mono text-xs text-slate-400 mb-3 flex items-center gap-1.5">
+              <span>Transformation War Room</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-1">
+              Collaborative agile roadmap session synthesizing hundreds of client business requirements and legacy constraints into high-velocity 30-60-90 day milestone horizons with measurable business unit ROI.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 font-mono text-[11px] text-emeraldGuard flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+              Multi-year replatforming structured into 30-day horizons
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Benfica Stadium Digital Enablement Workshop -->
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="warrooms">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+            <img 
+              src="/assets/aistudio/IMG_1103_245c3470.jpg" 
+              alt="Benfica Stadium Cross-Functional Digital Enablement Workshop" 
+              loading="lazy"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-cobalt uppercase tracking-widest">
+              Capability Transfer // Lisbon
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h4 class="font-serif text-xl text-white group-hover:text-cobalt transition-colors mb-1.5">
+              Cross-Functional Digital Enablement
+            </h4>
+            <div class="font-mono text-xs text-slate-400 mb-3 flex items-center gap-1.5">
+              <span>Estádio da Luz Executive Conference Suite</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-1">
+              Field-level enablement session working shoulder-to-shoulder with digital product owners, content authors, and IT architects—building internal confidence and codified workflows to sustain operating velocity.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 font-mono text-[11px] text-emeraldGuard flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+              90%+ long-term workflow adoption post-engagement
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. High-Yield Conversion Architecture -->
+        <div class="field-work-card group bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-slate-700/80 rounded-2xl overflow-hidden transition-all duration-300 flex flex-col shadow-xl" data-category="operations">
+          <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-950">
+            <img 
+              src="/assets/aistudio/IMG_2884_22e2694c.jpg" 
+              alt="High-Yield Conversion and Experimentation Architecture Sprint" 
+              loading="lazy"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/75 backdrop-blur-md border border-white/10 font-mono text-[10px] text-cobalt uppercase tracking-widest">
+              Optimization Lab // Field
+            </div>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h4 class="font-serif text-xl text-white group-hover:text-cobalt transition-colors mb-1.5">
+              High-Yield Conversion Architecture
+            </h4>
+            <div class="font-mono text-xs text-slate-400 mb-3 flex items-center gap-1.5">
+              <span>Digital Commerce Optimization Lab</span>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4 flex-1">
+              Tactical conversion rate optimization and A/B testing sprint mapping booking friction points, inquiry funnels, and luxury asset filtration directly into CMS personalization variants and CRM pipelines.
+            </p>
+            <div class="pt-3 border-t border-slate-800/80 font-mono text-[11px] text-emeraldGuard flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+              Double-digit conversion lift on high-ticket customer journeys
             </div>
           </div>
         </div>
@@ -1291,6 +1423,35 @@
         }
       }
     }
+
+    // Set initial video volume to 100%
+    if (video) {
+      video.volume = 1.0;
+    }
+
+    // Field Practice Category Filter Handler
+    const filterBtns = document.querySelectorAll('.field-filter-btn');
+    const fieldCards = document.querySelectorAll('.field-work-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-cobalt', 'text-white', 'border-cobalt');
+          b.classList.add('bg-slate-900/60', 'text-slate-300', 'border-slate-800');
+        });
+        btn.classList.add('bg-cobalt', 'text-white', 'border-cobalt');
+        btn.classList.remove('bg-slate-900/60', 'text-slate-300', 'border-slate-800');
+
+        fieldCards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
 
     // Diagnostic Intake Form Handler (Static & GitHub Pages Resilient)
     const intakeForm = document.getElementById('diagnostic-intake-form');
