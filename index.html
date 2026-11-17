@@ -1403,7 +1403,7 @@
         </div>
 
         <!-- Master Final Keynote Audio -->
-        <audio id="keynote-master-audio" preload="auto" src="/assets/audio/the_space_between_score_2min.mp3"></audio>
+        <audio id="keynote-master-audio" preload="auto" src="/assets/audio/the_space_between_final_master.mp3"></audio>
 
         <!-- Widescreen 16:9 Broadcast Stage -->
         <div id="keynote-stage" class="relative w-full aspect-video rounded-xl overflow-hidden bg-[#06080D] border border-slate-800 shadow-2xl mb-5 group select-none cursor-pointer">
@@ -1451,10 +1451,10 @@
               <div class="flex justify-between items-center text-xs font-mono text-slate-400 mb-1.5">
                 <span id="audio-current-time" class="tabular-nums">0:00</span>
                 <span id="audio-status-label" class="text-slate-300 hidden sm:inline">Act I: The Speed Illusion</span>
-                <span id="audio-duration" class="tabular-nums">2:00</span>
+                <span id="audio-duration" class="tabular-nums">2:07</span>
               </div>
               <div class="relative w-full">
-                <input id="audio-progress" type="range" min="0" max="120" value="0" step="0.1" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cobalt">
+                <input id="audio-progress" type="range" min="0" max="127" value="0" step="0.1" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cobalt">
               </div>
             </div>
           </div>
@@ -2285,7 +2285,7 @@
     }
 
     // ==================== 50-BEAT FINAL KEYNOTE ENGINE ====================
-    let KEYNOTE_TOTAL_DURATION = 120.0;
+    let KEYNOTE_TOTAL_DURATION = 127.0;
     const masterAudio = document.getElementById('keynote-master-audio');
     const stageEl = document.getElementById('keynote-stage');
     const stageCanvas = document.getElementById('stage-canvas');
@@ -2306,73 +2306,73 @@
 
     const ACT_CUES = [
       { id: 'act-card-1', act: 'ACT I', start: 0, label: 'Act I: The Speed Illusion', accent: '#2563EB' },
-      { id: 'act-card-2', act: 'ACT II', start: 26, label: 'Act II: The Commodity Trap', accent: '#F59E0B' },
-      { id: 'act-card-3', act: 'ACT III', start: 50, label: 'Act III: The Space Between', accent: '#2563EB' },
-      { id: 'act-card-4', act: 'ACT IV', start: 78, label: 'Act IV: Architecture as the Moat', accent: '#F59E0B' },
-      { id: 'act-card-5', act: 'ACT V', start: 104, label: 'Act V: The Continuum Mandate', accent: '#10B981' }
+      { id: 'act-card-2', act: 'ACT II', start: 24.9, label: 'Act II: The Commodity Trap', accent: '#F59E0B' },
+      { id: 'act-card-3', act: 'ACT III', start: 48.3, label: 'Act III: The Space Between', accent: '#2563EB' },
+      { id: 'act-card-4', act: 'ACT IV', start: 76.3, label: 'Act IV: Architecture as the Moat', accent: '#F59E0B' },
+      { id: 'act-card-5', act: 'ACT V', start: 104.4, label: 'Act V: The Continuum Mandate', accent: '#10B981' }
     ];
 
-    // 50 Visual Movements — Slide 1 holds cleanly through opening musical intro before fast cuts engage
+    // 50 Visual Movements locked precisely to Sean Rusinko's spoken delivery & orchestral swells
     const KEYNOTE_BEATS = [
-      // ACT I: 0.0 - 26.0s (9 Beats; holds 4.0s at open so slides don't cut ahead of opening speech)
+      // ACT I: 0.0 - 24.9s (9 Beats · Voice enters at 4.25s)
       { t: 0.0, act: 0, mode: 'photo', img: '/assets/commercial/keynote_las_vegas_hall.jpg', kb: 'kb-in', eyebrow: 'ACT I · THE SPEED ILLUSION', headline: 'THE SPACE BETWEEN', sub: 'Executive Keynote Oration · Las Vegas' },
-      { t: 4.0, act: 0, mode: 'metric', eyebrow: '24-MONTH SPRINT', stat: '2 YEARS', headline: 'Fastest Tech Race in Enterprise History', sub: 'Unprecedented capital deployed across Generative AI platforms' },
-      { t: 6.8, act: 0, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-right', eyebrow: 'BOARDROOM MANDATE', headline: 'Every Board Demanded an AI Strategy', sub: 'Executive committees pressed for immediate quarterly visibility' },
-      { t: 9.6, act: 0, mode: 'split-cards', eyebrow: 'ENTERPRISE PROCUREMENT WAVE', leftTitle: 'COPILOT SEATS', leftSub: 'Blanket license agreements signed enterprise-wide', rightTitle: 'VECTOR CLOUDS', rightSub: 'RAG clusters spun up without shared taxonomy' },
-      { t: 12.4, act: 0, mode: 'photo', img: '/assets/commercial/keynote_fragmented_grid.jpg', kb: 'kb-out', eyebrow: 'SILO PROLIFERATION', headline: 'Every Business Unit Launched a Pilot', sub: 'Isolated innovation labs operating on separate standards' },
-      { t: 15.2, act: 0, mode: 'diagram-gauge', eyebrow: 'THE ILLUSION OF ACTIVITY', metricA: '40+ Active Experiments', metricB: '0% Production Scale', headline: 'Experiments Tallied. Speed Celebrated.' },
-      { t: 18.0, act: 0, mode: 'photo', img: '/assets/commercial/scene1_the_trap.jpg', kb: 'kb-left', eyebrow: 'BEHIND CLOSED DOORS', headline: 'A Quiet Truth Settled In', sub: 'Blinding motion without measurable forward displacement' },
-      { t: 20.6, act: 0, mode: 'contrast-bars', eyebrow: 'PHYSICS OF TRANSFORMATION', leftLabel: 'UNDIRECTED SPEED', leftNote: 'High motion · Fragmented energy · Zero net ROI', rightLabel: 'ARCHITECTED VELOCITY', rightNote: 'Aligned direction · Governed throughput' },
-      { t: 23.2, act: 0, mode: 'statement', accent: '#2563EB', headline: 'SPEED WITHOUT VELOCITY IS JUST FRICTION.', sub: 'ACT I' },
+      { t: 4.2, act: 0, mode: 'metric', eyebrow: '24-MONTH SPRINT', stat: '2 YEARS', headline: 'Fastest Tech Race in Enterprise History', sub: 'Unprecedented capital deployed across Generative AI platforms' },
+      { t: 7.0, act: 0, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-right', eyebrow: 'BOARDROOM MANDATE', headline: 'Boards Demanded AI Mandates', sub: 'Executive committees pressed for immediate quarterly visibility' },
+      { t: 9.7, act: 0, mode: 'split-cards', eyebrow: 'ENTERPRISE PROCUREMENT WAVE', leftTitle: 'CIOS SIGNED LICENSES', leftSub: 'Blanket license agreements signed enterprise-wide', rightTitle: 'VECTOR CLOUDS', rightSub: 'RAG clusters spun up without shared taxonomy' },
+      { t: 11.1, act: 0, mode: 'photo', img: '/assets/commercial/keynote_fragmented_grid.jpg', kb: 'kb-out', eyebrow: 'SILO PROLIFERATION', headline: 'Every Unit Launched a Pilot', sub: 'Isolated innovation labs operating on separate standards' },
+      { t: 13.1, act: 0, mode: 'diagram-gauge', eyebrow: 'THE ILLUSION OF ACTIVITY', metricA: '40+ Active Experiments', metricB: '0% Production Scale', headline: 'We Tallied Experiments. Celebrated Speed.' },
+      { t: 17.2, act: 0, mode: 'photo', img: '/assets/commercial/scene1_the_trap.jpg', kb: 'kb-left', eyebrow: 'BEHIND CLOSED DOORS', headline: 'Moving at Blinding Speed', sub: 'Unprecedented motion—without moving an inch' },
+      { t: 19.6, act: 0, mode: 'contrast-bars', eyebrow: 'PHYSICS OF TRANSFORMATION', leftLabel: 'UNDIRECTED SPEED', leftNote: 'High motion · Fragmented energy · Zero net ROI', rightLabel: 'ARCHITECTED VELOCITY', rightNote: 'Aligned direction · Governed throughput' },
+      { t: 22.0, act: 0, mode: 'statement', accent: '#2563EB', headline: 'SPEED WITHOUT VELOCITY IS JUST FRICTION.', sub: 'ACT I' },
 
-      // ACT II: 26.0 - 50.0s (10 Beats)
-      { t: 26.0, act: 1, mode: 'photo', img: '/assets/commercial/innovation_pavilion.jpg', kb: 'kb-in', eyebrow: 'ACT II · THE COMMODITY TRAP', headline: 'A Convenient Industry Myth', sub: 'Buy the software license, and transformation will follow' },
-      { t: 28.4, act: 1, mode: 'statement', accent: '#F59E0B', headline: 'PURCHASE ORDERS ARE NOT STRATEGIES.', sub: 'Tools amplify your operating model—good or broken' },
-      { t: 30.8, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_1103_245c3470.jpg', kb: 'kb-right', eyebrow: 'THE VENDOR PROMISE', headline: 'They Called the Tool the Holy Grail', sub: 'Executive briefings anchored on software demos instead of workflows' },
-      { t: 33.2, act: 1, mode: 'statement', accent: '#F59E0B', headline: "IT WASN'T THE HOLY GRAIL. IT WASN'T EVEN THE MAP.", sub: 'ACT II' },
-      { t: 35.6, act: 1, mode: 'photo', img: '/assets/commercial/scene2_the_friction.jpg', kb: 'kb-out', eyebrow: 'OPERATIONAL FRICTION', headline: 'Disconnected Prompting in Silos', sub: 'Teams rebuilding fragile workflows without shared governance' },
-      { t: 38.0, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_2884_22e2694c.jpg', kb: 'kb-left', eyebrow: 'CAPEX EROSION', headline: 'Fragmented Pilots Burn Capital', sub: 'Redundant integrations and stalling security reviews' },
-      { t: 40.4, act: 1, mode: 'split-cards', eyebrow: 'THE HIDDEN COST LEDGER', leftTitle: 'DORMANT SEATS', leftSub: 'Enterprise seats unused after 60-day novelty drop', rightTitle: 'PILOT PARALYSIS', rightSub: 'Proof-of-concepts unable to cross compliance gates' },
-      { t: 42.8, act: 1, mode: 'photo', img: '/assets/aistudio/image_1946f65a.jpg', kb: 'kb-in', eyebrow: 'BOARDROOM ACCOUNTABILITY', headline: 'Steering Committee Asks for Capital Return', sub: 'Quarterly business review without attribution' },
-      { t: 45.2, act: 1, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-out', eyebrow: 'THE SILENT ROOM', headline: 'Motion Mistaken for Strategy', sub: 'No shared North Star across Marketing, Product, and IT' },
-      { t: 47.6, act: 1, mode: 'statement', accent: '#FFFFFF', headline: 'WHERE ARE WE GOING?', sub: 'THE UNANSWERED QUESTION' },
+      // ACT II: 24.9 - 48.3s (10 Beats)
+      { t: 24.9, act: 1, mode: 'photo', img: '/assets/commercial/innovation_pavilion.jpg', kb: 'kb-in', eyebrow: 'ACT II · THE COMMODITY TRAP', headline: 'A Convenient Myth', sub: 'Buy the software license, and transformation follows' },
+      { t: 27.1, act: 1, mode: 'statement', accent: '#F59E0B', headline: 'BUY THE SOFTWARE. TRANSFORMATION FOLLOWS?', sub: 'Tools amplify your operating model—good or broken' },
+      { t: 29.5, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_1103_245c3470.jpg', kb: 'kb-right', eyebrow: 'THE VENDOR PROMISE', headline: 'They Told You the Model Was the Holy Grail', sub: 'Executive briefings anchored on software demos instead of workflows' },
+      { t: 31.9, act: 1, mode: 'statement', accent: '#F59E0B', headline: "IT WASN'T EVEN THE MAP.", sub: 'ACT II' },
+      { t: 34.1, act: 1, mode: 'photo', img: '/assets/commercial/scene2_the_friction.jpg', kb: 'kb-out', eyebrow: 'OPERATIONAL FRICTION', headline: 'Fragmented Silos Burned Capital', sub: 'Teams rebuilding fragile workflows without shared governance' },
+      { t: 36.2, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_2884_22e2694c.jpg', kb: 'kb-left', eyebrow: 'ADOPTION STALL', headline: 'Copilots Sat Idle', sub: 'Redundant integrations and stalling security reviews' },
+      { t: 38.4, act: 1, mode: 'split-cards', eyebrow: 'THE HIDDEN COST LEDGER', leftTitle: 'COPILOTS IDLE', leftSub: 'Enterprise seats unused after 60-day novelty drop', rightTitle: 'PILOTS STALLED', rightSub: 'Proof-of-concepts unable to cross compliance gates' },
+      { t: 41.1, act: 1, mode: 'photo', img: '/assets/aistudio/image_1946f65a.jpg', kb: 'kb-in', eyebrow: 'BOARDROOM ACCOUNTABILITY', headline: 'Committee Asks for Return on Capital', sub: 'Quarterly business review without attribution' },
+      { t: 43.3, act: 1, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-out', eyebrow: 'THE SILENT ROOM', headline: 'The Room Goes Quiet', sub: 'No shared North Star across Marketing, Product, and IT' },
+      { t: 45.0, act: 1, mode: 'statement', accent: '#FFFFFF', headline: 'WHERE ARE WE GOING?', sub: 'THE UNANSWERED QUESTION' },
 
-      // ACT III: 50.0 - 78.0s (12 Beats)
-      { t: 50.0, act: 2, mode: 'photo', img: '/assets/sean_keynote_continuum.jpg', kb: 'kb-right', eyebrow: 'ACT III · FIELD TRUTH', headline: '17 Years in Enterprise Trenches', sub: 'Former Global VP Strategy & Sitecore SBOS Practice Lead' },
-      { t: 52.3, act: 2, mode: 'statement', accent: '#2563EB', headline: 'SOFTWARE IS A COMMODITY.', sub: 'Models converge every quarter · Operating discipline compounds' },
-      { t: 54.6, act: 2, mode: 'diagram-70-20-10', eyebrow: 'THE TRANSFORMATION EQUATION', headline: 'Where Enterprise AI Value Actually Lives' },
-      { t: 57.0, act: 2, mode: 'photo', img: '/assets/aistudio/IMG_1109_bf12ff61.jpg', kb: 'kb-left', eyebrow: '70% ALLOCATION', headline: 'Operating Model, Culture & CoE', sub: 'Decision rights, incentives, and cross-functional cadence' },
-      { t: 59.4, act: 2, mode: 'photo', img: '/assets/commercial/scene3_the_architecture.jpg', kb: 'kb-in', eyebrow: '20% ALLOCATION', headline: 'Composable Context & Connectors', sub: 'Clean taxonomy, vector grounding, and structured content graphs' },
-      { t: 61.8, act: 2, mode: 'metric', eyebrow: 'ONLY 10% ALLOCATION', stat: '10%', headline: 'Foundation AI Models', sub: 'Important ingredient—zero durable advantage without the other 90%' },
-      { t: 64.2, act: 2, mode: 'photo', img: '/assets/commercial/keynote_chasm_bridge.jpg', kb: 'kb-out', eyebrow: 'THE STRUCTURAL CHASM', headline: 'Executive Why vs. Engineering How', sub: 'Two halves of the enterprise speaking different languages' },
-      { t: 66.6, act: 2, mode: 'diagram-chasm', eyebrow: 'CONTINUUM POSITIONING', headline: 'BRIDGING THE ENTERPRISE CHASM' },
-      { t: 69.0, act: 2, mode: 'statement', accent: '#2563EB', headline: 'THE SPACE BETWEEN.', sub: 'WHERE STRATEGY BECOMES OPERATING REALITY' },
-      { t: 71.3, act: 2, mode: 'split-cards', eyebrow: 'LEGACY DELIVERY FAILURES', leftTitle: 'STRATEGY FIRMS', leftSub: '200-page slides at 30,000 ft—gone before launch', rightTitle: 'SYSTEMS INTEGRATORS', rightSub: 'Billable hours without executive ownership' },
-      { t: 73.6, act: 2, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-right', eyebrow: 'THE CONTINUUM OVERLAY', headline: 'Bridging Both Sides of the Chasm', sub: 'Strategic clarity paired with production architecture' },
-      { t: 75.8, act: 2, mode: 'statement', accent: '#10B981', headline: "WE DON'T FEAR THAT SPACE. WE OWN IT.", sub: 'CONTINUUM DX ADVISORY' },
+      // ACT III: 48.3 - 76.3s (12 Beats)
+      { t: 48.3, act: 2, mode: 'photo', img: '/assets/sean_keynote_continuum.jpg', kb: 'kb-right', eyebrow: 'ACT III · FIELD TRUTH', headline: '17 Years in the Trenches', sub: 'Former Global VP Strategy & Sitecore SBOS Practice Lead' },
+      { t: 51.7, act: 2, mode: 'statement', accent: '#2563EB', headline: 'SOFTWARE IS A COMMODITY.', sub: 'Models converge every quarter · Operating discipline compounds' },
+      { t: 54.1, act: 2, mode: 'diagram-70-20-10', eyebrow: 'THE TRANSFORMATION EQUATION', headline: '70% Operating Model · 20% Context · 10% Models' },
+      { t: 55.6, act: 2, mode: 'photo', img: '/assets/aistudio/IMG_1109_bf12ff61.jpg', kb: 'kb-left', eyebrow: '70% ALLOCATION', headline: '70% Operating Model', sub: 'Decision rights, incentives, and cross-functional cadence' },
+      { t: 57.1, act: 2, mode: 'photo', img: '/assets/commercial/scene3_the_architecture.jpg', kb: 'kb-in', eyebrow: '20% ALLOCATION', headline: '20% Context & Content Graphs', sub: 'Clean taxonomy, vector grounding, and structured connectors' },
+      { t: 58.3, act: 2, mode: 'metric', eyebrow: 'ONLY 10% ALLOCATION', stat: '10%', headline: 'Foundational Models', sub: 'Important ingredient—zero durable advantage without the other 90%' },
+      { t: 60.4, act: 2, mode: 'photo', img: '/assets/commercial/keynote_chasm_bridge.jpg', kb: 'kb-out', eyebrow: 'THE STRUCTURAL CHASM', headline: "Boardroom's Why vs. Engineering's How", sub: 'Two halves of the enterprise speaking different languages' },
+      { t: 62.4, act: 2, mode: 'diagram-chasm', eyebrow: 'CONTINUUM POSITIONING', headline: 'BRIDGING THE ENTERPRISE CHASM' },
+      { t: 64.0, act: 2, mode: 'statement', accent: '#2563EB', headline: 'THE SPACE BETWEEN.', sub: 'WHERE STRATEGY BECOMES OPERATING REALITY' },
+      { t: 67.5, act: 2, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-right', eyebrow: 'THE CONTINUUM OVERLAY', headline: 'Strategy Paired with Architecture', sub: 'Closing the execution gap without swelling internal headcount' },
+      { t: 69.8, act: 2, mode: 'split-cards', eyebrow: 'LEGACY DELIVERY FAILURES', leftTitle: 'CONSULTANCIES', leftSub: '200-page slide decks left at 30,000 feet', rightTitle: 'INTEGRATORS', rightSub: 'Bill inside the gap without executive ownership' },
+      { t: 74.7, act: 2, mode: 'statement', accent: '#10B981', headline: 'WE OWN IT.', sub: 'CONTINUUM DX ADVISORY' },
 
-      // ACT IV: 78.0 - 104.0s (12 Beats)
-      { t: 78.0, act: 3, mode: 'photo', img: '/assets/commercial/keynote_control_plane.jpg', kb: 'kb-in', eyebrow: 'ACT IV · ARCHITECTURE AS THE MOAT', headline: 'Governance Inside Your Walls', sub: 'Proprietary institutional muscle competitors cannot lease' },
-      { t: 80.2, act: 3, mode: 'diagram-scurve', eyebrow: 'PROPRIETARY FRAMEWORK', headline: 'DXMM™ Five-Stage Maturity Curve' },
-      { t: 82.4, act: 3, mode: 'statement', accent: '#F59E0B', headline: 'ZERO SPECULATIVE LABS.', sub: 'Embedded directly inside already-funded delivery programs' },
-      { t: 84.6, act: 3, mode: 'photo', img: '/assets/commercial/warroom_telemetry.jpg', kb: 'kb-left', eyebrow: 'ENTERPRISE PLATFORMS', headline: 'Sitecore & Salesforce Control Planes', sub: 'XM Cloud Governance & Agentforce Guardrail Registries' },
-      { t: 86.8, act: 3, mode: 'platform-grid', eyebrow: 'FORTUNE 2000 BEDROCK', headline: 'Live Across Six Enterprise Ecosystems' },
-      { t: 89.0, act: 3, mode: 'photo', img: '/assets/aistudio/IMG_3586_2f9a13f4.jpg', kb: 'kb-right', eyebrow: 'WORKSHOP ORCHESTRATION', headline: 'Aligning Marketing, Product & IT', sub: 'Unifying content velocity with security boundaries' },
-      { t: 91.2, act: 3, mode: 'diagram-gates', activeGate: 1, eyebrow: 'GUARDRAIL GATE 01', headline: 'Verified Prompt & Brand Registries' },
-      { t: 93.4, act: 3, mode: 'diagram-gates', activeGate: 2, eyebrow: 'GUARDRAIL GATE 02', headline: 'Deterministic Automated QA Audits' },
-      { t: 95.6, act: 3, mode: 'photo', img: '/assets/aistudio/image_7b88b4e3.jpg', kb: 'kb-out', eyebrow: 'GUARDRAIL GATE 03', headline: 'Human-in-the-Loop Sprint Reviews', sub: 'Principal oversight baked directly into agile delivery' },
-      { t: 97.8, act: 3, mode: 'photo', img: '/assets/sean_rusinko_executive_workshop.jpg', kb: 'kb-in', eyebrow: 'PROJECT BEACHHEAD', headline: 'Start Inside One Active Program', sub: 'Prove governance and velocity in Weeks 1–3' },
-      { t: 100.0, act: 3, mode: 'diagram-coe', eyebrow: 'SCALING MECHANISM', headline: 'Turnkey AI Center of Excellence in a Box' },
-      { t: 102.0, act: 3, mode: 'photo', img: '/assets/commercial/scene4_the_payoff.jpg', kb: 'kb-left', eyebrow: 'COMPOUNDING ROI', headline: 'From Pilot Paralysis to Scale', sub: 'Safe autonomous orchestration across every business unit' },
+      // ACT IV: 76.3 - 104.4s (13 Beats)
+      { t: 76.3, act: 3, mode: 'statement', accent: '#F59E0B', headline: 'YOUR MOAT IS NEVER THE TOOL YOU LEASE.', sub: 'ACT IV · ARCHITECTURE AS THE MOAT' },
+      { t: 78.4, act: 3, mode: 'photo', img: '/assets/commercial/keynote_control_plane.jpg', kb: 'kb-in', eyebrow: 'ACT IV · ARCHITECTURE AS THE MOAT', headline: 'Governance Discipline Inside Your Walls', sub: 'Proprietary institutional muscle competitors cannot rent' },
+      { t: 81.2, act: 3, mode: 'diagram-scurve', eyebrow: 'PROPRIETARY FRAMEWORK', headline: 'DXMM™ Five-Stage Maturity Curve' },
+      { t: 83.6, act: 3, mode: 'statement', accent: '#F59E0B', headline: 'EMBEDDED DIRECTLY IN YOUR STACK.', sub: 'Zero Speculative Labs · Active Production Programs' },
+      { t: 85.4, act: 3, mode: 'platform-grid', eyebrow: 'FORTUNE 2000 BEDROCK', headline: 'Sitecore · Salesforce · Contentful · Adobe · Optimizely · Azure' },
+      { t: 87.6, act: 3, mode: 'photo', img: '/assets/commercial/warroom_telemetry.jpg', kb: 'kb-left', eyebrow: 'ENTERPRISE PLATFORMS', headline: 'Composable Control Planes', sub: 'Adobe AEM, Optimizely & Azure AI Foundry Governance' },
+      { t: 89.2, act: 3, mode: 'photo', img: '/assets/aistudio/IMG_3586_2f9a13f4.jpg', kb: 'kb-right', eyebrow: 'WORKSHOP ORCHESTRATION', headline: 'Aligning Marketing, Product & IT', sub: 'Unifying content velocity with security boundaries' },
+      { t: 90.8, act: 3, mode: 'diagram-gates', activeGate: 1, eyebrow: 'GUARDRAIL GATE 01', headline: 'Prompt Registries' },
+      { t: 92.2, act: 3, mode: 'diagram-gates', activeGate: 2, eyebrow: 'GUARDRAIL GATE 02', headline: 'Deterministic QA Gates' },
+      { t: 93.8, act: 3, mode: 'photo', img: '/assets/aistudio/image_7b88b4e3.jpg', kb: 'kb-out', eyebrow: 'GUARDRAIL GATE 03', headline: 'Human-in-the-Loop Review in Live Sprints', sub: 'Principal oversight baked directly into agile delivery' },
+      { t: 97.5, act: 3, mode: 'photo', img: '/assets/sean_rusinko_executive_workshop.jpg', kb: 'kb-in', eyebrow: 'PROJECT BEACHHEAD', headline: 'One Funded Beachhead', sub: 'Turnkey foundation established directly inside live delivery' },
+      { t: 99.6, act: 3, mode: 'diagram-coe', eyebrow: 'SCALING MECHANISM', headline: 'Turnkey Center of Excellence in a Box' },
+      { t: 101.8, act: 3, mode: 'photo', img: '/assets/commercial/scene4_the_payoff.jpg', kb: 'kb-left', eyebrow: 'COMPOUNDING ROI', headline: 'Across Every Business Unit', sub: 'Safe autonomous orchestration enterprise-wide' },
 
-      // ACT V: 104.0 - 120.0s (7 Beats)
-      { t: 104.0, act: 4, mode: 'photo', img: '/assets/aistudio/IMG_6836_eab8735d.JPG', kb: 'kb-right', eyebrow: 'ACT V · THE CONTINUUM MANDATE', headline: 'Before the Next License Contract', sub: 'Pause procurement before locking fragmented tooling' },
-      { t: 106.2, act: 4, mode: 'statement', accent: '#FFFFFF', headline: 'KNOW WHERE YOU ARE GOING.', sub: 'CLARITY PRECEDES CAPITAL' },
-      { t: 108.4, act: 4, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-in', eyebrow: 'BEFORE ANOTHER PILOT', headline: 'Build the Operating Model First', sub: 'Governance turns isolated experiments into durable assets' },
-      { t: 110.6, act: 4, mode: 'statement', accent: '#10B981', headline: 'SOFTWARE IS THE COMMODITY.', sub: 'ANY ENTERPRISE CAN RENT THE MODEL' },
-      { t: 112.8, act: 4, mode: 'statement', accent: '#2563EB', headline: 'GOVERNANCE IS THE MOAT.', sub: 'ONLY DISCIPLINED ORGANIZATIONS OWN THE OUTCOME' },
-      { t: 115.2, act: 4, mode: 'photo', img: '/assets/commercial/keynote_horizon_crest.jpg', kb: 'kb-out', eyebrow: 'CONTINUUM DX ADVISORY', headline: 'Sean Rusinko · Managing Director', sub: 'Enterprise Digital Experience & AI CoE Overlay' },
-      { t: 117.6, act: 4, mode: 'finale', eyebrow: 'CONTINUUM DX ADVISORY', headline: 'WE OWN THE SPACE BETWEEN.', sub: 'continuum-dx.com' }
+      // ACT V: 104.4 - 127.0s (6 Beats)
+      { t: 104.4, act: 4, mode: 'photo', img: '/assets/aistudio/IMG_6836_eab8735d.JPG', kb: 'kb-right', eyebrow: 'ACT V · THE CONTINUUM MANDATE', headline: 'Before You Sign Another Software Contract', sub: 'Pause procurement before locking fragmented tooling' },
+      { t: 106.6, act: 4, mode: 'statement', accent: '#FFFFFF', headline: 'KNOW WHERE YOU ARE GOING.', sub: 'CLARITY PRECEDES CAPITAL' },
+      { t: 108.9, act: 4, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-in', eyebrow: 'BEFORE ANOTHER DISCONNECTED PILOT', headline: 'Build the Operating Model', sub: 'Governance turns isolated experiments into durable assets' },
+      { t: 114.0, act: 4, mode: 'statement', accent: '#10B981', headline: 'SOFTWARE IS THE COMMODITY.', sub: 'ANY ENTERPRISE CAN RENT THE MODEL' },
+      { t: 115.5, act: 4, mode: 'statement', accent: '#2563EB', headline: 'GOVERNANCE IS THE MOAT.', sub: 'ONLY DISCIPLINED ORGANIZATIONS OWN THE OUTCOME' },
+      { t: 118.0, act: 4, mode: 'finale', img: '/assets/commercial/keynote_horizon_crest.jpg', eyebrow: 'CONTINUUM DX ADVISORY', headline: 'WE OWN THE SPACE BETWEEN.', sub: 'continuum-dx.com' }
     ];
 
     let isPlayingKeynote = false;
@@ -2580,11 +2580,15 @@
           </div>`;
       } else {
         html = `
-          <div class="relative w-full h-full bg-[#050608] flex flex-col items-center justify-center p-8 sm:p-16 text-center slide-enter">
-            <div class="w-12 h-12 rounded-md border border-cobalt/60 bg-cobalt/15 flex items-center justify-center font-mono text-sm text-cobalt font-bold mb-6">C/DX</div>
-            <div class="font-mono text-xs uppercase tracking-[0.25em] text-emeraldGuard mb-3">${escapeHtmlStage(b.eyebrow)}</div>
-            <h4 class="font-serif text-4xl sm:text-6xl text-white font-normal mb-4">${escapeHtmlStage(b.headline)}</h4>
-            <p class="font-mono text-xs sm:text-sm text-slate-400 tracking-wider">${escapeHtmlStage(b.sub)}</p>
+          <div class="relative w-full h-full bg-[#050608] flex flex-col items-center justify-center p-8 sm:p-16 text-center slide-enter overflow-hidden">
+            ${b.img ? `<img src="${b.img}" alt="" class="absolute inset-0 w-full h-full object-cover opacity-35 kb-out" />` : ''}
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050608] via-[#050608]/65 to-[#050608]/80"></div>
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="w-12 h-12 rounded-md border border-cobalt/60 bg-cobalt/15 flex items-center justify-center font-mono text-sm text-cobalt font-bold mb-6">C/DX</div>
+              <div class="font-mono text-xs uppercase tracking-[0.25em] text-emeraldGuard mb-3">${escapeHtmlStage(b.eyebrow)}</div>
+              <h4 class="font-serif text-4xl sm:text-6xl text-white font-normal mb-4">${escapeHtmlStage(b.headline)}</h4>
+              <p class="font-mono text-xs sm:text-sm text-slate-300 tracking-wider">${escapeHtmlStage(b.sub)}</p>
+            </div>
           </div>`;
       }
       stageCanvas.innerHTML = html;
@@ -2707,63 +2711,8 @@
       if (act) jumpToTime(act.start);
     }
 
-    async function loadMasterTimingConfig() {
-      try {
-        const res = await fetch('/assets/audio/keynote_timing.json', { cache: 'no-store' });
-        if (!res.ok) return;
-        const cfg = await res.json();
-        if (cfg && cfg.hasFinalMaster && cfg.masterAudioUrl && masterAudio) {
-          masterAudio.src = cfg.masterAudioUrl;
-        }
-        if (cfg && typeof cfg.duration === 'number' && cfg.duration > 10) {
-          KEYNOTE_TOTAL_DURATION = cfg.duration;
-          if (progressSlider) progressSlider.max = cfg.duration;
-        }
-        if (cfg && Array.isArray(cfg.actStarts) && cfg.actStarts.length === 5) {
-          cfg.actStarts.forEach((s, i) => { ACT_CUES[i].start = s; });
-        }
-        if (cfg && Array.isArray(cfg.beatStarts) && cfg.beatStarts.length === KEYNOTE_BEATS.length) {
-          cfg.beatStarts.forEach((s, i) => { KEYNOTE_BEATS[i].t = s; });
-        }
-        activeBeatIndex = -1;
-        syncUIForTime(currentKeynoteTime);
-      } catch (_e) {
-        // Fallback smoothly to default timing
-      }
-    }
-
-    if (masterAudio) {
-      masterAudio.addEventListener('loadedmetadata', () => {
-        if (!isNaN(masterAudio.duration) && masterAudio.duration > 10) {
-          KEYNOTE_TOTAL_DURATION = masterAudio.duration;
-          if (progressSlider) progressSlider.max = masterAudio.duration;
-          if (durationEl) durationEl.textContent = formatTime(masterAudio.duration);
-        }
-      });
-    }
-
-    if (playBtn) playBtn.addEventListener('click', togglePlay);
-    if (playOverlayBtn) playOverlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
-    if (stageEl) stageEl.addEventListener('click', togglePlay);
-    if (fullscreenBtn && stageEl) {
-      fullscreenBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (document.fullscreenElement) document.exitFullscreen();
-        else if (stageEl.requestFullscreen) stageEl.requestFullscreen();
-        else if (stageEl.webkitRequestFullscreen) stageEl.webkitRequestFullscreen();
-      });
-    }
-    if (progressSlider) {
-      progressSlider.addEventListener('input', () => {
-        const t = Number(progressSlider.value);
-        if (masterAudio) masterAudio.currentTime = t;
-        syncUIForTime(t);
-      });
-    }
-
     buildBeatStrip();
     syncUIForTime(0);
-    loadMasterTimingConfig();
 
 
 
