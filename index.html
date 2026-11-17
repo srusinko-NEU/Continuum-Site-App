@@ -187,24 +187,23 @@
         </a>
       </div>
 
-      <!-- Desktop Nav Links -->
-      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center lg:gap-x-4 xl:gap-x-6 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap">
-        <a href="#dilemma" data-nav-target="dilemma" class="header-nav-link hover:text-white">The Dilemma</a>
-        <a href="#space-between" data-nav-target="space-between" class="header-nav-link hover:text-white">Space Between</a>
-        <a href="#methodology" data-nav-target="methodology" class="header-nav-link hover:text-white">AI DXMM™</a>
-        <a href="#overlay-model" data-nav-target="overlay-model" class="header-nav-link hover:text-white">Overlay Model</a>
-        <a href="#keynote" data-nav-target="keynote" class="header-nav-link hover:text-white text-amberGold flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-amberGold animate-ping"></span>
-          Keynote
-        </a>
-        <a href="#platforms" data-nav-target="platforms" class="header-nav-link hover:text-white">Platforms</a>
-        <a href="#leadership" data-nav-target="leadership" class="header-nav-link hover:text-white">Leadership</a>
+      <!-- Desktop Nav Links (Trimmed 4 Focused Pillars) -->
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center lg:gap-x-5 xl:gap-x-7 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap">
+        <a href="#ecosystem" data-nav-target="ecosystem" class="header-nav-link hover:text-white">Ecosystem</a>
+        <a href="#space-between" data-nav-target="space-between" class="header-nav-link hover:text-white">The Space Between</a>
+        <a href="#architecture-702010" data-nav-target="architecture-702010" class="header-nav-link hover:text-white">70/20/10 Architecture</a>
+        <a href="#overlay-model" data-nav-target="overlay-model" class="header-nav-link hover:text-white">Advisory Scope</a>
       </nav>
 
-      <!-- Action Button & Mobile Toggle with Architectural Buffer -->
-      <div class="flex items-center gap-4 lg:pl-5 xl:pl-8 lg:ml-4 xl:ml-6 border-l border-slate-800 flex-shrink-0">
-        <a href="#diagnostic-intake" class="hidden sm:inline-flex items-center justify-center px-4 xl:px-6 py-2.5 text-xs font-mono font-semibold tracking-wider uppercase text-white bg-cobalt hover:bg-cobalt-hover rounded-lg transition-all shadow-md shadow-cobalt/25 whitespace-nowrap">
-          Book Diagnostic
+      <!-- Dual-Track Funnel Actions & Mobile Toggle -->
+      <div class="flex items-center gap-2.5 sm:gap-3 lg:pl-5 xl:pl-7 lg:ml-4 xl:ml-6 border-l border-slate-800 flex-shrink-0">
+        <button type="button" onclick="openWhitePaperModal()" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-slate-500 font-mono text-[11px] font-semibold tracking-wider text-slate-200 hover:text-white transition-all whitespace-nowrap">
+          <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+          <span>2026 White Paper</span>
+        </button>
+        <a href="#diagnostic-intake" class="hidden sm:inline-flex items-center gap-1.5 justify-center px-4 xl:px-5 py-2 text-xs font-mono font-semibold tracking-wider uppercase text-white bg-cobalt hover:bg-cobalt-hover rounded-lg transition-all shadow-md shadow-cobalt/25 whitespace-nowrap">
+          <span>Advisory Diagnostic</span>
+          <span aria-hidden="true">&rarr;</span>
         </a>
         <button id="mobile-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,15 +216,16 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-[#090A0F] px-6 py-6 space-y-4">
-      <a href="#dilemma" data-nav-target="dilemma" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">The Enterprise Dilemma</a>
+      <a href="#ecosystem" data-nav-target="ecosystem" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Ecosystem</a>
       <a href="#space-between" data-nav-target="space-between" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">The Space Between</a>
-      <a href="#methodology" data-nav-target="methodology" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">AI DXMM™ Framework</a>
-      <a href="#overlay-model" data-nav-target="overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Project-Overlay Model</a>
-      <a href="#keynote" data-nav-target="keynote" class="mobile-link block text-sm font-medium text-amberGold hover:text-white transition-all">Keynote Manifesto (2:07)</a>
-      <a href="#platforms" data-nav-target="platforms" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Enterprise Platforms</a>
-      <a href="#leadership" data-nav-target="leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Leadership &amp; Field Practice</a>
-      <div class="pt-6 mt-3 border-t border-slate-800">
-        <a href="#diagnostic-intake" data-nav-target="diagnostic-intake" class="mobile-link block w-full text-center py-3.5 text-xs font-mono uppercase tracking-wider bg-cobalt text-white rounded-lg font-semibold shadow-lg shadow-cobalt/20">Book Diagnostic</a>
+      <a href="#architecture-702010" data-nav-target="architecture-702010" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">70/20/10 Architecture</a>
+      <a href="#overlay-model" data-nav-target="overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Advisory Scope</a>
+      <div class="pt-5 mt-3 border-t border-slate-800 space-y-2.5">
+        <button type="button" onclick="openWhitePaperModal(); document.getElementById('mobile-menu').classList.add('hidden');" class="w-full py-3 text-xs font-mono uppercase tracking-wider bg-slate-900 border border-slate-700 text-slate-200 rounded-lg font-semibold flex items-center justify-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
+          <span>2026 White Paper</span>
+        </button>
+        <a href="#diagnostic-intake" data-nav-target="diagnostic-intake" class="mobile-link block w-full text-center py-3.5 text-xs font-mono uppercase tracking-wider bg-cobalt text-white rounded-lg font-semibold shadow-lg shadow-cobalt/20">Advisory Diagnostic &rarr;</a>
       </div>
     </div>
   </header>
@@ -492,31 +492,74 @@
 
       </div>
 
-      <!-- 70 / 20 / 10 Transformation Allocation Bar -->
-      <div class="mt-14 pt-10 border-t border-slate-800/80 grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800">
-          <div class="flex items-baseline justify-between mb-2">
-            <span class="font-mono text-2xl font-bold text-cobalt">70%</span>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Primary Moat</span>
+      <!-- Interactive 70 / 20 / 10 Transformation Allocation Switcher (CTO vs CMO Outcomes) -->
+      <div id="architecture-702010" class="custom-scroll-clear mt-14 pt-12 border-t border-slate-800/80">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+          <div>
+            <div class="font-mono text-xs text-amberGold uppercase tracking-widest mb-2">70 / 20 / 10 Architecture Blueprint</div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Where Sustainable Enterprise AI Value Is Created</h3>
           </div>
-          <h3 class="text-sm font-semibold text-white mb-1.5">People, Operating Model & CoE</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Organizational rewiring, federated CoE governance, prompt hygiene, and human-in-the-loop capability transfer.</p>
+          <div role="tablist" aria-label="Architecture Outcome Perspective" class="inline-flex p-1 rounded-xl bg-slate-950 border border-slate-800 self-start md:self-auto">
+            <button type="button" id="arch-tab-cto" role="tab" aria-selected="true" onclick="setArchPersona('cto')" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all bg-cobalt text-white shadow-md shadow-cobalt/25">
+              CTO / Architecture Outcomes
+            </button>
+            <button type="button" id="arch-tab-cmo" role="tab" aria-selected="false" onclick="setArchPersona('cmo')" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all text-slate-400 hover:text-white">
+              CMO / Commercial Outcomes
+            </button>
+          </div>
         </div>
-        <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800">
-          <div class="flex items-baseline justify-between mb-2">
-            <span class="font-mono text-2xl font-bold text-emeraldGuard">20%</span>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Integration Spine</span>
+
+        <div id="arch-cards-grid" class="grid md:grid-cols-3 gap-6">
+          <!-- 70% Card -->
+          <div class="p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-cobalt/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="font-mono text-3xl font-bold text-cobalt">70%</span>
+                <span id="arch-70-badge" class="font-mono text-[10px] uppercase tracking-widest text-cobalt px-2 py-0.5 rounded bg-cobalt/10 border border-cobalt/30">Operating Moat</span>
+              </div>
+              <h4 id="arch-70-title" class="text-base font-semibold text-white mb-2">Federated AI CoE &amp; Prompt Registries</h4>
+              <p id="arch-70-desc" class="text-xs text-slate-400 leading-relaxed mb-4">Versioned enterprise prompt registries, deterministic human-in-the-loop approvals, and cross-functional governance embedded directly inside active sprint teams.</p>
+            </div>
+            <div id="arch-70-tags" class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5 font-mono text-[10px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">Prompt Registries</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">Human QA Gates</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">CoE Runbooks</span>
+            </div>
           </div>
-          <h3 class="text-sm font-semibold text-white mb-1.5">Composable Connectors & Context</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Headless DXP pipelines (Sitecore XM Cloud, Contentful, AEM) grounded to DAM, PIM, and unified CDP profiles.</p>
-        </div>
-        <div class="p-6 rounded-xl bg-slate-900/40 border border-slate-800">
-          <div class="flex items-baseline justify-between mb-2">
-            <span class="font-mono text-2xl font-bold text-amberGold">10%</span>
-            <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Commodity Layer</span>
+
+          <!-- 20% Card -->
+          <div class="p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-emeraldGuard/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="font-mono text-3xl font-bold text-emeraldGuard">20%</span>
+                <span id="arch-20-badge" class="font-mono text-[10px] uppercase tracking-widest text-emeraldGuard px-2 py-0.5 rounded bg-emeraldGuard/10 border border-emeraldGuard/30">Integration Spine</span>
+              </div>
+              <h4 id="arch-20-title" class="text-base font-semibold text-white mb-2">Edge Gateway &amp; Semantic Context Mesh</h4>
+              <p id="arch-20-desc" class="text-xs text-slate-400 leading-relaxed mb-4">Sub-100ms Edge Gateway routing binding headless DXP stacks (Sitecore XM Cloud, AEM, Contentful) directly to DAM, PIM, and live CDP truth graphs.</p>
+            </div>
+            <div id="arch-20-tags" class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5 font-mono text-[10px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">Edge Gateway</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">DAM/PIM Grounding</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">API Telemetry</span>
+            </div>
           </div>
-          <h3 class="text-sm font-semibold text-white mb-1.5">Foundation AI Models</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">Model-agnostic routing across Azure OpenAI, Anthropic Claude, and Google Gemini via deterministic control planes.</p>
+
+          <!-- 10% Card -->
+          <div class="p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-amberGold/50 transition-colors flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-3">
+                <span class="font-mono text-3xl font-bold text-amberGold">10%</span>
+                <span id="arch-10-badge" class="font-mono text-[10px] uppercase tracking-widest text-amberGold px-2 py-0.5 rounded bg-amberGold/10 border border-amberGold/30">Arbitrated Layer</span>
+              </div>
+              <h4 id="arch-10-title" class="text-base font-semibold text-white mb-2">Multi-Model Arbitration &amp; Zero-Lock-In</h4>
+              <p id="arch-10-desc" class="text-xs text-slate-400 leading-relaxed mb-4">Vendor-neutral inference arbitration across Azure AI, AWS Bedrock, Anthropic Claude, and OpenAI behind sovereign PII redaction and deterministic failovers.</p>
+            </div>
+            <div id="arch-10-tags" class="pt-3 border-t border-slate-800/80 flex flex-wrap gap-1.5 font-mono text-[10px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">Multi-Model Arbitration</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">Zero-Lock-In</span>
+              <span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">PII Firewall</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -3037,11 +3080,212 @@
     }
   </script>
 
+  <!-- ==================== 2026 EXECUTIVE WHITE PAPER MODAL ==================== -->
+  <div id="whitepaper-modal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="wp-modal-title">
+    <div class="relative w-full max-w-4xl bg-[#0B0E16] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col">
+      <!-- Top Bar -->
+      <div class="px-6 py-5 border-b border-slate-800 bg-slate-950/90 flex items-center justify-between gap-4 shrink-0">
+        <div>
+          <div class="font-mono text-[11px] text-amberGold uppercase tracking-widest mb-1">2026 Enterprise Edition &middot; Executive Briefing</div>
+          <h3 id="wp-modal-title" class="font-serif text-2xl sm:text-3xl text-white font-normal">From Fragmented to Autonomous</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="window.print()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 font-mono text-[11px] text-slate-300 hover:text-white transition-colors">
+            Print / Save PDF
+          </button>
+          <button type="button" onclick="closeWhitePaperModal()" aria-label="Close 2026 White Paper" class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center font-mono text-sm">
+            &times;
+          </button>
+        </div>
+      </div>
+
+      <!-- Chapter Switcher -->
+      <div class="px-6 py-3 border-b border-slate-800/80 bg-slate-900/50 flex flex-wrap gap-2 shrink-0">
+        <button type="button" id="wp-tab-0" onclick="selectWhitePaperChapter(0)" class="px-3.5 py-1.5 rounded-lg font-mono text-xs bg-cobalt text-white transition-colors">01 &middot; The 70/20/10 Rule</button>
+        <button type="button" id="wp-tab-1" onclick="selectWhitePaperChapter(1)" class="px-3.5 py-1.5 rounded-lg font-mono text-xs bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition-colors">02 &middot; AI DXMM™ 5 Stages</button>
+        <button type="button" id="wp-tab-2" onclick="selectWhitePaperChapter(2)" class="px-3.5 py-1.5 rounded-lg font-mono text-xs bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition-colors">03 &middot; Edge Control Plane</button>
+      </div>
+
+      <!-- Body Content -->
+      <div id="wp-modal-body" class="p-6 sm:p-8 overflow-y-auto space-y-5 text-sm text-slate-300 leading-relaxed">
+        <!-- Populated cleanly via JS -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-slate-800 bg-slate-950/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
+        <span class="font-mono text-[11px] text-slate-400">Authored by Sean Rusinko &middot; Continuum DX Advisory</span>
+        <a href="#diagnostic-intake" onclick="closeWhitePaperModal()" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-cobalt hover:bg-cobalt-hover text-white font-mono text-xs font-semibold uppercase tracking-wider transition-colors">
+          <span>Book Advisory Diagnostic</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating "Where You Are" Section Tracker Pill -->
   <div id="section-tracker-pill" class="fixed bottom-6 right-6 z-40 hidden md:flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-slate-900/95 border border-slate-700/80 backdrop-blur-md shadow-2xl text-xs font-mono text-slate-300 transition-all duration-300 opacity-0 pointer-events-none">
     <span class="w-2 h-2 rounded-full bg-cobalt animate-pulse"></span>
     <span id="section-tracker-text" class="text-white font-semibold tracking-wider">01 // THE REALITY CHECK</span>
   </div>
+
+  <script>
+    // Interactive 70/20/10 CTO vs CMO Outcomes Switcher
+    const ARCH_PERSONAS = {
+      cto: {
+        c70: {
+          badge: 'Operating Moat',
+          title: 'Federated AI CoE & Prompt Registries',
+          desc: 'Versioned enterprise prompt registries, deterministic human-in-the-loop approvals, and cross-functional governance embedded directly inside active sprint teams.',
+          tags: ['Prompt Registries', 'Human QA Gates', 'CoE Runbooks']
+        },
+        c20: {
+          badge: 'Integration Spine',
+          title: 'Edge Gateway & Semantic Context Mesh',
+          desc: 'Sub-100ms Edge Gateway routing binding headless DXP stacks (Sitecore XM Cloud, AEM, Contentful) directly to DAM, PIM, and live CDP truth graphs.',
+          tags: ['Edge Gateway', 'DAM/PIM Grounding', 'API Telemetry']
+        },
+        c10: {
+          badge: 'Arbitrated Layer',
+          title: 'Multi-Model Arbitration & Zero-Lock-In',
+          desc: 'Vendor-neutral inference arbitration across Azure AI, AWS Bedrock, Anthropic Claude, and OpenAI behind sovereign PII redaction and deterministic failovers.',
+          tags: ['Multi-Model Arbitration', 'Zero-Lock-In', 'PII Firewall']
+        }
+      },
+      cmo: {
+        c70: {
+          badge: 'Commercial Moat',
+          title: 'Global Brand Guardrails & Editorial Autonomy',
+          desc: 'Equips regional marketing and editorial pods to produce localized campaigns safely inside automated brand voice, compliance, and tone verification gates.',
+          tags: ['Global Brand Guardrails', 'Zero Hallucination Drift', 'Localized Scale']
+        },
+        c20: {
+          badge: 'Revenue Spine',
+          title: 'Campaign Velocity & Full DXP License ROI',
+          desc: 'Unlocks dormant DXP and DAM capital by transforming existing Sitecore, Adobe, and Contentful repositories into high-velocity personalization workflows.',
+          tags: ['Campaign Velocity (3.4x)', 'DXP License ROI', '1-to-1 Personalization']
+        },
+        c10: {
+          badge: 'Margin Layer',
+          title: 'Controlled Token Spend & Fast Time-to-Market',
+          desc: 'Replaces fragmented point-solution subscriptions with a single governed commercial pipeline tied directly to conversion attribution and pipeline impact.',
+          tags: ['Zero Copilot Bloat', 'Sub-Second Delivery', 'Verified P&L ROI']
+        }
+      }
+    };
+
+    window.setArchPersona = function (persona) {
+      const p = ARCH_PERSONAS[persona] || ARCH_PERSONAS.cto;
+      const ctoBtn = document.getElementById('arch-tab-cto');
+      const cmoBtn = document.getElementById('arch-tab-cmo');
+      if (ctoBtn && cmoBtn) {
+        ctoBtn.setAttribute('aria-selected', persona === 'cto' ? 'true' : 'false');
+        cmoBtn.setAttribute('aria-selected', persona === 'cmo' ? 'true' : 'false');
+        if (persona === 'cto') {
+          ctoBtn.className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all bg-cobalt text-white shadow-md shadow-cobalt/25';
+          cmoBtn.className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all text-slate-400 hover:text-white';
+        } else {
+          cmoBtn.className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all bg-amberGold text-[#090A0F] shadow-md shadow-amberGold/25';
+          ctoBtn.className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold tracking-wider transition-all text-slate-400 hover:text-white';
+        }
+      }
+      const pairs = [['70', p.c70], ['20', p.c20], ['10', p.c10]];
+      pairs.forEach(([k, data]) => {
+        const badgeEl = document.getElementById('arch-' + k + '-badge');
+        const titleEl = document.getElementById('arch-' + k + '-title');
+        const descEl = document.getElementById('arch-' + k + '-desc');
+        const tagsEl = document.getElementById('arch-' + k + '-tags');
+        if (badgeEl) badgeEl.textContent = data.badge;
+        if (titleEl) titleEl.textContent = data.title;
+        if (descEl) descEl.textContent = data.desc;
+        if (tagsEl) {
+          tagsEl.innerHTML = data.tags.map(t => `<span class="px-2 py-0.5 rounded bg-slate-950 border border-slate-800">${t}</span>`).join('');
+        }
+      });
+    };
+
+    // 2026 Executive White Paper Modal Data & Controls
+    const WP_CHAPTERS = [
+      {
+        eyebrow: 'Chapter 01 · The Modern Digital Imperative',
+        title: 'Why the 2016 DXP Playbook Fails in the Generative AI Era',
+        paragraphs: [
+          'Over 80% of corporate AI pilots remain trapped in disconnected proof-of-concept sandboxes—not because foundation models lack reasoning power, but because enterprises treat AI as an isolated software purchase rather than an operating-model discipline.',
+          'Empirical enterprise transformations prove value realization splits across 70% People & Operating Model CoE, 20% Composable Context Connectors, and only 10% Foundation AI Algorithms.',
+          'Instead of pitching standalone CoE budgets that stall in steering committees, Continuum DX embeds directly inside already-funded DXP initiatives—extracting a repeatable AI CoE in a Box in-flight.'
+        ],
+        highlights: ['Zero new budget lines via in-flight Project Overlay', 'Replaces shadow copilot sprawl with versioned prompt registries', '65% reduction in editorial QA & compliance review cycles']
+      },
+      {
+        eyebrow: 'Chapter 02 · Proprietary AI DXMM™ Framework',
+        title: 'From Fragmented Shadow AI to Autonomous Edge Orchestration',
+        paragraphs: [
+          'Adapted from Sean Rusinko’s global leadership directing Sitecore SBOS, the 5-stage AI DXMM™ benchmarks enterprises cleanly across Fragmented (Stage 1), Governed (Stage 2), Composable (Stage 3), Federated (Stage 4), and Autonomous (Stage 5).',
+          'Each transition locks deterministic guardrails into live CI/CD and CMS publishing pipelines—ensuring every AI-assisted workflow cites grounded brand, DAM, and PIM sources before touching customer surfaces.'
+        ],
+        highlights: ['Stage 2–3 Beachhead delivered inside 6–8 active sprint weeks', 'Hub-and-spoke federation empowers regional marketing autonomously', 'Real-time PII, toxicity, and brand-voice compliance gates']
+      },
+      {
+        eyebrow: 'Chapter 03 · Composable Edge Control Plane',
+        title: 'Decoupling Frontends, Unifying Connectors, and Model Arbitration',
+        paragraphs: [
+          'The Continuum AI Control Plane sits strictly between enterprise systems of record (Sitecore XM Cloud, Adobe AEM, Contentful, Salesforce, Optimizely) and foundation model providers (Azure AI, AWS Bedrock, Anthropic, OpenAI).',
+          'Edge gateway routing arbitrates inference cost and sub-100ms latency without front-end vendor lock-in, paired with branch preview environments for executive legal and brand sign-off.'
+        ],
+        highlights: ['Sub-100ms Edge personalization latency SLA', 'Zero-Lock-In multi-model routing across sovereign tenants', 'Deterministic fallback to verified canonical brand assets']
+      }
+    ];
+
+    window.selectWhitePaperChapter = function (idx) {
+      const ch = WP_CHAPTERS[idx] || WP_CHAPTERS[0];
+      [0, 1, 2].forEach((i) => {
+        const btn = document.getElementById('wp-tab-' + i);
+        if (!btn) return;
+        btn.className = i === idx
+          ? 'px-3.5 py-1.5 rounded-lg font-mono text-xs bg-cobalt text-white transition-colors'
+          : 'px-3.5 py-1.5 rounded-lg font-mono text-xs bg-slate-950 text-slate-400 hover:text-white border border-slate-800 transition-colors';
+      });
+      const body = document.getElementById('wp-modal-body');
+      if (body) {
+        body.innerHTML = `
+          <div>
+            <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-2">${ch.eyebrow}</div>
+            <h4 class="font-serif text-2xl sm:text-3xl text-white font-normal mb-4">${ch.title}</h4>
+          </div>
+          ${ch.paragraphs.map(p => `<p class="text-slate-300 leading-relaxed">${p}</p>`).join('')}
+          <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2.5 mt-4">
+            <div class="font-mono text-[11px] text-emeraldGuard uppercase tracking-widest font-semibold">Executive Takeaways</div>
+            <ul class="space-y-1.5 text-xs text-slate-300 font-mono">
+              ${ch.highlights.map(h => `<li class="flex items-center gap-2"><span class="text-emeraldGuard">&check;</span><span>${h}</span></li>`).join('')}
+            </ul>
+          </div>`;
+      }
+    };
+
+    window.openWhitePaperModal = function (chapterIdx) {
+      const modal = document.getElementById('whitepaper-modal');
+      if (!modal) return;
+      window.selectWhitePaperChapter(typeof chapterIdx === 'number' ? chapterIdx : 0);
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeWhitePaperModal = function () {
+      const modal = document.getElementById('whitepaper-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.closeWhitePaperModal();
+    });
+    const wpModalBackdrop = document.getElementById('whitepaper-modal');
+    if (wpModalBackdrop) {
+      wpModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === wpModalBackdrop) window.closeWhitePaperModal();
+      });
+    }
+  </script>
 
   <script>
     (function () {
@@ -3051,41 +3295,45 @@
       const mobileLinks = Array.from(document.querySelectorAll('#mobile-menu a.mobile-link[data-nav-target]'));
 
       const sections = [
-        { id: 'dilemma', label: '01 // THE REALITY CHECK' },
-        { id: 'space-between', label: '02 // THE SPACE BETWEEN' },
-        { id: 'methodology', label: '03 // PROPRIETARY IP: AI DXMM™' },
-        { id: 'overlay-model', label: '04 // PROJECT-OVERLAY MODEL' },
-        { id: 'keynote', label: '05 // KEYNOTE MANIFESTO' },
-        { id: 'platforms', label: '06 // PLATFORM BEDROCK' },
-        { id: 'leadership', label: '07 // PRACTITIONER LEADERSHIP' },
-        { id: 'diagnostic-intake', label: '08 // EXECUTIVE INTAKE' }
+        { id: 'ecosystem', nav: 'ecosystem', label: '00 // ECOSYSTEM STACK' },
+        { id: 'dilemma', nav: 'ecosystem', label: '01 // THE REALITY CHECK' },
+        { id: 'space-between', nav: 'space-between', label: '02 // THE SPACE BETWEEN' },
+        { id: 'architecture-702010', nav: 'architecture-702010', label: '02B // 70/20/10 ARCHITECTURE' },
+        { id: 'methodology', nav: 'architecture-702010', label: '03 // PROPRIETARY IP: AI DXMM™' },
+        { id: 'overlay-model', nav: 'overlay-model', label: '04 // ADVISORY SCOPE' },
+        { id: 'keynote', nav: 'overlay-model', label: '05 // KEYNOTE MANIFESTO' },
+        { id: 'platforms', nav: 'overlay-model', label: '06 // PLATFORM BEDROCK' },
+        { id: 'leadership', nav: 'overlay-model', label: '07 // PRACTITIONER LEADERSHIP' },
+        { id: 'diagnostic-intake', nav: 'overlay-model', label: '08 // EXECUTIVE INTAKE' }
       ];
 
-      let currentActiveId = null;
+      let currentActiveSectionId = null;
       const visibleHeights = new Map();
 
       function applyActiveSection(sectionId) {
-        if (currentActiveId === sectionId) return;
-        currentActiveId = sectionId;
+        if (currentActiveSectionId === sectionId) return;
+        currentActiveSectionId = sectionId;
+
+        const sectionCfg = sections.find((s) => s.id === sectionId);
+        const navTargetId = sectionCfg ? sectionCfg.nav : null;
 
         headerLinks.forEach((link) => {
-          const isMatch = sectionId !== null && link.getAttribute('data-nav-target') === sectionId;
+          const isMatch = navTargetId !== null && link.getAttribute('data-nav-target') === navTargetId;
           link.classList.toggle('is-active', isMatch);
           if (isMatch) link.setAttribute('aria-current', 'location');
           else link.removeAttribute('aria-current');
         });
 
         mobileLinks.forEach((link) => {
-          const isMatch = sectionId !== null && link.getAttribute('data-nav-target') === sectionId;
+          const isMatch = navTargetId !== null && link.getAttribute('data-nav-target') === navTargetId;
           link.classList.toggle('is-active', isMatch);
           if (isMatch) link.setAttribute('aria-current', 'location');
           else link.removeAttribute('aria-current');
         });
 
         if (tracker && trackerText) {
-          const matched = sections.find((s) => s.id === sectionId);
-          if (matched && window.scrollY >= 250) {
-            trackerText.textContent = matched.label;
+          if (sectionCfg && window.scrollY >= 250) {
+            trackerText.textContent = sectionCfg.label;
             tracker.classList.remove('opacity-0', 'pointer-events-none');
             tracker.classList.add('opacity-100');
           } else {
@@ -3100,14 +3348,19 @@
           applyActiveSection(null);
           return;
         }
-        // If scrolled to the very bottom, ensure the final section highlights cleanly
         if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 24)) {
           applyActiveSection('diagnostic-intake');
+          return;
+        }
+        // Prefer nested architecture-702010 whenever it occupies significant viewport height
+        if ((visibleHeights.get('architecture-702010') || 0) > 85) {
+          applyActiveSection('architecture-702010');
           return;
         }
         let bestId = null;
         let bestHeight = 0;
         for (const s of sections) {
+          if (s.id === 'architecture-702010') continue;
           const h = visibleHeights.get(s.id) || 0;
           if (h > bestHeight) {
             bestHeight = h;
@@ -3124,7 +3377,6 @@
           });
           resolveMostVisibleSection();
         }, {
-          // Focus detection band right below the 80px fixed header across all viewport heights
           rootMargin: '-18% 0px -60% 0px',
           threshold: [0, 0.05, 0.15, 0.35, 0.6]
         });
@@ -3134,7 +3386,6 @@
           if (el) observer.observe(el);
         });
 
-        // Instant visual feedback when clicking a header/mobile nav link
         [...headerLinks, ...mobileLinks].forEach((link) => {
           link.addEventListener('click', () => {
             const targetId = link.getAttribute('data-nav-target');
