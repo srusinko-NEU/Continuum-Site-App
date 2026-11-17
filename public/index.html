@@ -27,38 +27,50 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            obsidian: {
-              DEFAULT: '#090A0F',
-              50: '#151821',
-              100: '#11131B',
-              200: '#0C0E14',
-              900: '#090A0F'
+    if (typeof window !== 'undefined') {
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              obsidian: {
+                DEFAULT: '#090A0F',
+                50: '#151821',
+                100: '#11131B',
+                200: '#0C0E14',
+                900: '#090A0F'
+              },
+              cobalt: {
+                DEFAULT: '#2563EB',
+                hover: '#1D4ED8',
+                muted: '#1E40AF',
+                subtle: 'rgba(37, 99, 235, 0.12)',
+                glow: 'rgba(37, 99, 235, 0.25)'
+              },
+              emeraldGuard: '#10B981',
+              amberGold: '#F59E0B'
             },
-            cobalt: {
-              DEFAULT: '#2563EB',
-              hover: '#1D4ED8',
-              muted: '#1E40AF',
-              subtle: 'rgba(37, 99, 235, 0.12)',
-              glow: 'rgba(37, 99, 235, 0.25)'
-            },
-            emeraldGuard: '#10B981',
-            amberGold: '#F59E0B'
-          },
-          fontFamily: {
-            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
+            fontFamily: {
+              serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+              sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace']
+            }
           }
         }
-      }
+      };
     }
   </script>
 
   <style>
+    /* Defensive Base Surface & Modal Guard */
+    html, body {
+      background-color: #090A0F;
+      color: #E2E8F0;
+      margin: 0;
+    }
+    :where(.hidden) {
+      display: none;
+    }
     /* Ambient Grid & Film Grain */
     .bg-obsidian-grid {
       background-size: 48px 48px;
@@ -2369,12 +2381,12 @@
               70% WEIGHT // OPERATING MODEL READINESS
             </div>
             <div class="font-mono text-xs text-slate-500">
-              Question <span id="diag-step-num" class="text-slate-900 font-bold">1</span> of 5 &middot; 60-Second Executive Calibration
+              Question <span id="intake-diag-step-num" class="text-slate-900 font-bold">1</span> of 5 &middot; 60-Second Executive Calibration
             </div>
           </div>
           <div class="flex items-center gap-2">
             <div class="w-40 h-2 bg-slate-100 rounded-full overflow-hidden">
-              <div id="diag-progress-bar" class="h-full bg-cobalt transition-all duration-300" style="width: 20%"></div>
+              <div id="intake-diag-progress-bar" class="h-full bg-cobalt transition-all duration-300" style="width: 20%"></div>
             </div>
             <span id="diag-progress-pct" class="font-mono text-xs font-semibold text-slate-700">20%</span>
           </div>
@@ -2382,7 +2394,7 @@
 
         <!-- Question Prompt & Choices -->
         <div class="space-y-5">
-          <h3 id="diag-question-title" class="font-serif text-2xl sm:text-3xl text-slate-900 leading-snug">
+          <h3 id="intake-diag-question-title" class="font-serif text-2xl sm:text-3xl text-slate-900 leading-snug">
             How are generative AI workflows currently governed across marketing, digital, and IT delivery pods?
           </h3>
           <div id="diag-options-list" class="grid gap-3">
@@ -2392,7 +2404,7 @@
 
         <!-- Navigation Footer -->
         <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-          <button type="button" id="diag-prev-btn" onclick="prevDiagQuestion()" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:text-slate-900 hover:border-slate-400 font-mono text-xs uppercase tracking-wider transition-all disabled:opacity-35 disabled:pointer-events-none" disabled>
+          <button type="button" id="intake-diag-prev-btn" onclick="prevDiagQuestion()" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:text-slate-900 hover:border-slate-400 font-mono text-xs uppercase tracking-wider transition-all disabled:opacity-35 disabled:pointer-events-none" disabled>
             &larr; Previous
           </button>
           <button type="button" onclick="jumpToBriefingForm()" class="font-mono text-[11px] text-slate-500 hover:text-cobalt underline underline-offset-4 transition-colors">
@@ -3262,12 +3274,12 @@
     function renderDiagQuestion() {
       const q = DXMM_DIAG_QUESTIONS[diagStep];
       const badgeEl = document.getElementById('diag-pillar-badge');
-      const stepEl = document.getElementById('diag-step-num');
-      const barEl = document.getElementById('diag-progress-bar');
+      const stepEl = document.getElementById('intake-diag-step-num');
+      const barEl = document.getElementById('intake-diag-progress-bar');
       const pctEl = document.getElementById('diag-progress-pct');
-      const titleEl = document.getElementById('diag-question-title');
+      const titleEl = document.getElementById('intake-diag-question-title');
       const optsEl = document.getElementById('diag-options-list');
-      const prevBtn = document.getElementById('diag-prev-btn');
+      const prevBtn = document.getElementById('intake-diag-prev-btn');
       if (!q || !optsEl) return;
 
       const pct = Math.round(((diagStep + 1) / DXMM_DIAG_QUESTIONS.length) * 100);
@@ -3378,7 +3390,7 @@
       renderDiagQuestion();
     };
 
-    renderDiagQuestion();
+    try { renderDiagQuestion(); } catch (err) { console.error('Diagnostic init error:', err); }
 
     // Documentary Field-Work Lightbox
     const lightboxModal = document.getElementById('field-lightbox-modal');
