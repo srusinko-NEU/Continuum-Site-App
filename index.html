@@ -2423,6 +2423,7 @@
     let activeBeatIndex = -1;
     let rafKeynoteId = null;
     let lastTickPerf = null;
+    let pendingSeekTime = null;
 
     function formatTime(seconds) {
       const s = Math.max(0, Math.min(KEYNOTE_TOTAL_DURATION, seconds));
@@ -2717,7 +2718,14 @@
       lastTickPerf = null;
       if (masterAudio) {
         masterAudio.volume = 0.92;
-        masterAudio.currentTime = currentKeynoteTime;
+        if (masterAudio.readyState >= 1) {
+          if (Math.abs(masterAudio.currentTime - currentKeynoteTime) > 0.2) {
+            masterAudio.currentTime = currentKeynoteTime;
+          }
+          pendingSeekTime = null;
+        } else {
+          pendingSeekTime = currentKeynoteTime;
+        }
         masterAudio.play().catch(() => {});
       }
       if (playIcon) playIcon.classList.add('hidden');
@@ -2744,7 +2752,14 @@
 
     function jumpToTime(seconds) {
       const clamped = Math.max(0, Math.min(KEYNOTE_TOTAL_DURATION - 0.1, seconds));
-      if (masterAudio) masterAudio.currentTime = clamped;
+      if (masterAudio) {
+        if (masterAudio.readyState >= 1) {
+          masterAudio.currentTime = clamped;
+          pendingSeekTime = null;
+        } else {
+          pendingSeekTime = clamped;
+        }
+      }
       syncUIForTime(clamped);
       if (!isPlayingKeynote) playKeynote();
     }
@@ -2752,6 +2767,43 @@
     function jumpToActIdx(idx) {
       const act = ACT_CUES[idx];
       if (act) jumpToTime(act.start);
+    }
+
+    if (masterAudio) {
+      masterAudio.addEventListener('loadedmetadata', () => {
+        if (!isNaN(masterAudio.duration) && masterAudio.duration > 10) {
+          KEYNOTE_TOTAL_DURATION = masterAudio.duration;
+          if (progressSlider) progressSlider.max = masterAudio.duration;
+          if (durationEl) durationEl.textContent = formatTime(masterAudio.duration);
+        }
+        if (pendingSeekTime !== null) {
+          masterAudio.currentTime = pendingSeekTime;
+          pendingSeekTime = null;
+        }
+      });
+      masterAudio.addEventListener('ended', () => {
+        pauseKeynote();
+        syncUIForTime(KEYNOTE_TOTAL_DURATION);
+      });
+    }
+
+    if (playBtn) playBtn.addEventListener('click', togglePlay);
+    if (playOverlayBtn) playOverlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+    if (stageEl) stageEl.addEventListener('click', togglePlay);
+    if (fullscreenBtn && stageEl) {
+      fullscreenBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (stageEl.requestFullscreen) stageEl.requestFullscreen();
+        else if (stageEl.webkitRequestFullscreen) stageEl.webkitRequestFullscreen();
+      });
+    }
+    if (progressSlider) {
+      progressSlider.addEventListener('input', () => {
+        const t = Number(progressSlider.value);
+        if (masterAudio && masterAudio.readyState >= 1) masterAudio.currentTime = t;
+        syncUIForTime(t);
+      });
     }
 
     buildBeatStrip();
