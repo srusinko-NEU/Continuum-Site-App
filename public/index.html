@@ -82,6 +82,49 @@
       box-shadow: 0 12px 32px -8px rgba(37, 99, 235, 0.28);
     }
 
+    /* Executive Header Scrollspy Active Indicator */
+    .header-nav-link {
+      position: relative;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      transition: color 0.2s ease;
+    }
+    .header-nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      border-radius: 9999px;
+      background-color: #2563EB;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-nav-link[href="#keynote"]::after {
+      background-color: #F59E0B;
+    }
+    .header-nav-link.is-active {
+      color: #FFFFFF;
+    }
+    .header-nav-link[href="#keynote"].is-active {
+      color: #FCD34D;
+    }
+    .header-nav-link.is-active::after {
+      transform: scaleX(1);
+    }
+    .mobile-link.is-active {
+      color: #FFFFFF;
+      font-weight: 600;
+      padding-left: 0.75rem;
+      border-left: 2px solid #2563EB;
+    }
+    .mobile-link[href="#keynote"].is-active {
+      color: #FCD34D;
+      border-left-color: #F59E0B;
+    }
+
     /* EQ Animation */
     @keyframes eqBar {
       0%, 100% { height: 4px; }
@@ -145,17 +188,17 @@
       </div>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden lg:flex items-center lg:gap-x-4 xl:gap-x-6 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap">
-        <a href="#dilemma" class="hover:text-white transition-colors">The Dilemma</a>
-        <a href="#space-between" class="hover:text-white transition-colors">Space Between</a>
-        <a href="#methodology" class="hover:text-white transition-colors">AI DXMM™</a>
-        <a href="#overlay-model" class="hover:text-white transition-colors">Overlay Model</a>
-        <a href="#keynote" class="hover:text-white transition-colors text-amberGold flex items-center gap-1.5">
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center lg:gap-x-4 xl:gap-x-6 text-xs xl:text-sm font-medium text-slate-300 whitespace-nowrap">
+        <a href="#dilemma" data-nav-target="dilemma" class="header-nav-link hover:text-white">The Dilemma</a>
+        <a href="#space-between" data-nav-target="space-between" class="header-nav-link hover:text-white">Space Between</a>
+        <a href="#methodology" data-nav-target="methodology" class="header-nav-link hover:text-white">AI DXMM™</a>
+        <a href="#overlay-model" data-nav-target="overlay-model" class="header-nav-link hover:text-white">Overlay Model</a>
+        <a href="#keynote" data-nav-target="keynote" class="header-nav-link hover:text-white text-amberGold flex items-center gap-1.5">
           <span class="w-1.5 h-1.5 rounded-full bg-amberGold animate-ping"></span>
           Keynote
         </a>
-        <a href="#platforms" class="hover:text-white transition-colors">Platforms</a>
-        <a href="#leadership" class="hover:text-white transition-colors">Leadership</a>
+        <a href="#platforms" data-nav-target="platforms" class="header-nav-link hover:text-white">Platforms</a>
+        <a href="#leadership" data-nav-target="leadership" class="header-nav-link hover:text-white">Leadership</a>
       </nav>
 
       <!-- Action Button & Mobile Toggle with Architectural Buffer -->
@@ -174,15 +217,15 @@
 
     <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-[#090A0F] px-6 py-6 space-y-4">
-      <a href="#dilemma" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">The Enterprise Dilemma</a>
-      <a href="#space-between" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">The Space Between</a>
-      <a href="#methodology" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">AI DXMM™ Framework</a>
-      <a href="#overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Project-Overlay Model</a>
-      <a href="#keynote" class="mobile-link block text-sm font-medium text-amberGold hover:text-white">Keynote Manifesto (3:07)</a>
-      <a href="#platforms" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Enterprise Platforms</a>
-      <a href="#leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white">Leadership & Field Practice</a>
+      <a href="#dilemma" data-nav-target="dilemma" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">The Enterprise Dilemma</a>
+      <a href="#space-between" data-nav-target="space-between" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">The Space Between</a>
+      <a href="#methodology" data-nav-target="methodology" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">AI DXMM™ Framework</a>
+      <a href="#overlay-model" data-nav-target="overlay-model" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Project-Overlay Model</a>
+      <a href="#keynote" data-nav-target="keynote" class="mobile-link block text-sm font-medium text-amberGold hover:text-white transition-all">Keynote Manifesto (2:07)</a>
+      <a href="#platforms" data-nav-target="platforms" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Enterprise Platforms</a>
+      <a href="#leadership" data-nav-target="leadership" class="mobile-link block text-sm font-medium text-slate-300 hover:text-white transition-all">Leadership &amp; Field Practice</a>
       <div class="pt-6 mt-3 border-t border-slate-800">
-        <a href="#diagnostic-intake" class="mobile-link block w-full text-center py-3.5 text-xs font-mono uppercase tracking-wider bg-cobalt text-white rounded-lg font-semibold shadow-lg shadow-cobalt/20">Book Diagnostic</a>
+        <a href="#diagnostic-intake" data-nav-target="diagnostic-intake" class="mobile-link block w-full text-center py-3.5 text-xs font-mono uppercase tracking-wider bg-cobalt text-white rounded-lg font-semibold shadow-lg shadow-cobalt/20">Book Diagnostic</a>
       </div>
     </div>
   </header>
@@ -235,7 +278,7 @@
       <div class="flex flex-wrap items-center gap-4">
         <a href="#keynote" class="inline-flex items-center gap-3 px-6 py-4 bg-cobalt hover:bg-cobalt-hover text-white font-mono text-xs uppercase tracking-wider font-semibold rounded shadow-lg shadow-cobalt/30 transition-all">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          Experience The Keynote (3:07)
+          Experience The Keynote (2:07)
         </a>
         <a href="#overlay-model" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-mono text-xs uppercase tracking-wider font-semibold rounded transition-all">
           How The Overlay Works
@@ -2879,10 +2922,13 @@
   </div>
 
   <script>
-    (function(){
-      var tracker = document.getElementById('section-tracker-pill');
-      var trackerText = document.getElementById('section-tracker-text');
-      var sections = [
+    (function () {
+      const tracker = document.getElementById('section-tracker-pill');
+      const trackerText = document.getElementById('section-tracker-text');
+      const headerLinks = Array.from(document.querySelectorAll('header nav a.header-nav-link[data-nav-target]'));
+      const mobileLinks = Array.from(document.querySelectorAll('#mobile-menu a.mobile-link[data-nav-target]'));
+
+      const sections = [
         { id: 'dilemma', label: '01 // THE REALITY CHECK' },
         { id: 'space-between', label: '02 // THE SPACE BETWEEN' },
         { id: 'methodology', label: '03 // PROPRIETARY IP: AI DXMM™' },
@@ -2893,35 +2939,94 @@
         { id: 'diagnostic-intake', label: '08 // EXECUTIVE INTAKE' }
       ];
 
-      if ('IntersectionObserver' in window) {
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              for (var i = 0; i < sections.length; i++) {
-                if (sections[i].id === entry.target.id) {
-                  if (trackerText) trackerText.textContent = sections[i].label;
-                  if (tracker) {
-                    tracker.classList.remove('opacity-0', 'pointer-events-none');
-                    tracker.classList.add('opacity-100');
-                  }
-                  break;
-                }
-              }
-            }
-          });
-        }, { threshold: 0.25 });
+      let currentActiveId = null;
+      const visibleHeights = new Map();
 
-        sections.forEach(function(s) {
-          var el = document.getElementById(s.id);
-          if (el) observer.observe(el);
+      function applyActiveSection(sectionId) {
+        if (currentActiveId === sectionId) return;
+        currentActiveId = sectionId;
+
+        headerLinks.forEach((link) => {
+          const isMatch = sectionId !== null && link.getAttribute('data-nav-target') === sectionId;
+          link.classList.toggle('is-active', isMatch);
+          if (isMatch) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
         });
 
-        window.addEventListener('scroll', function() {
-          if (window.scrollY < 400 && tracker) {
+        mobileLinks.forEach((link) => {
+          const isMatch = sectionId !== null && link.getAttribute('data-nav-target') === sectionId;
+          link.classList.toggle('is-active', isMatch);
+          if (isMatch) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+
+        if (tracker && trackerText) {
+          const matched = sections.find((s) => s.id === sectionId);
+          if (matched && window.scrollY >= 250) {
+            trackerText.textContent = matched.label;
+            tracker.classList.remove('opacity-0', 'pointer-events-none');
+            tracker.classList.add('opacity-100');
+          } else {
             tracker.classList.add('opacity-0', 'pointer-events-none');
             tracker.classList.remove('opacity-100');
           }
+        }
+      }
+
+      function resolveMostVisibleSection() {
+        if (window.scrollY < 220) {
+          applyActiveSection(null);
+          return;
+        }
+        // If scrolled to the very bottom, ensure the final section highlights cleanly
+        if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 24)) {
+          applyActiveSection('diagnostic-intake');
+          return;
+        }
+        let bestId = null;
+        let bestHeight = 0;
+        for (const s of sections) {
+          const h = visibleHeights.get(s.id) || 0;
+          if (h > bestHeight) {
+            bestHeight = h;
+            bestId = s.id;
+          }
+        }
+        if (bestId) applyActiveSection(bestId);
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            visibleHeights.set(entry.target.id, entry.isIntersecting ? entry.intersectionRect.height : 0);
+          });
+          resolveMostVisibleSection();
+        }, {
+          // Focus detection band right below the 80px fixed header across all viewport heights
+          rootMargin: '-18% 0px -60% 0px',
+          threshold: [0, 0.05, 0.15, 0.35, 0.6]
         });
+
+        sections.forEach((s) => {
+          const el = document.getElementById(s.id);
+          if (el) observer.observe(el);
+        });
+
+        // Instant visual feedback when clicking a header/mobile nav link
+        [...headerLinks, ...mobileLinks].forEach((link) => {
+          link.addEventListener('click', () => {
+            const targetId = link.getAttribute('data-nav-target');
+            if (targetId) applyActiveSection(targetId);
+          });
+        });
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY < 220) {
+            applyActiveSection(null);
+          } else if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 24)) {
+            applyActiveSection('diagnostic-intake');
+          }
+        }, { passive: true });
       }
     })();
   </script>
