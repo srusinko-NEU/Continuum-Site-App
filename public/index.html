@@ -90,6 +90,37 @@
     .eq-1 { animation: eqBar 0.8s ease-in-out infinite; }
     .eq-2 { animation: eqBar 1.1s ease-in-out infinite 0.2s; }
     .eq-3 { animation: eqBar 0.9s ease-in-out infinite 0.4s; }
+
+    /* Keynote 50-Beat Ken Burns & Compositor Slide Motion */
+    @keyframes kbZoomIn {
+      0% { transform: scale(1.0) translate3d(0, 0, 0); }
+      100% { transform: scale(1.08) translate3d(-1.2%, -0.8%, 0); }
+    }
+    @keyframes kbZoomOut {
+      0% { transform: scale(1.09) translate3d(1%, -0.5%, 0); }
+      100% { transform: scale(1.0) translate3d(0, 0, 0); }
+    }
+    @keyframes kbPanRight {
+      0% { transform: scale(1.06) translate3d(-2%, 0, 0); }
+      100% { transform: scale(1.06) translate3d(1.5%, 0, 0); }
+    }
+    @keyframes kbPanLeft {
+      0% { transform: scale(1.06) translate3d(1.5%, 0, 0); }
+      100% { transform: scale(1.06) translate3d(-2%, 0, 0); }
+    }
+    @keyframes slideReveal {
+      0% { opacity: 0; transform: translate3d(0, 8px, 0); }
+      100% { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+    .kb-in { animation: kbZoomIn 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .kb-out { animation: kbZoomOut 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .kb-right { animation: kbPanRight 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .kb-left { animation: kbPanLeft 3.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .slide-enter { animation: slideReveal 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kb-in, .kb-out, .kb-right, .kb-left, .slide-enter { animation: none !important; transform: none !important; }
+    }
   </style>
 </head>
 <body class="bg-obsidian text-slate-200 font-sans antialiased selection:bg-cobalt selection:text-white bg-obsidian-grid min-h-screen flex flex-col">
@@ -1338,205 +1369,289 @@
     <div class="max-w-7xl mx-auto">
     
       <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amberGold/10 border border-amberGold/30 text-amberGold font-mono text-xs uppercase tracking-widest mb-4">
-          <span>05 // Master Keynote Oration &middot; Cinema Master Cut</span>
+        <div class="font-mono text-xs text-amberGold uppercase tracking-widest mb-3">
+          05 &middot; Executive Keynote Oration &middot; 2:00 Kinetic Visual Deck
         </div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-4">
-          The Space Between: Las Vegas Keynote
+        <h2 class="font-serif text-4xl sm:text-5xl text-white font-normal mb-4 text-balance">
+          The Space Between: Keynote Presentation
         </h2>
-        <p class="text-slate-400 text-base leading-relaxed">
-          The official keynote presentation and 5-Act manifesto delivered by Managing Director Sean Rusinko, orchestrating the synthesis of strategy, architecture, and enterprise AI governance.
+        <p class="text-slate-300 text-base leading-relaxed">
+          Re-orchestrated as a tight 2:00 executive film with 50 rapid visual cuts (~2.4s rotation synced to Edgar Hopp&rsquo;s 104 BPM orchestral score). Built to audition new voiceover takes live over the ducked master score bed.
         </p>
       </div>
 
-      <!-- Keynote Cinema Video Console -->
-      <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 mb-12 shadow-2xl backdrop-blur-sm">
+      <!-- Keynote Cinema & Visual Deck Console -->
+      <div id="keynote-console-shell" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 sm:p-8 mb-10 shadow-2xl">
       
-      <!-- Console Top Header -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80 mb-6">
-        <div>
-          <div class="font-mono text-xs text-cobalt uppercase tracking-widest flex items-center gap-2">
-            <span id="eq-container" class="flex items-end gap-0.5 h-3 opacity-60">
-              <span class="w-1 bg-cobalt eq-1 rounded-full"></span>
-              <span class="w-1 bg-cobalt eq-2 rounded-full"></span>
-              <span class="w-1 bg-cobalt eq-3 rounded-full"></span>
-            </span>
-            <span>Keynote Cinema Master Cut · 3:07 Film (2:45 Score &amp; Narration)</span>
+        <!-- Console Top Header -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-800/80 mb-6">
+          <div>
+            <div class="font-mono text-xs text-cobalt uppercase tracking-widest flex items-center gap-2">
+              <span id="eq-container" class="flex items-end gap-0.5 h-3 opacity-60">
+                <span class="w-1 bg-cobalt eq-1 rounded-full"></span>
+                <span class="w-1 bg-cobalt eq-2 rounded-full"></span>
+                <span class="w-1 bg-cobalt eq-3 rounded-full"></span>
+              </span>
+              <span>2:00 Master Cut &middot; 50 Visual Beats &middot; 2.4s Rotation</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-white mt-1">The Space Between: 50-Slide Keynote Cut</h3>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Score: Edgar Hopp (104 BPM, Mastered 2:00) &middot; Ready for Voiceover Track Sync</p>
           </div>
-          <h4 class="font-serif text-2xl text-white mt-1">The Space Between: Keynote Manifesto</h4>
-          <p class="text-xs text-slate-400 font-mono mt-0.5">Voiceover by Sean Rusinko · Master Orchestral Score by Edgar Hopp (Epidemic Sound)</p>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <a href="/assets/audio/the_space_between_score_2min.mp3" download="the_space_between_score_2min.mp3" class="px-3.5 py-2 rounded-lg border border-slate-700 bg-slate-950 hover:border-slate-500 text-slate-200 font-mono text-xs transition-colors whitespace-nowrap shrink-0">
+              Download 2:00 Score (.mp3)
+            </a>
+            <label for="voiceover-file-input" class="cursor-pointer px-3.5 py-2 rounded-lg border border-cobalt/50 bg-cobalt/15 hover:bg-cobalt/25 text-white font-mono text-xs transition-colors whitespace-nowrap shrink-0">
+              <span id="voiceover-upload-label">Load New Voiceover</span>
+              <input id="voiceover-file-input" type="file" accept="audio/*" class="hidden" />
+            </label>
+            <button id="toggle-teleprompter-btn" type="button" onclick="toggleTeleprompterDrawer()" class="px-3.5 py-2 rounded-lg border border-amberGold/40 bg-amberGold/10 hover:bg-amberGold/20 text-amberGold font-mono text-xs transition-colors whitespace-nowrap shrink-0">
+              2:00 Script &amp; Teleprompter
+            </button>
+          </div>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emeraldGuard/10 border border-emeraldGuard/30 text-emeraldGuard font-mono text-[11px]">
-            <span class="w-1.5 h-1.5 rounded-full bg-emeraldGuard animate-pulse"></span>
-            Voice + Score + Visuals Synchronized
-          </span>
+
+        <!-- Audio Elements (Synced 2:00 Score + Optional Dropped-in Voiceover) -->
+        <audio id="keynote-score-audio" preload="auto" src="/assets/audio/the_space_between_score_2min.mp3"></audio>
+        <audio id="keynote-voice-audio" preload="auto" class="hidden"></audio>
+
+        <!-- Active Voiceover Mixer Strip (Appears when custom voiceover loaded, or always subtle info) -->
+        <div id="voiceover-mixer-bar" class="hidden mb-5 px-4 py-3 rounded-xl bg-slate-950/90 border border-emeraldGuard/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3 text-xs font-mono text-emeraldGuard">
+            <span>Custom Voiceover Loaded:</span>
+            <span id="voiceover-filename" class="text-white truncate max-w-[220px]">recording.mp3</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="flex items-center gap-2 font-mono text-xs text-slate-300 whitespace-nowrap">
+              <span>Music Ducking:</span>
+              <input id="score-duck-slider" type="range" min="0" max="100" value="22" class="w-24 accent-cobalt cursor-pointer" />
+              <span id="score-duck-val" class="tabular-nums text-cobalt w-9 text-right">22%</span>
+            </label>
+            <button type="button" onclick="clearCustomVoiceover()" class="px-2.5 py-1 rounded border border-slate-700 hover:border-slate-500 text-slate-300 font-mono text-[11px] whitespace-nowrap">
+              Clear Track
+            </button>
+          </div>
+        </div>
+
+        <!-- Widescreen 16:9 Broadcast Stage -->
+        <div id="keynote-stage" class="relative w-full aspect-video rounded-xl overflow-hidden bg-[#06080D] border border-slate-800 shadow-2xl mb-5 group select-none cursor-pointer">
+          
+          <!-- Dynamic 50-Slide Viewport Layer -->
+          <div id="stage-canvas" class="absolute inset-0 w-full h-full overflow-hidden">
+            <!-- Populated cleanly via JS -->
+          </div>
+
+          <!-- Top HUD Chrome -->
+          <div class="absolute top-4 left-4 right-4 z-30 flex items-center justify-between pointer-events-none">
+            <div class="px-3.5 py-1.5 rounded bg-black/75 backdrop-blur-md border border-white/10 font-mono text-xs text-slate-200 flex items-center gap-3">
+              <span id="stage-act-pill" class="text-cobalt font-semibold">ACT I</span>
+              <span class="text-slate-600">&middot;</span>
+              <span id="stage-slide-counter" class="tabular-nums text-slate-300">SLIDE 01 / 50</span>
+              <span class="hidden md:inline text-slate-600">&middot;</span>
+              <span id="video-act-badge" class="hidden md:inline text-slate-300">The Speed Illusion</span>
+            </div>
+
+            <div class="flex items-center gap-2 pointer-events-auto">
+              <button id="stage-prev-btn" type="button" aria-label="Previous Visual Beat" onclick="event.stopPropagation(); stepBeat(-1)" class="px-2.5 py-1.5 rounded bg-black/75 hover:bg-black/95 border border-white/10 text-slate-300 hover:text-white font-mono text-xs transition">
+                &larr; Prev
+              </button>
+              <button id="stage-next-btn" type="button" aria-label="Next Visual Beat" onclick="event.stopPropagation(); stepBeat(1)" class="px-2.5 py-1.5 rounded bg-black/75 hover:bg-black/95 border border-white/10 text-slate-300 hover:text-white font-mono text-xs transition">
+                Next &rarr;
+              </button>
+              <button id="video-fullscreen-btn" type="button" aria-label="Fullscreen Stage" class="p-2 rounded bg-black/75 hover:bg-black/95 border border-white/10 text-slate-300 hover:text-white transition">
+                <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Center Play / Resume Trigger -->
+          <button id="video-overlay-play-btn" type="button" aria-label="Play 2:00 Keynote Deck" class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-cobalt/90 hover:bg-cobalt text-white flex items-center justify-center shadow-2xl shadow-cobalt/50 transition-all transform hover:scale-105 z-30">
+            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+
+          <!-- Bottom Edge Continuous Timeline Bar -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-30">
+            <div id="stage-hairline-progress" class="h-full bg-cobalt w-0 transition-[width] duration-75"></div>
+          </div>
+        </div>
+
+        <!-- Live Cue Sub-Strip & Teleprompter Line -->
+        <div id="live-cue-strip" class="mb-5 px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex-1 min-w-0">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-amberGold mb-1">Active Spoken Cue (Teleprompter Sync)</div>
+            <p id="live-teleprompter-now" class="text-sm sm:text-base text-white font-medium leading-snug">
+              "For two years, the enterprise ran faster than it ever has in history."
+            </p>
+          </div>
+          <div class="md:w-72 md:border-l md:border-slate-800 md:pl-4 flex-shrink-0">
+            <div class="font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-0.5">Up Next (<span id="live-teleprompter-next-time" class="tabular-nums">0:05</span>)</div>
+            <p id="live-teleprompter-next" class="text-xs text-slate-400 truncate">
+              Boards demanded AI mandates. CIOs signed the licenses.
+            </p>
+          </div>
+        </div>
+
+        <!-- Expandable Recommended 2:00 Talking Script Drawer -->
+        <div id="teleprompter-script-drawer" class="hidden mb-6 p-6 rounded-xl bg-slate-950 border border-amberGold/30 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
+            <div>
+              <h4 class="font-serif text-2xl text-white">Recommended 2:00 Keynote Recording Script (~275 Words)</h4>
+              <p class="text-xs font-mono text-slate-400 mt-0.5">Paced at ~135 WPM to lock directly to the 50 visual beats across Acts I&ndash;V.</p>
+            </div>
+            <button type="button" onclick="copyKeynoteScript()" id="copy-script-btn" class="px-4 py-2 rounded-lg bg-cobalt hover:bg-cobalt-hover text-white font-mono text-xs transition-colors whitespace-nowrap shrink-0">
+              Copy Full 2:00 Script
+            </button>
+          </div>
+          <div id="teleprompter-script-lines" class="grid md:grid-cols-2 gap-4 text-xs leading-relaxed">
+            <!-- Populated cleanly via JS -->
+          </div>
+        </div>
+
+        <!-- Primary Transport & 50-Beat Timeline Scrubber -->
+        <div class="space-y-4">
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <button id="audio-play-btn" type="button" aria-label="Play or Pause Keynote" class="w-12 h-12 rounded-full bg-cobalt hover:bg-cobalt-hover text-white flex items-center justify-center shadow-lg shadow-cobalt/30 transition-all flex-shrink-0">
+              <svg id="play-icon" class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg id="pause-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+
+            <div class="w-full flex-1">
+              <div class="flex justify-between items-center text-xs font-mono text-slate-400 mb-1.5">
+                <span id="audio-current-time" class="tabular-nums">0:00</span>
+                <span id="audio-status-label" class="text-slate-300 hidden sm:inline">Act I: The Speed Illusion &middot; Slide 01 of 50</span>
+                <span id="audio-duration" class="tabular-nums">2:00</span>
+              </div>
+              <div class="relative w-full">
+                <input id="audio-progress" type="range" min="0" max="120" value="0" step="0.1" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cobalt">
+              </div>
+            </div>
+          </div>
+
+          <!-- 50-Beat Rapid Rotation Filmstrip Bar -->
+          <div class="pt-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span>50 Visual Beats Timeline (~2.4s rotation &middot; click any beat to inspect)</span>
+              <span id="beat-title-readout" class="text-slate-300 truncate max-w-xs sm:max-w-md">01 &middot; Las Vegas Keynote Stage</span>
+            </div>
+            <div id="beat-matrix-strip" class="grid gap-[2px] sm:gap-1" style="grid-template-columns: repeat(50, minmax(0, 1fr));">
+              <!-- Populated cleanly via JS -->
+            </div>
+          </div>
+
+          <!-- Quick Jump 5 Act Markers -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-2">
+            <button type="button" data-act-start="0" onclick="jumpToTime(0)" class="act-btn px-3 py-2.5 rounded-lg border border-cobalt bg-cobalt/15 hover:border-cobalt/70 font-mono text-[11px] text-left transition-all">
+              <div class="text-cobalt font-semibold">ACT I &middot; 9 CUTS</div>
+              <div class="text-slate-400 text-[10px] tabular-nums">0:00 The Speed Illusion</div>
+            </button>
+            <button type="button" data-act-start="22" onclick="jumpToTime(22)" class="act-btn px-3 py-2.5 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
+              <div class="text-slate-300 font-semibold">ACT II &middot; 10 CUTS</div>
+              <div class="text-slate-400 text-[10px] tabular-nums">0:22 Commodity Trap</div>
+            </button>
+            <button type="button" data-act-start="46" onclick="jumpToTime(46)" class="act-btn px-3 py-2.5 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
+              <div class="text-cobalt font-semibold">ACT III &middot; 12 CUTS</div>
+              <div class="text-slate-400 text-[10px] tabular-nums">0:46 Space Between</div>
+            </button>
+            <button type="button" data-act-start="74" onclick="jumpToTime(74)" class="act-btn px-3 py-2.5 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
+              <div class="text-slate-300 font-semibold">ACT IV &middot; 12 CUTS</div>
+              <div class="text-slate-400 text-[10px] tabular-nums">1:14 Arch as Moat</div>
+            </button>
+            <button type="button" data-act-start="102" onclick="jumpToTime(102)" class="act-btn px-3 py-2.5 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
+              <div class="text-emeraldGuard font-semibold">ACT V &middot; 7 CUTS</div>
+              <div class="text-slate-400 text-[10px] tabular-nums">1:42 Mandate</div>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Widescreen 16:9 Cinema Player -->
-      <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-slate-800 shadow-2xl mb-6 group">
-        <video 
-          id="keynote-video" 
-          preload="metadata" 
-          playsinline 
-          class="w-full h-full object-cover cursor-pointer"
-          poster="/assets/commercial/skybridge_dawn.jpg"
-          src="/assets/videos/the_space_between_keynote_film.mp4">
-        </video>
-
-        <!-- Big Center Play Overlay Button -->
-        <button id="video-overlay-play-btn" type="button" aria-label="Play Keynote Video" class="absolute inset-0 m-auto w-20 h-20 rounded-full bg-cobalt/90 hover:bg-cobalt text-white flex items-center justify-center shadow-2xl shadow-cobalt/50 transition-all transform hover:scale-110 z-20">
-          <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-
-        <!-- Live Lower Third Badge -->
-        <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded bg-black/70 backdrop-blur-md border border-white/10 font-mono text-xs text-slate-300 flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-emeraldGuard animate-pulse"></span>
-          <span id="video-act-badge">Act I: The Commodity Trap</span>
-        </div>
-
-        <!-- Cinema Fullscreen Button -->
-        <button id="video-fullscreen-btn" type="button" aria-label="Fullscreen" class="absolute top-4 right-4 z-20 p-2 rounded bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/10 text-slate-300 hover:text-white transition">
-          <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
-        </button>
-      </div>
-
-      <!-- Video Timeline & Navigation Controls -->
+      <!-- 5 Acts Tightened 2:00 Script Breakdown Cards -->
       <div class="space-y-4">
-        <div class="flex flex-col sm:flex-row items-center gap-4">
-          <!-- Play / Pause Button -->
-          <button id="audio-play-btn" type="button" aria-label="Play/Pause Keynote" class="w-12 h-12 rounded-full bg-cobalt hover:bg-cobalt-hover text-white flex items-center justify-center shadow-lg shadow-cobalt/30 transition-all flex-shrink-0">
-            <svg id="play-icon" class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <svg id="pause-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-          </button>
-
-          <!-- Timeline Scrubber -->
-          <div class="w-full flex-1">
-            <div class="flex justify-between items-center text-xs font-mono text-slate-400 mb-1.5">
-              <span id="audio-current-time">0:00</span>
-              <span id="audio-status-label" class="text-slate-400 hidden sm:inline">Act I: The Commodity Trap</span>
-              <span id="audio-duration">3:07</span>
+        
+        <!-- Act 1 -->
+        <div id="act-card-1" data-start="0" class="act-card active rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="jumpToTime(0)">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT I</span>
+              <h3 class="text-xl font-serif text-white">The Speed Illusion</h3>
             </div>
-            <div class="relative w-full">
-              <input id="audio-progress" type="range" min="0" max="187" value="0" step="0.5" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cobalt">
+            <span class="font-mono text-xs text-slate-400 tabular-nums">0:00 &ndash; 0:22 &middot; 9 Visual Cuts (~2.4s cadence)</span>
+          </div>
+          <div class="font-serif text-lg italic text-cobalt mb-2.5">
+            &ldquo;Because speed without velocity is just friction.&rdquo;
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            For two years, the enterprise ran faster than it ever has in history. Boards demanded AI mandates. CIOs signed the licenses. Every business unit launched a pilot. We tallied the experiments and celebrated the speed. Yet behind closed doors, a harder truth settled in: we were moving at blinding speed&mdash;without advancing an inch. Because speed without velocity is just friction.
+          </p>
+        </div>
+
+        <!-- Act 2 -->
+        <div id="act-card-2" data-start="22" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="jumpToTime(22)">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 font-mono text-xs font-bold">ACT II</span>
+              <h3 class="text-xl font-serif text-white">The Commodity Trap</h3>
             </div>
+            <span class="font-mono text-xs text-slate-400 tabular-nums">0:22 &ndash; 0:46 &middot; 10 Visual Cuts (~2.4s cadence)</span>
           </div>
+          <div class="font-serif text-lg italic text-amberGold mb-2.5">
+            &ldquo;It wasn&rsquo;t the holy grail. It wasn&rsquo;t even the map.&rdquo;
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            The industry sold a convenient myth: buy the software, and transformation follows. They told you the model was the holy grail. It wasn&rsquo;t the holy grail&mdash;it wasn&rsquo;t even the map. Instead, fragmented silos burned capital. Copilots sat idle. Pilot paralysis drained momentum. When the steering committee asks for the return on capital, the room goes quiet&mdash;because no one answered one question: Where are we going?
+          </p>
         </div>
 
-        <!-- Quick Jump Act Markers -->
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-2">
-          <button type="button" data-act-start="0" onclick="jumpToAct(0)" class="act-btn px-3 py-2 rounded-lg border border-cobalt bg-cobalt/15 hover:border-cobalt/70 font-mono text-[11px] text-left transition-all">
-            <div class="text-cobalt font-semibold">ACT I</div>
-            <div class="text-slate-400 text-[10px]">0:00 The Trap</div>
-          </button>
-          <button type="button" data-act-start="39" onclick="jumpToAct(39)" class="act-btn px-3 py-2 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
-            <div class="text-slate-300 font-semibold">ACT II</div>
-            <div class="text-slate-400 text-[10px]">0:39 Whale</div>
-          </button>
-          <button type="button" data-act-start="75" onclick="jumpToAct(75)" class="act-btn px-3 py-2 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
-            <div class="text-cobalt font-semibold">ACT III</div>
-            <div class="text-slate-400 text-[10px]">1:15 Space Between</div>
-          </button>
-          <button type="button" data-act-start="125" onclick="jumpToAct(125)" class="act-btn px-3 py-2 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
-            <div class="text-slate-300 font-semibold">ACT IV</div>
-            <div class="text-slate-400 text-[10px]">2:05 The Moat</div>
-          </button>
-          <button type="button" data-act-start="147" onclick="jumpToAct(147)" class="act-btn px-3 py-2 rounded-lg border border-slate-800 bg-slate-950/60 hover:border-cobalt/50 font-mono text-[11px] text-left transition-all">
-            <div class="text-emeraldGuard font-semibold">ACT V</div>
-            <div class="text-slate-400 text-[10px]">2:27 Mandate</div>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 Acts Interactive Accordion / Cards -->
-    <div class="space-y-4">
-      
-      <!-- Act 1 -->
-      <div id="act-card-1" data-start="0" class="act-card active rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this, 0)">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT I</span>
-            <h3 class="text-xl font-serif text-white">The Commodity Trap</h3>
+        <!-- Act 3 -->
+        <div id="act-card-3" data-start="46" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="jumpToTime(46)">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT III</span>
+              <h3 class="text-xl font-serif text-white">The Space Between</h3>
+            </div>
+            <span class="font-mono text-xs text-slate-400 tabular-nums">0:46 &ndash; 1:14 &middot; 12 Visual Cuts (~2.3s cadence)</span>
           </div>
-          <span class="font-mono text-xs text-slate-400">0:00 – 0:39 · Sparse Felt-Piano & Delicate Celesta</span>
-        </div>
-        <div class="font-serif text-lg italic text-cobalt mb-3">
-          "Speed without velocity is just friction."
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          For two years, the enterprise ran faster than it has ever run in history. Every board demanded an AI strategy. Every CIO signed purchase orders for models, copilot seats, and cloud vector layers. Every business unit stood up a pilot. We celebrated the speed. We tallied up the experiments. And yet, behind closed boardroom doors, a quiet, uncomfortable truth began to set in: We were moving at blinding speed... but we hadn't moved an inch. Because speed without velocity is just friction.
-        </p>
-      </div>
-
-      <!-- Act 2 -->
-      <div id="act-card-2" data-start="39" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this, 39)">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-xs font-bold">ACT II</span>
-            <h3 class="text-xl font-serif text-white">The Torpedoed Whale</h3>
+          <div class="font-serif text-lg italic text-cobalt mb-2.5">
+            &ldquo;Transformation is 70% operating model, 20% context, and 10% models.&rdquo;
           </div>
-          <span class="font-mono text-xs text-slate-400">0:39 – 1:15 · Sub-Bass Pulse & Bowed String Tension</span>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Seventeen years in the enterprise trenches proves one law: software is a commodity. Transformation is 70% operating model, 20% composable context, and only 10% foundation models. Between the boardroom&rsquo;s Why and the engineering pipeline&rsquo;s How lies the chasm where budgets stall: The Space Between. Legacy consultancies leave 200-page decks on top of that chasm. Systems integrators bill hours inside it. We own it.
+          </p>
         </div>
-        <div class="font-serif text-lg italic text-amberGold mb-3">
-          "It wasn't the holy grail. Hell, it wasn't even the map."
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          The industry sold you a seductive fantasy: that if you bought the software, the transformation would follow. They told you that the tool was the holy grail. It wasn't the holy grail. Hell, it wasn't even the map. So what happened? Enterprises built a minefield of trial-and-error projects. Rogue business units testing prompts in silos. Multi-million-dollar software licenses sitting dormant. A slow, gentle torpedoing of the enterprise—eroding capital, exhausting teams, until the company drifts toward becoming... just another brand we used to know. And when the steering committee asks for the return on capital... the room goes silent. Because in the rush to adopt the tools, nobody stopped to answer the most fundamental question in business: Where are you going?
-        </p>
-      </div>
 
-      <!-- Act 3 -->
-      <div id="act-card-3" data-start="75" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this, 75)">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-cobalt text-white font-mono text-xs font-bold">ACT III</span>
-            <h3 class="text-xl font-serif text-white">The Space Between</h3>
+        <!-- Act 4 -->
+        <div id="act-card-4" data-start="74" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="jumpToTime(74)">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 font-mono text-xs font-bold">ACT IV</span>
+              <h3 class="text-xl font-serif text-white">Architecture as the Moat</h3>
+            </div>
+            <span class="font-mono text-xs text-slate-400 tabular-nums">1:14 &ndash; 1:42 &middot; 12 Visual Cuts (~2.3s cadence)</span>
           </div>
-          <span class="font-mono text-xs text-slate-400">1:15 – 2:05 · Modular Percussion Pulse (108 BPM) · Forward Momentum</span>
+          <div class="font-serif text-lg italic text-amberGold mb-2.5">
+            &ldquo;One funded beachhead becomes a turnkey Center of Excellence in a Box.&rdquo;
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Your competitive moat is never the tool you lease&mdash;it&rsquo;s the governance discipline inside your walls. Continuum DX embeds directly into active Sitecore, Salesforce, Contentful, Adobe, Optimizely, and Azure pipelines. No speculative labs. We wire verified prompt registries, deterministic QA gates, and human-in-the-loop review right into live sprints. One funded beachhead becomes a turnkey Center of Excellence in a Box&mdash;scaling safely across every business unit.
+          </p>
         </div>
-        <div class="font-serif text-lg italic text-cobalt mb-3">
-          "That space is our nirvana. We live in it. We master it."
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Here is what seventeen years in the enterprise trenches taught me: Software is a commodity. Algorithms are table stakes. Tools do not transform enterprises. Operating models do. Between the boardroom's mandate—the executive Why... and the engineering pipeline—the technical How... lies the most treacherous chasm in digital transformation. The Space Between. That space is where uncoordinated budgets die. It’s where data context gets lost. It’s where governance turns into bureaucratic concrete, or where the lack of it exposes the brand to catastrophic risk. Most consultancies fear that space. They hand you a 200-page deck from 30,000 feet and walk away. Most systems integrators drown it in billable engineering hours. But for us? That space is our nirvana. We don't fear it. We live in it. We master it. Because the space between is where the real architecture happens.
-        </p>
-      </div>
 
-      <!-- Act 4 -->
-      <div id="act-card-4" data-start="125" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this, 125)">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-mono text-xs font-bold">ACT IV</span>
-            <h3 class="text-xl font-serif text-white">The Operating Model as the Moat</h3>
+        <!-- Act 5 -->
+        <div id="act-card-5" data-start="102" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="jumpToTime(102)">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-2.5 py-1 rounded bg-emeraldGuard text-obsidian font-mono text-xs font-bold">ACT V</span>
+              <h3 class="text-xl font-serif text-white">The Continuum Mandate</h3>
+            </div>
+            <span class="font-mono text-xs text-slate-400 tabular-nums">1:42 &ndash; 2:00 &middot; 7 Visual Cuts (~2.5s cadence)</span>
           </div>
-          <span class="font-mono text-xs text-slate-400">2:05 – 2:27 · Full Orchestral Apex · Harmonic Strings & Choir</span>
-        </div>
-        <div class="font-serif text-lg italic text-amberGold mb-3">
-          "Your moat is the governance discipline you build inside your walls."
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Your competitive moat in the age of AI will not be the software you lease from someone else. Your moat is the governance discipline you build inside your walls. It is the map. It is the operating overlay that synchronizes Marketing, Product, and IT into a single, unstoppable delivery engine. We don’t ask executive committees for speculative budgets. We embed directly inside your active, funded initiatives—your platform rollouts, your composable migrations, your customer portals. We infuse verified prompt registries, automated QA guardrails, and human-in-the-loop workflows directly into your active sprints. We turn a single project beachhead into a turnkey AI Center of Excellence in a Box—scaling governance, velocity, and brand safety across every business unit in your portfolio. We replace pilot paralysis with compounding enterprise value.
-        </p>
-      </div>
-
-      <!-- Act 5 -->
-      <div id="act-card-5" data-start="147" class="act-card rounded-xl border border-slate-800 p-6 md:p-8 transition-all cursor-pointer" onclick="setActiveAct(this, 147)">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-emeraldGuard text-obsidian font-mono text-xs font-bold">ACT V</span>
-            <h3 class="text-xl font-serif text-white">The Continuum Mandate</h3>
+          <div class="font-serif text-lg italic text-emeraldGuard mb-2.5">
+            &ldquo;Software is the commodity. Governance is the moat.&rdquo;
           </div>
-          <span class="font-mono text-xs text-slate-400">2:27 – 3:07 · Lingering Hall Decay · Music Box & Sub-Bass Fade</span>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Before you sign the next software contract, know where you are going. Before you launch another disconnected pilot, build the operating model. Software is the commodity. Governance is the moat. We are Continuum DX Advisory&mdash;and we own the space between.
+          </p>
         </div>
-        <div class="font-serif text-lg italic text-emeraldGuard mb-3">
-          "Software is the commodity. Governance is the holy grail."
-        </div>
-        <p class="text-slate-300 text-sm leading-relaxed">
-          Before you sign another software contract... know where you are going. Before you launch another disconnected pilot... build the model. Software is the commodity. Governance is the holy grail. We are Continuum DX Advisory. And we own the space between.
-        </p>
-      </div>
 
       </div>
     </div>
@@ -2244,149 +2359,611 @@
       });
     }
 
-    // Keynote Video Controller & Multi-Track Synchronization
-    const video = document.getElementById('keynote-video');
+    // ==================== 50-BEAT KEYNOTE VISUAL ENGINE & VOICEOVER MIXER ====================
+    const KEYNOTE_TOTAL_DURATION = 120.0;
+    const scoreAudio = document.getElementById('keynote-score-audio');
+    const voiceAudio = document.getElementById('keynote-voice-audio');
+    const stageEl = document.getElementById('keynote-stage');
+    const stageCanvas = document.getElementById('stage-canvas');
     const playOverlayBtn = document.getElementById('video-overlay-play-btn');
     const fullscreenBtn = document.getElementById('video-fullscreen-btn');
+    const stageActPill = document.getElementById('stage-act-pill');
+    const stageSlideCounter = document.getElementById('stage-slide-counter');
     const actBadge = document.getElementById('video-act-badge');
+    const hairlineProgress = document.getElementById('stage-hairline-progress');
     const playBtn = document.getElementById('audio-play-btn');
     const playIcon = document.getElementById('play-icon');
     const pauseIcon = document.getElementById('pause-icon');
-    const progress = document.getElementById('audio-progress');
+    const progressSlider = document.getElementById('audio-progress');
     const currentTimeEl = document.getElementById('audio-current-time');
-    const durationEl = document.getElementById('audio-duration');
     const statusLabel = document.getElementById('audio-status-label');
     const eqContainer = document.getElementById('eq-container');
+    const beatMatrixStrip = document.getElementById('beat-matrix-strip');
+    const beatTitleReadout = document.getElementById('beat-title-readout');
+    const teleNow = document.getElementById('live-teleprompter-now');
+    const teleNext = document.getElementById('live-teleprompter-next');
+    const teleNextTime = document.getElementById('live-teleprompter-next-time');
+    const voiceFileInput = document.getElementById('voiceover-file-input');
+    const voiceUploadLabel = document.getElementById('voiceover-upload-label');
+    const voiceMixerBar = document.getElementById('voiceover-mixer-bar');
+    const voiceFilenameEl = document.getElementById('voiceover-filename');
+    const scoreDuckSlider = document.getElementById('score-duck-slider');
+    const scoreDuckVal = document.getElementById('score-duck-val');
 
     const ACT_CUES = [
-      { id: 'act-card-1', start: 0, label: 'Act I: The Commodity Trap', badge: 'Act I: The Commodity Trap' },
-      { id: 'act-card-2', start: 39, label: 'Act II: The Torpedoed Whale', badge: 'Act II: The Torpedoed Whale' },
-      { id: 'act-card-3', start: 75, label: 'Act III: The Space Between', badge: 'Act III: The Space Between' },
-      { id: 'act-card-4', start: 125, label: 'Act IV: The Operating Model as the Moat', badge: 'Act IV: The Operating Model as the Moat' },
-      { id: 'act-card-5', start: 147, label: 'Act V: The Continuum Mandate', badge: 'Act V: The Continuum Mandate' }
+      { id: 'act-card-1', act: 'ACT I', start: 0, label: 'Act I: The Speed Illusion', accent: '#2563EB' },
+      { id: 'act-card-2', act: 'ACT II', start: 22, label: 'Act II: The Commodity Trap', accent: '#F59E0B' },
+      { id: 'act-card-3', act: 'ACT III', start: 46, label: 'Act III: The Space Between', accent: '#2563EB' },
+      { id: 'act-card-4', act: 'ACT IV', start: 74, label: 'Act IV: Architecture as the Moat', accent: '#F59E0B' },
+      { id: 'act-card-5', act: 'ACT V', start: 102, label: 'Act V: The Continuum Mandate', accent: '#10B981' }
     ];
 
+    const SCRIPT_CUES = [
+      { t: 0, text: "For two years, the enterprise ran faster than it ever has in history." },
+      { t: 5, text: "Boards demanded AI mandates. CIOs signed the licenses. Every unit launched a pilot." },
+      { t: 11, text: "We tallied the experiments and celebrated the speed." },
+      { t: 15, text: "Yet behind closed doors, we were moving at blinding speed—without advancing an inch." },
+      { t: 19.6, text: "Because speed without velocity is just friction." },
+      { t: 22, text: "The industry sold a convenient myth: buy the software, and transformation follows." },
+      { t: 27, text: "They told you the model was the holy grail. It wasn't even the map." },
+      { t: 32, text: "Instead, fragmented silos burned capital. Copilots sat idle. Pilots stalled." },
+      { t: 39, text: "When the committee asks for return on capital, the room goes quiet: Where are we going?" },
+      { t: 46, text: "Seventeen years in the enterprise trenches proves one law: software is a commodity." },
+      { t: 50.8, text: "Transformation is 70% operating model, 20% context, and 10% foundation models." },
+      { t: 58, text: "Between the boardroom's Why and engineering's How lies The Space Between." },
+      { t: 67.4, text: "Consultancies leave 200-page decks. Integrators bill inside the gap. We own it." },
+      { t: 74, text: "Your moat is never the tool you lease—it is the governance discipline inside your walls." },
+      { t: 81.2, text: "We embed directly in Sitecore, Salesforce, Contentful, Adobe, Optimizely, and Azure." },
+      { t: 88.4, text: "Prompt registries, deterministic QA gates, and human-in-the-loop review in live sprints." },
+      { t: 95.6, text: "One funded beachhead becomes a turnkey Center of Excellence in a Box across every unit." },
+      { t: 102, text: "Before you sign the next software contract, know where you are going." },
+      { t: 107, text: "Before you launch another disconnected pilot, build the operating model." },
+      { t: 112, text: "Software is the commodity. Governance is the moat." },
+      { t: 116, text: "We are Continuum DX Advisory—and we own the space between." }
+    ];
+
+    // 50 Distinct Visual Beats Across 120 Seconds (~2.4s Cadence = 10x Slide Rotation & Visual Density)
+    const KEYNOTE_BEATS = [
+      // ACT I: 0.0 - 22.0s (9 Beats)
+      { t: 0.0, act: 0, mode: 'photo', img: '/assets/commercial/keynote_las_vegas_hall.jpg', kb: 'kb-in', eyebrow: 'ACT I · THE SPEED ILLUSION', headline: 'THE SPACE BETWEEN', sub: 'Executive Keynote Oration · Las Vegas' },
+      { t: 2.4, act: 0, mode: 'metric', eyebrow: '24-MONTH SPRINT', stat: '2 YEARS', headline: 'Fastest Tech Race in Enterprise History', sub: 'Unprecedented capital deployed across Generative AI platforms' },
+      { t: 4.8, act: 0, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-right', eyebrow: 'BOARDROOM MANDATE', headline: 'Every Board Demanded an AI Strategy', sub: 'Executive committees pressed for immediate quarterly visibility' },
+      { t: 7.2, act: 0, mode: 'split-cards', eyebrow: 'ENTERPRISE PROCUREMENT WAVE', leftTitle: 'COPILOT SEATS', leftSub: 'Blanket license agreements signed enterprise-wide', rightTitle: 'VECTOR CLOUDS', rightSub: 'RAG clusters spun up without shared taxonomy' },
+      { t: 9.6, act: 0, mode: 'photo', img: '/assets/commercial/keynote_fragmented_grid.jpg', kb: 'kb-out', eyebrow: 'SILO PROLIFERATION', headline: 'Every Business Unit Launched a Pilot', sub: 'Isolated innovation labs operating on separate standards' },
+      { t: 12.0, act: 0, mode: 'diagram-gauge', eyebrow: 'THE ILLUSION OF ACTIVITY', metricA: '40+ Active Experiments', metricB: '0% Production Scale', headline: 'Experiments Tallied. Speed Celebrated.' },
+      { t: 14.4, act: 0, mode: 'photo', img: '/assets/commercial/scene1_the_trap.jpg', kb: 'kb-left', eyebrow: 'BEHIND CLOSED DOORS', headline: 'A Quiet Truth Settled In', sub: 'Blinding motion without measurable forward displacement' },
+      { t: 17.0, act: 0, mode: 'contrast-bars', eyebrow: 'PHYSICS OF TRANSFORMATION', leftLabel: 'UNDIRECTED SPEED', leftNote: 'High motion · Fragmented energy · Zero net ROI', rightLabel: 'ARCHITECTED VELOCITY', rightNote: 'Aligned direction · Governed throughput' },
+      { t: 19.6, act: 0, mode: 'statement', accent: '#2563EB', headline: 'SPEED WITHOUT VELOCITY IS JUST FRICTION.', sub: 'ACT I CONCLUSION' },
+
+      // ACT II: 22.0 - 46.0s (10 Beats)
+      { t: 22.0, act: 1, mode: 'photo', img: '/assets/commercial/innovation_pavilion.jpg', kb: 'kb-in', eyebrow: 'ACT II · THE COMMODITY TRAP', headline: 'A Convenient Industry Myth', sub: 'Buy the software license, and transformation will follow' },
+      { t: 24.4, act: 1, mode: 'statement', accent: '#F59E0B', headline: 'PURCHASE ORDERS ARE NOT STRATEGIES.', sub: 'Tools amplify your operating model—good or broken' },
+      { t: 26.8, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_1103_245c3470.jpg', kb: 'kb-right', eyebrow: 'THE VENDOR PROMISE', headline: 'They Called the Tool the Holy Grail', sub: 'Executive briefings anchored on software demos instead of workflows' },
+      { t: 29.2, act: 1, mode: 'statement', accent: '#F59E0B', headline: "IT WASN'T THE HOLY GRAIL. IT WASN'T EVEN THE MAP.", sub: 'ACT II THESIS' },
+      { t: 31.6, act: 1, mode: 'photo', img: '/assets/commercial/scene2_the_friction.jpg', kb: 'kb-out', eyebrow: 'OPERATIONAL FRICTION', headline: 'Disconnected Prompting in Silos', sub: 'Teams rebuilding fragile workflows without shared governance' },
+      { t: 34.0, act: 1, mode: 'photo', img: '/assets/aistudio/IMG_2884_22e2694c.jpg', kb: 'kb-left', eyebrow: 'CAPEX EROSION', headline: 'Fragmented Pilots Burn Capital', sub: 'Redundant integrations and stalling security reviews' },
+      { t: 36.4, act: 1, mode: 'split-cards', eyebrow: 'THE HIDDEN COST LEDGER', leftTitle: 'DORMANT SEATS', leftSub: 'Enterprise seats unused after 60-day novelty drop', rightTitle: 'PILOT PARALYSIS', rightSub: 'Proof-of-concepts unable to cross compliance gates' },
+      { t: 38.8, act: 1, mode: 'photo', img: '/assets/aistudio/image_1946f65a.jpg', kb: 'kb-in', eyebrow: 'BOARDROOM ACCOUNTABILITY', headline: 'Steering Committee Asks for Capital Return', sub: 'Quarterly business review without attribution' },
+      { t: 41.2, act: 1, mode: 'photo', img: '/assets/commercial/boardroom_monolith.jpg', kb: 'kb-out', eyebrow: 'THE SILENT ROOM', headline: 'Motion Mistaken for Strategy', sub: 'No shared North Star across Marketing, Product, and IT' },
+      { t: 43.6, act: 1, mode: 'statement', accent: '#FFFFFF', headline: 'WHERE ARE WE GOING?', sub: 'THE UNANSWERED QUESTION' },
+
+      // ACT III: 46.0 - 74.0s (12 Beats)
+      { t: 46.0, act: 2, mode: 'photo', img: '/assets/sean_keynote_continuum.jpg', kb: 'kb-right', eyebrow: 'ACT III · FIELD TRUTH', headline: '17 Years in Enterprise Trenches', sub: 'Former Global VP Strategy & Sitecore SBOS Practice Lead' },
+      { t: 48.3, act: 2, mode: 'statement', accent: '#2563EB', headline: 'SOFTWARE IS A COMMODITY.', sub: 'Models converge every quarter · Operating discipline compounds' },
+      { t: 50.6, act: 2, mode: 'diagram-70-20-10', eyebrow: 'THE TRANSFORMATION EQUATION', headline: 'Where Enterprise AI Value Actually Lives' },
+      { t: 53.0, act: 2, mode: 'photo', img: '/assets/aistudio/IMG_1109_bf12ff61.jpg', kb: 'kb-left', eyebrow: '70% ALLOCATION', headline: 'Operating Model, Culture & CoE', sub: 'Decision rights, incentives, and cross-functional cadence' },
+      { t: 55.4, act: 2, mode: 'photo', img: '/assets/commercial/scene3_the_architecture.jpg', kb: 'kb-in', eyebrow: '20% ALLOCATION', headline: 'Composable Context & Connectors', sub: 'Clean taxonomy, vector grounding, and structured content graphs' },
+      { t: 57.8, act: 2, mode: 'metric', eyebrow: 'ONLY 10% ALLOCATION', stat: '10%', headline: 'Foundation AI Models', sub: 'Important ingredient—zero durable advantage without the other 90%' },
+      { t: 60.2, act: 2, mode: 'photo', img: '/assets/commercial/keynote_chasm_bridge.jpg', kb: 'kb-out', eyebrow: 'THE STRUCTURAL CHASM', headline: 'Executive Why vs. Engineering How', sub: 'Two halves of the enterprise speaking different languages' },
+      { t: 62.6, act: 2, mode: 'diagram-chasm', eyebrow: 'CONTINUUM POSITIONING', headline: 'BRIDGING THE ENTERPRISE CHASM' },
+      { t: 65.0, act: 2, mode: 'statement', accent: '#2563EB', headline: 'THE SPACE BETWEEN.', sub: 'WHERE STRATEGY BECOMES OPERATING REALITY' },
+      { t: 67.3, act: 2, mode: 'split-cards', eyebrow: 'LEGACY DELIVERY FAILURES', leftTitle: 'STRATEGY FIRMS', leftSub: '200-page slides at 30,000 ft—gone before launch', rightTitle: 'SYSTEMS INTEGRATORS', rightSub: 'Billable hours without executive ownership' },
+      { t: 69.6, act: 2, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-right', eyebrow: 'THE CONTINUUM OVERLAY', headline: 'Bridging Both Sides of the Chasm', sub: 'Strategic clarity paired with production architecture' },
+      { t: 71.8, act: 2, mode: 'statement', accent: '#10B981', headline: "WE DON'T FEAR THAT SPACE. WE OWN IT.", sub: 'CONTINUUM DX ADVISORY' },
+
+      // ACT IV: 74.0 - 102.0s (12 Beats)
+      { t: 74.0, act: 3, mode: 'photo', img: '/assets/commercial/keynote_control_plane.jpg', kb: 'kb-in', eyebrow: 'ACT IV · ARCHITECTURE AS THE MOAT', headline: 'Governance Inside Your Walls', sub: 'Proprietary institutional muscle competitors cannot lease' },
+      { t: 76.4, act: 3, mode: 'diagram-scurve', eyebrow: 'PROPRIETARY FRAMEWORK', headline: 'DXMM™ Five-Stage Maturity Curve' },
+      { t: 78.8, act: 3, mode: 'statement', accent: '#F59E0B', headline: 'ZERO SPECULATIVE LABS.', sub: 'Embedded directly inside already-funded delivery programs' },
+      { t: 81.2, act: 3, mode: 'photo', img: '/assets/commercial/warroom_telemetry.jpg', kb: 'kb-left', eyebrow: 'ENTERPRISE PLATFORMS', headline: 'Sitecore & Salesforce Control Planes', sub: 'XM Cloud Governance & Agentforce Guardrail Registries' },
+      { t: 83.6, act: 3, mode: 'platform-grid', eyebrow: 'FORTUNE 2000 BEDROCK', headline: 'Live Across Six Enterprise Ecosystems' },
+      { t: 86.0, act: 3, mode: 'photo', img: '/assets/aistudio/IMG_3586_2f9a13f4.jpg', kb: 'kb-right', eyebrow: 'WORKSHOP ORCHESTRATION', headline: 'Aligning Marketing, Product & IT', sub: 'Unifying content velocity with security boundaries' },
+      { t: 88.4, act: 3, mode: 'diagram-gates', activeGate: 1, eyebrow: 'GUARDRAIL GATE 01', headline: 'Verified Prompt & Brand Registries' },
+      { t: 90.8, act: 3, mode: 'diagram-gates', activeGate: 2, eyebrow: 'GUARDRAIL GATE 02', headline: 'Deterministic Automated QA Audits' },
+      { t: 93.2, act: 3, mode: 'photo', img: '/assets/aistudio/image_7b88b4e3.jpg', kb: 'kb-out', eyebrow: 'GUARDRAIL GATE 03', headline: 'Human-in-the-Loop Sprint Reviews', sub: 'Principal oversight baked directly into agile delivery' },
+      { t: 95.6, act: 3, mode: 'photo', img: '/assets/sean_rusinko_executive_workshop.jpg', kb: 'kb-in', eyebrow: 'PROJECT BEACHHEAD', headline: 'Start Inside One Active Program', sub: 'Prove governance and velocity in Weeks 1–3' },
+      { t: 98.0, act: 3, mode: 'diagram-coe', eyebrow: 'SCALING MECHANISM', headline: 'Turnkey AI Center of Excellence in a Box' },
+      { t: 100.2, act: 3, mode: 'photo', img: '/assets/commercial/scene4_the_payoff.jpg', kb: 'kb-left', eyebrow: 'COMPOUNDING ROI', headline: 'From Pilot Paralysis to Scale', sub: 'Safe autonomous orchestration across every business unit' },
+
+      // ACT V: 102.0 - 120.0s (7 Beats)
+      { t: 102.0, act: 4, mode: 'photo', img: '/assets/aistudio/IMG_6836_eab8735d.JPG', kb: 'kb-right', eyebrow: 'ACT V · THE CONTINUUM MANDATE', headline: 'Before the Next License Contract', sub: 'Pause procurement before locking fragmented tooling' },
+      { t: 104.5, act: 4, mode: 'statement', accent: '#FFFFFF', headline: 'KNOW WHERE YOU ARE GOING.', sub: 'CLARITY PRECEDES CAPITAL' },
+      { t: 107.0, act: 4, mode: 'photo', img: '/assets/commercial/skybridge_dawn.jpg', kb: 'kb-in', eyebrow: 'BEFORE ANOTHER PILOT', headline: 'Build the Operating Model First', sub: 'Governance turns isolated experiments into durable assets' },
+      { t: 109.5, act: 4, mode: 'statement', accent: '#10B981', headline: 'SOFTWARE IS THE COMMODITY.', sub: 'ANY ENTERPRISE CAN RENT THE MODEL' },
+      { t: 112.0, act: 4, mode: 'statement', accent: '#2563EB', headline: 'GOVERNANCE IS THE MOAT.', sub: 'ONLY DISCIPLINED ORGANIZATIONS OWN THE OUTCOME' },
+      { t: 114.6, act: 4, mode: 'photo', img: '/assets/commercial/keynote_horizon_crest.jpg', kb: 'kb-out', eyebrow: 'CONTINUUM DX ADVISORY', headline: 'Sean Rusinko · Managing Director', sub: 'Enterprise Digital Experience & AI CoE Overlay' },
+      { t: 117.2, act: 4, mode: 'finale', eyebrow: 'MANDATE COMPLETE', headline: 'WE OWN THE SPACE BETWEEN.', sub: 'continuum-dx.com · Book Executive Diagnostic' }
+    ];
+
+    let isPlayingKeynote = false;
+    let currentKeynoteTime = 0;
+    let activeBeatIndex = -1;
+    let hasCustomVoiceover = false;
+    let scoreDuckRatio = 0.22;
+    let rafKeynoteId = null;
+    let lastTickPerf = null;
+
     function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
+      const s = Math.max(0, Math.min(KEYNOTE_TOTAL_DURATION, seconds));
+      const mins = Math.floor(s / 60);
+      const secs = Math.floor(s % 60);
       return mins + ':' + (secs < 10 ? '0' : '') + secs;
     }
 
-    function togglePlay() {
-      if (!video) return;
-      if (video.paused) {
-        video.play().catch(e => console.warn('Play prevented:', e));
+    function escapeHtmlStage(str) {
+      return String(str || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function renderStageBeat(idx) {
+      if (!stageCanvas || idx === activeBeatIndex || idx < 0 || idx >= KEYNOTE_BEATS.length) return;
+      activeBeatIndex = idx;
+      const b = KEYNOTE_BEATS[idx];
+      const actInfo = ACT_CUES[b.act];
+      let html = '';
+
+      if (b.mode === 'photo') {
+        html = `
+          <div class="relative w-full h-full">
+            <img src="${b.img}" alt="${escapeHtmlStage(b.headline)}" class="w-full h-full object-cover ${b.kb || 'kb-in'}" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/35"></div>
+            <div class="absolute bottom-8 sm:bottom-12 left-6 sm:left-12 right-6 sm:right-12 slide-enter">
+              <div class="font-mono text-[11px] sm:text-xs uppercase tracking-[0.2em] mb-2" style="color:${actInfo.accent}">${escapeHtmlStage(b.eyebrow)}</div>
+              <h4 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-tight max-w-4xl">${escapeHtmlStage(b.headline)}</h4>
+              <p class="text-xs sm:text-base text-slate-300 mt-2 max-w-2xl font-sans">${escapeHtmlStage(b.sub)}</p>
+            </div>
+          </div>`;
+      } else if (b.mode === 'statement') {
+        html = `
+          <div class="relative w-full h-full bg-[#06080D] bg-obsidian-grid flex flex-col items-center justify-center p-8 sm:p-16 text-center slide-enter">
+            <div class="w-16 h-0.5 mb-6" style="background:${b.accent || '#2563EB'}"></div>
+            <h4 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight max-w-4xl leading-tight">${escapeHtmlStage(b.headline)}</h4>
+            <p class="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] mt-6" style="color:${b.accent || '#94A3B8'}">${escapeHtmlStage(b.sub)}</p>
+          </div>`;
+      } else if (b.mode === 'metric') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-16 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt mb-3">${escapeHtmlStage(b.eyebrow)}</div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-8">
+              <div class="font-serif text-6xl sm:text-8xl lg:text-9xl text-white tabular-nums leading-none">${escapeHtmlStage(b.stat)}</div>
+              <div class="max-w-xl">
+                <h4 class="font-serif text-2xl sm:text-4xl text-white mb-2">${escapeHtmlStage(b.headline)}</h4>
+                <p class="text-xs sm:text-base text-slate-400 font-sans">${escapeHtmlStage(b.sub)}</p>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'split-cards') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-6 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-amberGold mb-4">${escapeHtmlStage(b.eyebrow)}</div>
+            <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+              <div class="p-6 sm:p-8 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="font-mono text-xs text-cobalt uppercase tracking-widest mb-2">Symptom 01</div>
+                <h4 class="font-serif text-2xl sm:text-3xl text-white mb-2">${escapeHtmlStage(b.leftTitle)}</h4>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${escapeHtmlStage(b.leftSub)}</p>
+              </div>
+              <div class="p-6 sm:p-8 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="font-mono text-xs text-amberGold uppercase tracking-widest mb-2">Symptom 02</div>
+                <h4 class="font-serif text-2xl sm:text-3xl text-white mb-2">${escapeHtmlStage(b.rightTitle)}</h4>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${escapeHtmlStage(b.rightSub)}</p>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-gauge') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-amberGold mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="space-y-5 max-w-3xl">
+              <div>
+                <div class="flex justify-between font-mono text-xs mb-1.5"><span class="text-slate-300">${escapeHtmlStage(b.metricA)}</span><span class="text-amberGold">92% SILOED</span></div>
+                <div class="h-3 rounded bg-slate-800 overflow-hidden"><div class="h-full bg-amberGold w-[92%]"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between font-mono text-xs mb-1.5"><span class="text-slate-300">${escapeHtmlStage(b.metricB)}</span><span class="text-slate-400">AT SCALE</span></div>
+                <div class="h-3 rounded bg-slate-800 overflow-hidden"><div class="h-full bg-cobalt w-[8%]"></div></div>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'contrast-bars') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt mb-4">${escapeHtmlStage(b.eyebrow)}</div>
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="p-6 rounded-xl border border-amberGold/30 bg-amberGold/5">
+                <div class="font-mono text-xs text-amberGold uppercase mb-2">FRICTION VECTORS</div>
+                <h4 class="font-serif text-2xl sm:text-3xl text-white mb-3">${escapeHtmlStage(b.leftLabel)}</h4>
+                <p class="text-xs sm:text-sm text-slate-300">${escapeHtmlStage(b.leftNote)}</p>
+              </div>
+              <div class="p-6 rounded-xl border border-emeraldGuard/40 bg-emeraldGuard/10">
+                <div class="font-mono text-xs text-emeraldGuard uppercase mb-2">GOVERNED VECTOR</div>
+                <h4 class="font-serif text-2xl sm:text-3xl text-white mb-3">${escapeHtmlStage(b.rightLabel)}</h4>
+                <p class="text-xs sm:text-sm text-slate-200">${escapeHtmlStage(b.rightNote)}</p>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-70-20-10') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="grid grid-cols-12 gap-2 h-24 sm:h-32 mb-4">
+              <div class="col-span-8 rounded-lg bg-cobalt/25 border border-cobalt flex flex-col justify-between p-4">
+                <span class="font-serif text-3xl sm:text-4xl text-white tabular-nums">70%</span>
+                <span class="font-mono text-[11px] sm:text-xs text-white">People, Operating Model &amp; CoE Governance</span>
+              </div>
+              <div class="col-span-3 rounded-lg bg-slate-800 border border-slate-600 flex flex-col justify-between p-4">
+                <span class="font-serif text-2xl sm:text-3xl text-white tabular-nums">20%</span>
+                <span class="font-mono text-[10px] text-slate-300">Context &amp; APIs</span>
+              </div>
+              <div class="col-span-1 rounded-lg bg-slate-900 border border-slate-700 flex flex-col justify-between p-2 text-center">
+                <span class="font-serif text-xl text-slate-300 tabular-nums">10%</span>
+                <span class="font-mono text-[9px] text-slate-400">LLMs</span>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-chasm') {
+        html = `
+          <div class="relative w-full h-full bg-[#06080D] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt mb-3">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-8">${escapeHtmlStage(b.headline)}</h4>
+            <div class="grid grid-cols-3 items-center gap-3 sm:gap-6 text-center">
+              <div class="p-4 sm:p-6 rounded-xl border border-slate-700 bg-slate-900">
+                <div class="font-mono text-[11px] text-amberGold mb-1">BOARDROOM</div>
+                <div class="font-serif text-lg sm:text-2xl text-white">Executive Why</div>
+              </div>
+              <div class="p-4 sm:p-6 rounded-xl border-2 border-cobalt bg-cobalt/20 shadow-lg shadow-cobalt/20">
+                <div class="font-mono text-[11px] text-white uppercase tracking-widest mb-1">OPERATING OVERLAY</div>
+                <div class="font-serif text-xl sm:text-2xl text-white">The Space Between</div>
+              </div>
+              <div class="p-4 sm:p-6 rounded-xl border border-slate-700 bg-slate-900">
+                <div class="font-mono text-[11px] text-emeraldGuard mb-1">PIPELINE</div>
+                <div class="font-serif text-lg sm:text-2xl text-white">Engineering How</div>
+              </div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-scurve') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-amberGold mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="grid grid-cols-5 gap-2 sm:gap-3 items-end h-36 sm:h-44">
+              <div class="h-[24%] rounded-t-lg bg-slate-800 border border-slate-700 p-2.5 flex flex-col justify-between"><span class="font-mono text-[10px] text-slate-400">01</span><span class="text-[11px] text-slate-300 font-medium">Ad-Hoc</span></div>
+              <div class="h-[42%] rounded-t-lg bg-slate-800 border border-slate-700 p-2.5 flex flex-col justify-between"><span class="font-mono text-[10px] text-slate-400">02</span><span class="text-[11px] text-slate-300 font-medium">Siloed Pilots</span></div>
+              <div class="h-[64%] rounded-t-lg bg-cobalt/30 border border-cobalt p-2.5 flex flex-col justify-between"><span class="font-mono text-[10px] text-cobalt">03</span><span class="text-[11px] text-white font-medium">Overlay Active</span></div>
+              <div class="h-[82%] rounded-t-lg bg-cobalt/50 border border-cobalt p-2.5 flex flex-col justify-between"><span class="font-mono text-[10px] text-white">04</span><span class="text-[11px] text-white font-medium">Federated CoE</span></div>
+              <div class="h-full rounded-t-lg bg-emeraldGuard/25 border border-emeraldGuard p-2.5 flex flex-col justify-between"><span class="font-mono text-[10px] text-emeraldGuard">05</span><span class="text-[11px] text-white font-semibold">Autonomous Fabric</span></div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'platform-grid') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-cobalt mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Sitecore</div><div class="font-mono text-[10px] text-cobalt">XM Cloud &amp; Personalize</div></div>
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Salesforce</div><div class="font-mono text-[10px] text-cobalt">Data Cloud &amp; Agentforce</div></div>
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Contentful</div><div class="font-mono text-[10px] text-cobalt">Structured Content Graph</div></div>
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Adobe</div><div class="font-mono text-[10px] text-cobalt">AEM &amp; Workfront Ops</div></div>
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Optimizely</div><div class="font-mono text-[10px] text-cobalt">Edge Experimentation</div></div>
+              <div class="p-4 rounded-lg bg-slate-900 border border-slate-800"><div class="font-bold text-white text-sm sm:text-base">Microsoft Azure</div><div class="font-mono text-[10px] text-cobalt">Private Tenant Fabric</div></div>
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-gates') {
+        const gates = [
+          { n: 1, title: 'Prompt Registry', desc: 'Versioned, audited enterprise instructions' },
+          { n: 2, title: 'Deterministic QA', desc: 'Automated brand & policy verification' },
+          { n: 3, title: 'Human-in-the-Loop', desc: 'Principal sign-off inside live sprints' }
+        ];
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-emeraldGuard mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="grid sm:grid-cols-3 gap-4">
+              ${gates.map(g => `
+                <div class="p-5 rounded-xl border ${g.n === b.activeGate ? 'border-emeraldGuard bg-emeraldGuard/15' : 'border-slate-800 bg-slate-900/70 opacity-75'}">
+                  <div class="font-mono text-xs ${g.n === b.activeGate ? 'text-emeraldGuard' : 'text-slate-500'} mb-2">GATE 0${g.n}</div>
+                  <div class="font-serif text-xl text-white mb-1">${g.title}</div>
+                  <div class="text-xs text-slate-300">${g.desc}</div>
+                </div>`).join('')}
+            </div>
+          </div>`;
+      } else if (b.mode === 'diagram-coe') {
+        html = `
+          <div class="relative w-full h-full bg-[#070B12] bg-obsidian-grid flex flex-col justify-center p-8 sm:p-14 slide-enter">
+            <div class="font-mono text-xs uppercase tracking-[0.2em] text-emeraldGuard mb-2">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-3xl sm:text-4xl text-white mb-6">${escapeHtmlStage(b.headline)}</h4>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+              <div class="flex-1 p-5 rounded-xl border border-slate-700 bg-slate-900"><div class="font-mono text-[10px] text-slate-400">WEEKS 1–3</div><div class="font-serif text-xl text-white mt-1">Active Project Beachhead</div></div>
+              <div class="text-cobalt font-mono text-lg text-center">&rarr;</div>
+              <div class="flex-1 p-5 rounded-xl border border-cobalt bg-cobalt/15"><div class="font-mono text-[10px] text-cobalt">WEEKS 4–8</div><div class="font-serif text-xl text-white mt-1">AI Ops Control Plane</div></div>
+              <div class="text-emeraldGuard font-mono text-lg text-center">&rarr;</div>
+              <div class="flex-1 p-5 rounded-xl border border-emeraldGuard bg-emeraldGuard/15"><div class="font-mono text-[10px] text-emeraldGuard">WEEKS 9+</div><div class="font-serif text-xl text-white mt-1">Turnkey CoE in a Box</div></div>
+            </div>
+          </div>`;
       } else {
-        video.pause();
+        // finale
+        html = `
+          <div class="relative w-full h-full bg-[#050608] flex flex-col items-center justify-center p-8 sm:p-16 text-center slide-enter">
+            <div class="w-12 h-12 rounded-md border border-cobalt/60 bg-cobalt/15 flex items-center justify-center font-mono text-sm text-cobalt font-bold mb-6">C/DX</div>
+            <div class="font-mono text-xs uppercase tracking-[0.25em] text-emeraldGuard mb-3">${escapeHtmlStage(b.eyebrow)}</div>
+            <h4 class="font-serif text-4xl sm:text-6xl text-white font-normal mb-4">${escapeHtmlStage(b.headline)}</h4>
+            <p class="font-mono text-xs sm:text-sm text-slate-400 tracking-wider">${escapeHtmlStage(b.sub)}</p>
+          </div>`;
+      }
+      stageCanvas.innerHTML = html;
+    }
+
+    function buildBeatStripAndScript() {
+      if (beatMatrixStrip) {
+        beatMatrixStrip.innerHTML = KEYNOTE_BEATS.map((b, i) => `
+          <button type="button" data-beat-idx="${i}" onclick="jumpToTime(${b.t})" title="Slide ${i + 1}: ${escapeHtmlStage(b.headline)}" aria-label="Jump to Slide ${i + 1}" class="beat-tick h-3 rounded-sm bg-slate-800 hover:bg-cobalt/80 transition-colors"></button>
+        `).join('');
+      }
+      const scriptContainer = document.getElementById('teleprompter-script-lines');
+      if (scriptContainer) {
+        const blocks = [
+          { act: 'Act I (0:00 – 0:22)', lines: 'For two years, the enterprise ran faster than it ever has in history. Boards demanded AI mandates. CIOs signed the licenses. Every business unit launched a pilot. We tallied the experiments and celebrated the speed. Yet behind closed doors, a harder truth settled in: we were moving at blinding speed—without advancing an inch. Because speed without velocity is just friction.' },
+          { act: 'Act II (0:22 – 0:46)', lines: 'The industry sold a convenient myth: buy the software, and transformation follows. They told you the model was the holy grail. It wasn’t the holy grail—it wasn’t even the map. Instead, fragmented silos burned capital. Copilots sat idle. Pilot paralysis drained momentum. When the steering committee asks for the return on capital, the room goes quiet—because no one answered one question: Where are we going?' },
+          { act: 'Act III (0:46 – 1:14)', lines: 'Seventeen years in the enterprise trenches proves one law: software is a commodity. Transformation is 70% operating model, 20% composable context, and only 10% foundation models. Between the boardroom’s Why and the engineering pipeline’s How lies the chasm where budgets stall: The Space Between. Legacy consultancies leave 200-page decks on top of that chasm. Systems integrators bill hours inside it. We own it.' },
+          { act: 'Act IV (1:14 – 1:42)', lines: 'Your competitive moat is never the tool you lease—it’s the governance discipline inside your walls. Continuum DX embeds directly into active Sitecore, Salesforce, Contentful, Adobe, Optimizely, and Azure pipelines. No speculative labs. We wire verified prompt registries, deterministic QA gates, and human-in-the-loop review right into live sprints. One funded beachhead becomes a turnkey Center of Excellence in a Box—scaling safely across every business unit.' },
+          { act: 'Act V (1:42 – 2:00)', lines: 'Before you sign the next software contract, know where you are going. Before you launch another disconnected pilot, build the operating model. Software is the commodity. Governance is the moat. We are Continuum DX Advisory—and we own the space between.' }
+        ];
+        scriptContainer.innerHTML = blocks.map(bl => `
+          <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800">
+            <div class="font-mono text-[11px] text-amberGold uppercase tracking-wider mb-1.5">${bl.act}</div>
+            <p class="text-slate-200 leading-relaxed">${bl.lines}</p>
+          </div>
+        `).join('');
       }
     }
 
-    if (playBtn) playBtn.addEventListener('click', togglePlay);
-    if (playOverlayBtn) playOverlayBtn.addEventListener('click', togglePlay);
-    if (video) {
-      video.addEventListener('click', togglePlay);
+    function syncUIForTime(t) {
+      currentKeynoteTime = Math.max(0, Math.min(KEYNOTE_TOTAL_DURATION, t));
+      if (progressSlider) progressSlider.value = currentKeynoteTime;
+      if (currentTimeEl) currentTimeEl.textContent = formatTime(currentKeynoteTime);
+      if (hairlineProgress) hairlineProgress.style.width = ((currentKeynoteTime / KEYNOTE_TOTAL_DURATION) * 100).toFixed(2) + '%';
 
-      video.addEventListener('play', () => {
-        if (playIcon) playIcon.classList.add('hidden');
-        if (pauseIcon) pauseIcon.classList.remove('hidden');
-        if (playOverlayBtn) playOverlayBtn.classList.add('opacity-0', 'pointer-events-none');
-        if (eqContainer) {
-          eqContainer.classList.remove('opacity-60');
-          eqContainer.classList.add('opacity-100');
+      // Active visual beat lookup (every ~2.4s)
+      let beatIdx = 0;
+      for (let i = KEYNOTE_BEATS.length - 1; i >= 0; i--) {
+        if (currentKeynoteTime >= KEYNOTE_BEATS[i].t) { beatIdx = i; break; }
+      }
+      renderStageBeat(beatIdx);
+
+      const b = KEYNOTE_BEATS[beatIdx];
+      const actInfo = ACT_CUES[b.act];
+      const slideNum = String(beatIdx + 1).padStart(2, '0');
+      if (stageActPill) stageActPill.textContent = actInfo.act;
+      if (stageSlideCounter) stageSlideCounter.textContent = `SLIDE ${slideNum} / 50`;
+      if (actBadge) actBadge.textContent = actInfo.label.replace(/^Act [IV]+: /, '');
+      if (statusLabel) statusLabel.textContent = `${actInfo.label} · Slide ${slideNum} of 50`;
+      if (beatTitleReadout) beatTitleReadout.textContent = `${slideNum} · ${b.headline}`;
+
+      // Highlight beat matrix ticks
+      document.querySelectorAll('.beat-tick').forEach((tick, idx) => {
+        if (idx === beatIdx) {
+          tick.classList.add('bg-amberGold', 'scale-y-125');
+          tick.classList.remove('bg-slate-800', 'bg-cobalt');
+        } else if (idx < beatIdx) {
+          tick.classList.add('bg-cobalt');
+          tick.classList.remove('bg-slate-800', 'bg-amberGold', 'scale-y-125');
+        } else {
+          tick.classList.add('bg-slate-800');
+          tick.classList.remove('bg-cobalt', 'bg-amberGold', 'scale-y-125');
         }
       });
 
-      video.addEventListener('pause', () => {
-        if (playIcon) playIcon.classList.remove('hidden');
-        if (pauseIcon) pauseIcon.classList.add('hidden');
-        if (playOverlayBtn) playOverlayBtn.classList.remove('opacity-0', 'pointer-events-none');
-        if (eqContainer) {
-          eqContainer.classList.remove('opacity-100');
-          eqContainer.classList.add('opacity-60');
+      // Highlight Act card & button
+      document.querySelectorAll('.act-card').forEach(card => card.classList.remove('active'));
+      const activeCard = document.getElementById(actInfo.id);
+      if (activeCard) activeCard.classList.add('active');
+      document.querySelectorAll('.act-btn').forEach(btn => {
+        const startAttr = Number(btn.getAttribute('data-act-start'));
+        if (startAttr === actInfo.start) {
+          btn.classList.add('border-cobalt', 'bg-cobalt/15');
+          btn.classList.remove('border-slate-800', 'bg-slate-950/60');
+        } else {
+          btn.classList.remove('border-cobalt', 'bg-cobalt/15');
+          btn.classList.add('border-slate-800', 'bg-slate-950/60');
         }
       });
 
-      video.addEventListener('timeupdate', () => {
-        const cur = video.currentTime;
-        if (!isNaN(cur)) {
-          if (progress) progress.value = cur;
-          if (currentTimeEl) currentTimeEl.textContent = formatTime(cur);
-
-          for (let i = ACT_CUES.length - 1; i >= 0; i--) {
-            if (cur >= ACT_CUES[i].start) {
-              if (statusLabel) statusLabel.textContent = ACT_CUES[i].label;
-              if (actBadge) actBadge.textContent = ACT_CUES[i].badge;
-              document.querySelectorAll('.act-card').forEach(card => card.classList.remove('active'));
-              const activeCard = document.getElementById(ACT_CUES[i].id);
-              if (activeCard) activeCard.classList.add('active');
-              document.querySelectorAll('.act-btn').forEach(btn => {
-                const startAttr = Number(btn.getAttribute('data-act-start'));
-                if (startAttr === ACT_CUES[i].start) {
-                  btn.classList.add('border-cobalt', 'bg-cobalt/15');
-                  btn.classList.remove('border-slate-800', 'bg-slate-950/60');
-                } else {
-                  btn.classList.remove('border-cobalt', 'bg-cobalt/15');
-                  btn.classList.add('border-slate-800', 'bg-slate-950/60');
-                }
-              });
-              break;
-            }
-          }
+      // Sync Teleprompter Now/Next line
+      let cueIdx = 0;
+      for (let i = SCRIPT_CUES.length - 1; i >= 0; i--) {
+        if (currentKeynoteTime >= SCRIPT_CUES[i].t) { cueIdx = i; break; }
+      }
+      if (teleNow) teleNow.textContent = '"' + SCRIPT_CUES[cueIdx].text + '"';
+      if (teleNext && teleNextTime) {
+        if (cueIdx + 1 < SCRIPT_CUES.length) {
+          teleNext.textContent = SCRIPT_CUES[cueIdx + 1].text;
+          teleNextTime.textContent = formatTime(SCRIPT_CUES[cueIdx + 1].t);
+        } else {
+          teleNext.textContent = 'End of 2:00 Keynote Manifesto';
+          teleNextTime.textContent = '2:00';
         }
-      });
+      }
+    }
 
-      video.addEventListener('loadedmetadata', () => {
-        if (!isNaN(video.duration)) {
-          if (progress) progress.max = video.duration;
-          if (durationEl) durationEl.textContent = formatTime(video.duration);
-        }
-      });
+    function applyAudioVolumes() {
+      if (scoreAudio) scoreAudio.volume = hasCustomVoiceover ? scoreDuckRatio : 0.85;
+      if (voiceAudio) voiceAudio.volume = 1.0;
+    }
 
-      if (progress) {
-        progress.addEventListener('input', () => {
-          video.currentTime = Number(progress.value);
+    function keynoteTick(nowPerf) {
+      if (!isPlayingKeynote) return;
+      if (lastTickPerf === null) lastTickPerf = nowPerf;
+      const dt = (nowPerf - lastTickPerf) / 1000;
+      lastTickPerf = nowPerf;
+
+      // Prefer real audio clock when loaded
+      let nextTime = currentKeynoteTime + dt;
+      if (hasCustomVoiceover && voiceAudio && !voiceAudio.paused && !isNaN(voiceAudio.currentTime)) {
+        nextTime = voiceAudio.currentTime;
+      } else if (scoreAudio && !scoreAudio.paused && !isNaN(scoreAudio.currentTime)) {
+        nextTime = scoreAudio.currentTime;
+      }
+
+      if (nextTime >= KEYNOTE_TOTAL_DURATION) {
+        pauseKeynote();
+        syncUIForTime(KEYNOTE_TOTAL_DURATION);
+        return;
+      }
+      syncUIForTime(nextTime);
+      rafKeynoteId = requestAnimationFrame(keynoteTick);
+    }
+
+    function playKeynote() {
+      if (currentKeynoteTime >= KEYNOTE_TOTAL_DURATION - 0.3) {
+        currentKeynoteTime = 0;
+      }
+      isPlayingKeynote = true;
+      lastTickPerf = null;
+      applyAudioVolumes();
+      if (scoreAudio) {
+        scoreAudio.currentTime = currentKeynoteTime;
+        scoreAudio.play().catch(() => {});
+      }
+      if (hasCustomVoiceover && voiceAudio) {
+        voiceAudio.currentTime = currentKeynoteTime;
+        voiceAudio.play().catch(() => {});
+      }
+      if (playIcon) playIcon.classList.add('hidden');
+      if (pauseIcon) pauseIcon.classList.remove('hidden');
+      if (playOverlayBtn) playOverlayBtn.classList.add('opacity-0', 'pointer-events-none');
+      if (eqContainer) { eqContainer.classList.remove('opacity-60'); eqContainer.classList.add('opacity-100'); }
+      rafKeynoteId = requestAnimationFrame(keynoteTick);
+    }
+
+    function pauseKeynote() {
+      isPlayingKeynote = false;
+      if (rafKeynoteId) cancelAnimationFrame(rafKeynoteId);
+      if (scoreAudio) scoreAudio.pause();
+      if (voiceAudio) voiceAudio.pause();
+      if (playIcon) playIcon.classList.remove('hidden');
+      if (pauseIcon) pauseIcon.classList.add('hidden');
+      if (playOverlayBtn) playOverlayBtn.classList.remove('opacity-0', 'pointer-events-none');
+      if (eqContainer) { eqContainer.classList.remove('opacity-100'); eqContainer.classList.add('opacity-60'); }
+    }
+
+    function togglePlay() {
+      if (isPlayingKeynote) pauseKeynote();
+      else playKeynote();
+    }
+
+    function jumpToTime(seconds) {
+      const clamped = Math.max(0, Math.min(KEYNOTE_TOTAL_DURATION - 0.1, seconds));
+      if (scoreAudio) scoreAudio.currentTime = clamped;
+      if (hasCustomVoiceover && voiceAudio) voiceAudio.currentTime = clamped;
+      syncUIForTime(clamped);
+      if (!isPlayingKeynote) playKeynote();
+    }
+
+    function stepBeat(delta) {
+      const nextIdx = Math.max(0, Math.min(KEYNOTE_BEATS.length - 1, activeBeatIndex + delta));
+      const targetT = KEYNOTE_BEATS[nextIdx].t;
+      if (scoreAudio) scoreAudio.currentTime = targetT;
+      if (hasCustomVoiceover && voiceAudio) voiceAudio.currentTime = targetT;
+      syncUIForTime(targetT);
+    }
+
+    function toggleTeleprompterDrawer() {
+      const d = document.getElementById('teleprompter-script-drawer');
+      if (d) d.classList.toggle('hidden');
+    }
+
+    function copyKeynoteScript() {
+      const fullText = [
+        'CONTINUUM DX ADVISORY — THE SPACE BETWEEN (2:00 KEYNOTE SCRIPT · ~275 WORDS)',
+        '',
+        '[0:00 ACT I — THE SPEED ILLUSION]',
+        'For two years, the enterprise ran faster than it ever has in history. Boards demanded AI mandates. CIOs signed the licenses. Every business unit launched a pilot. We tallied the experiments and celebrated the speed. Yet behind closed doors, a harder truth settled in: we were moving at blinding speed—without advancing an inch. Because speed without velocity is just friction.',
+        '',
+        '[0:22 ACT II — THE COMMODITY TRAP]',
+        'The industry sold a convenient myth: buy the software, and transformation follows. They told you the model was the holy grail. It wasn\'t the holy grail—it wasn\'t even the map. Instead, fragmented silos burned capital. Copilots sat idle. Pilot paralysis drained momentum. When the steering committee asks for the return on capital, the room goes quiet—because no one answered one question: Where are we going?',
+        '',
+        '[0:46 ACT III — THE SPACE BETWEEN]',
+        'Seventeen years in the enterprise trenches proves one law: software is a commodity. Transformation is 70% operating model, 20% composable context, and only 10% foundation models. Between the boardroom\'s Why and the engineering pipeline\'s How lies the chasm where budgets stall: The Space Between. Legacy consultancies leave 200-page decks on top of that chasm. Systems integrators bill hours inside it. We own it.',
+        '',
+        '[1:14 ACT IV — ARCHITECTURE AS THE MOAT]',
+        'Your competitive moat is never the tool you lease—it\'s the governance discipline inside your walls. Continuum DX embeds directly into active Sitecore, Salesforce, Contentful, Adobe, Optimizely, and Azure pipelines. No speculative labs. We wire verified prompt registries, deterministic QA gates, and human-in-the-loop review right into live sprints. One funded beachhead becomes a turnkey Center of Excellence in a Box—scaling safely across every business unit.',
+        '',
+        '[1:42 ACT V — THE CONTINUUM MANDATE]',
+        'Before you sign the next software contract, know where you are going. Before you launch another disconnected pilot, build the operating model. Software is the commodity. Governance is the moat. We are Continuum DX Advisory—and we own the space between.'
+      ].join('\n');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullText).then(() => {
+          const btn = document.getElementById('copy-script-btn');
+          if (btn) { btn.textContent = 'Copied 2:00 Script'; setTimeout(() => { btn.textContent = 'Copy Full 2:00 Script'; }, 2200); }
         });
       }
     }
 
-    if (fullscreenBtn && video) {
+    function clearCustomVoiceover() {
+      hasCustomVoiceover = false;
+      if (voiceAudio) { voiceAudio.pause(); voiceAudio.removeAttribute('src'); }
+      if (voiceMixerBar) voiceMixerBar.classList.add('hidden');
+      if (voiceUploadLabel) voiceUploadLabel.textContent = 'Load New Voiceover';
+      if (voiceFileInput) voiceFileInput.value = '';
+      applyAudioVolumes();
+    }
+
+    if (voiceFileInput) {
+      voiceFileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file || !voiceAudio) return;
+        const url = URL.createObjectURL(file);
+        voiceAudio.src = url;
+        hasCustomVoiceover = true;
+        if (voiceFilenameEl) voiceFilenameEl.textContent = file.name;
+        if (voiceMixerBar) voiceMixerBar.classList.remove('hidden');
+        if (voiceUploadLabel) voiceUploadLabel.textContent = 'Swap Voiceover Track';
+        applyAudioVolumes();
+        jumpToTime(0);
+      });
+    }
+
+    if (scoreDuckSlider) {
+      scoreDuckSlider.addEventListener('input', () => {
+        scoreDuckRatio = Number(scoreDuckSlider.value) / 100;
+        if (scoreDuckVal) scoreDuckVal.textContent = scoreDuckSlider.value + '%';
+        applyAudioVolumes();
+      });
+    }
+
+    if (playBtn) playBtn.addEventListener('click', togglePlay);
+    if (playOverlayBtn) playOverlayBtn.addEventListener('click', (e) => { e.stopPropagation(); togglePlay(); });
+    if (stageEl) stageEl.addEventListener('click', togglePlay);
+    if (fullscreenBtn && stageEl) {
       fullscreenBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) {
-          video.webkitRequestFullscreen();
-        }
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (stageEl.requestFullscreen) stageEl.requestFullscreen();
+        else if (stageEl.webkitRequestFullscreen) stageEl.webkitRequestFullscreen();
+      });
+    }
+    if (progressSlider) {
+      progressSlider.addEventListener('input', () => {
+        const t = Number(progressSlider.value);
+        if (scoreAudio) scoreAudio.currentTime = t;
+        if (hasCustomVoiceover && voiceAudio) voiceAudio.currentTime = t;
+        syncUIForTime(t);
       });
     }
 
-    function jumpToAct(seconds) {
-      if (video) {
-        video.currentTime = seconds;
-        if (video.paused) {
-          video.play().catch(e => console.warn('Play prevented:', e));
-        }
-      }
-    }
+    buildBeatStripAndScript();
+    syncUIForTime(0);
 
-    // Keynote Act Card Click Handler
-    function setActiveAct(selectedCard, startTime) {
-      document.querySelectorAll('.act-card').forEach(card => {
-        card.classList.remove('active');
-      });
-      selectedCard.classList.add('active');
-      if (typeof startTime === 'number' && video) {
-        video.currentTime = startTime;
-        if (video.paused) {
-          video.play().catch(e => console.warn('Play prevented:', e));
-        }
-      }
-    }
-
-    // Set initial video volume to 100%
-    if (video) {
-      video.volume = 1.0;
-    }
 
     // Field Practice Category Filter Handler
     const filterBtns = document.querySelectorAll('.field-filter-btn');
