@@ -133,7 +133,7 @@
   </script>
 
   <!-- Favicon / Meta -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090A0F'/><path d='M30 50 A20 20 0 0 1 70 50' stroke='%232563EB' stroke-width='10' fill='none'/><circle cx='50' cy='50' r='8' fill='%2310B981'/></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23090A0F'/%3E%3Cpath d='M30 50 A20 20 0 0 1 70 50' stroke='%232563EB' stroke-width='10' fill='none'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%2310B981'/%3E%3C/svg%3E">
 
   <!-- Google Fonts: Instrument Serif, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -296,9 +296,22 @@
       animation: focalDrift 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
+    /* Architectural S-Curve Interactive Node Transitions & Focus Ring */
+    .stage-nav-btn circle {
+      transition: r 220ms ease, fill 220ms ease, stroke 220ms ease, stroke-width 220ms ease, fill-opacity 220ms ease;
+    }
+    .stage-nav-btn:focus-visible circle:first-child {
+      stroke: #93C5FD;
+      stroke-width: 2;
+      fill-opacity: 0.22;
+    }
+    .scurve-seg-track {
+      transition: opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .keynote-ambient-pulse, .keynote-focal-enter { animation: none !important; transform: none !important; }
-      .keynote-stage-layer { transition-duration: 150ms !important; }
+      .keynote-stage-layer, .stage-nav-btn circle, .scurve-seg-track { transition-duration: 150ms !important; }
     }
   </style>
 </head>
@@ -368,16 +381,17 @@
 
   <!-- ==================== HERO SECTION ==================== -->
   <section class="relative pt-36 pb-20 md:pt-44 md:pb-28 px-6 border-b border-slate-800/80 overflow-hidden bg-[#090A0F]">
-    <!-- Subtle Ambient Film Backdrop with High-Contrast Obsidian Scrim -->
+    <!-- Ambient Film Backdrop with Directional Text-Protection Scrim -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <video id="hero-ambient-video" autoplay loop muted playsinline poster="/assets/commercial/skybridge_dawn.jpg" class="w-full h-full object-cover opacity-20">
+      <video id="hero-ambient-video" autoplay loop muted playsinline poster="/assets/commercial/skybridge_dawn.jpg" class="w-full h-full object-cover opacity-60 contrast-[1.12] brightness-[1.15] saturate-[1.15] transition-all duration-500">
         <source src="/assets/videos/continuum_hero_ambient.mp4" type="video/mp4">
       </video>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#090A0F]/85 via-[#090A0F]/75 to-[#090A0F]"></div>
-      <div class="absolute inset-0 radial-glow-cobalt"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-obsidian/90 via-obsidian/55 to-obsidian/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-obsidian/50 via-transparent to-obsidian/90"></div>
+      <div class="absolute inset-0 radial-glow-cobalt opacity-70"></div>
     </div>
 
-    <button id="hero-ambient-toggle" type="button" onclick="toggleHeroAmbient()" class="hidden md:inline-flex items-center gap-1.5 absolute bottom-5 right-6 z-20 px-3 py-1.5 rounded-md bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-slate-400 hover:text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-sm transition-colors">
+    <button id="hero-ambient-toggle" type="button" onclick="toggleHeroAmbient()" aria-pressed="false" class="inline-flex items-center gap-2 absolute bottom-4 right-5 sm:bottom-5 sm:right-6 z-20 px-3 py-1.5 rounded-md bg-slate-900/85 hover:bg-slate-800 border border-slate-700/80 text-slate-300 hover:text-white font-mono text-[10px] uppercase tracking-wider backdrop-blur-sm transition-all shadow-lg">
       <span id="hero-ambient-dot" class="w-1.5 h-1.5 rounded-full bg-emeraldGuard"></span>
       <span id="hero-ambient-label">Pause Ambient Film</span>
     </button>
@@ -781,87 +795,211 @@
             </div>
           </div>
 
-          <!-- Visual 5-Stage Staircase / Progression Graphic -->
-          <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-8">
-            
-            <!-- Stage 1 -->
-            <button type="button" onclick="selectDxmmStage(1)" id="stage-btn-1" class="stage-nav-btn text-left p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900 hover:border-slate-700 transition-all flex flex-col justify-between h-40">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-mono text-xs font-bold text-slate-400">STAGE 01</span>
-                <span class="w-2 h-2 rounded-full bg-red-400"></span>
-              </div>
-              <div>
-                <div class="font-serif text-lg text-white font-medium">Ad-Hoc</div>
-                <div class="text-[11px] text-red-400 font-mono mt-0.5">High Hallucination Risk</div>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-red-400 h-full w-[20%]"></div>
-              </div>
-            </button>
+          <!-- Interactive Architectural S-Curve Trajectory Canvas -->
+          <div class="mb-8 rounded-xl border border-slate-800/90 bg-[#06070B] p-3 sm:p-5 relative overflow-hidden">
+            <div class="w-full">
+              <svg id="dxmm-scurve-svg" viewBox="0 0 1000 440" class="w-full h-auto block select-none overflow-visible" role="img" aria-label="Interactive Five-Stage AI DXMM Architectural Progression S-Curve">
+                <defs>
+                  <!-- Subtle Obsidian Architectural Grid -->
+                  <pattern id="dxmm-arch-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.45" />
+                    <circle cx="0" cy="0" r="1" fill="#334155" fill-opacity="0.4" />
+                  </pattern>
 
-            <!-- Stage 2 -->
-            <button type="button" onclick="selectDxmmStage(2)" id="stage-btn-2" class="stage-nav-btn text-left p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900 hover:border-slate-700 transition-all flex flex-col justify-between h-40">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-mono text-xs font-bold text-slate-400">STAGE 02</span>
-                <span class="w-2 h-2 rounded-full bg-amberGold"></span>
-              </div>
-              <div>
-                <div class="font-serif text-lg text-white font-medium">Piloting</div>
-                <div class="text-[11px] text-amberGold font-mono mt-0.5">Departmental Silos</div>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-amberGold h-full w-[40%]"></div>
-              </div>
-            </button>
+                  <!-- Execution Chasm Cobalt/Gold Shaded Gradient -->
+                  <linearGradient id="dxmm-chasm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.11" />
+                    <stop offset="50%" stop-color="#2563EB" stop-opacity="0.16" />
+                    <stop offset="100%" stop-color="#2563EB" stop-opacity="0.06" />
+                  </linearGradient>
 
-            <!-- Stage 3 (CONTINUUM ENTRY) -->
-            <button type="button" onclick="selectDxmmStage(3)" id="stage-btn-3" class="stage-nav-btn active text-left p-4 rounded-xl border-2 border-cobalt bg-cobalt/15 relative flex flex-col justify-between h-40 shadow-lg shadow-cobalt/20">
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-cobalt text-white font-mono text-[9px] font-bold tracking-widest uppercase whitespace-nowrap shadow-md">
-                CONTINUUM ENTRY POINT
-              </div>
-              <div class="flex items-center justify-between w-full pt-1">
-                <span class="font-mono text-xs font-bold text-cobalt">STAGE 03</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-cobalt animate-pulse"></span>
-              </div>
-              <div>
-                <div class="font-serif text-lg text-white font-bold">Governed CoE</div>
-                <div class="text-[11px] text-cobalt font-mono font-semibold mt-0.5">65% Content Latency Cut</div>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-cobalt h-full w-[60%]"></div>
-              </div>
-            </button>
+                  <!-- Active Curve Trajectory Gradient -->
+                  <linearGradient id="dxmm-curve-grad" x1="10%" y1="85%" x2="90%" y2="15%">
+                    <stop offset="0%" stop-color="#F87171" />
+                    <stop offset="30%" stop-color="#F59E0B" />
+                    <stop offset="58%" stop-color="#2563EB" />
+                    <stop offset="100%" stop-color="#10B981" />
+                  </linearGradient>
 
-            <!-- Stage 4 -->
-            <button type="button" onclick="selectDxmmStage(4)" id="stage-btn-4" class="stage-nav-btn text-left p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900 hover:border-slate-700 transition-all flex flex-col justify-between h-40">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-mono text-xs font-bold text-slate-400">STAGE 04</span>
-                <span class="w-2 h-2 rounded-full bg-emeraldGuard"></span>
-              </div>
-              <div>
-                <div class="font-serif text-lg text-white font-medium">Predictive</div>
-                <div class="text-[11px] text-emeraldGuard font-mono mt-0.5">P&L Lift Validated</div>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-emeraldGuard h-full w-[80%]"></div>
-              </div>
-            </button>
+                  <!-- Stage 03 Entry Halo Radial Glow -->
+                  <radialGradient id="dxmm-entry-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#2563EB" stop-opacity="0.45" />
+                    <stop offset="55%" stop-color="#F59E0B" stop-opacity="0.16" />
+                    <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+                  </radialGradient>
 
-            <!-- Stage 5 -->
-            <button type="button" onclick="selectDxmmStage(5)" id="stage-btn-5" class="stage-nav-btn text-left p-4 rounded-xl border border-slate-800 bg-slate-900/40 hover:bg-slate-900 hover:border-slate-700 transition-all flex flex-col justify-between h-40">
-              <div class="flex items-center justify-between w-full">
-                <span class="font-mono text-xs font-bold text-slate-400">STAGE 05</span>
-                <span class="w-2 h-2 rounded-full bg-emeraldGuard"></span>
-              </div>
-              <div>
-                <div class="font-serif text-lg text-white font-medium">Autonomous</div>
-                <div class="text-[11px] text-emeraldGuard font-mono mt-0.5">Brand Guardrail Mesh</div>
-              </div>
-              <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div class="bg-emeraldGuard h-full w-[100%]"></div>
-              </div>
-            </button>
+                  <!-- Soft Trajectory Glow Filter -->
+                  <filter id="dxmm-glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
+                <!-- Canvas Grid Background & Frame -->
+                <rect x="20" y="16" width="960" height="408" rx="12" fill="#07090E" stroke="#1E293B" stroke-width="1" />
+                <rect x="20" y="16" width="960" height="408" rx="12" fill="url(#dxmm-arch-grid)" />
+
+                <!-- Subtle Axis Hairlines -->
+                <line x1="48" y1="386" x2="952" y2="386" stroke="#334155" stroke-width="1" stroke-opacity="0.65" />
+                <line x1="48" y1="48" x2="48" y2="386" stroke="#334155" stroke-width="1" stroke-opacity="0.65" />
+
+                <!-- Axis Markers: Bottom-Left & Top-Right -->
+                <g transform="translate(52, 411)">
+                  <circle cx="5" cy="-4" r="3.5" fill="#F87171" />
+                  <text x="15" y="0" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" letter-spacing="1.2">LOW MATURITY / HIGH HALLUCINATION RISK</text>
+                </g>
+                <g transform="translate(948, 39)">
+                  <circle cx="-298" cy="-4" r="3.5" fill="#10B981" />
+                  <text x="0" y="0" text-anchor="end" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="1.2">GOVERNED VELOCITY &amp; COMPOUNDING ROI</text>
+                </g>
+
+                <!-- Shaded Execution Chasm Zone (Stage 02 -> Stage 03) -->
+                <g aria-hidden="true">
+                  <rect x="342" y="54" width="116" height="332" rx="6" fill="url(#dxmm-chasm-grad)" />
+                  <line x1="342" y1="54" x2="342" y2="386" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.5" />
+                  <line x1="458" y1="54" x2="458" y2="386" stroke="#2563EB" stroke-width="1" stroke-dasharray="4 4" stroke-opacity="0.6" />
+                  <rect x="348" y="64" width="104" height="22" rx="4" fill="#090A0F" fill-opacity="0.9" stroke="#F59E0B" stroke-opacity="0.45" stroke-width="1" />
+                  <text x="400" y="79" text-anchor="middle" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" letter-spacing="1">EXECUTION CHASM</text>
+                  <text x="400" y="366" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" letter-spacing="0.6">CONTINUUM OVERLAY</text>
+                  <text x="400" y="378" text-anchor="middle" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="8.5" letter-spacing="0.6">BRIDGES THE GAP</text>
+                </g>
+
+                <!-- Full Base S-Curve Trajectory Track (Smooth Cubic-Bezier Passing Exactly Through P1..P5) -->
+                <path
+                  d="M 115 340 C 175 337, 235 329, 295 310 C 360 288, 425 256, 500 220 C 575 184, 640 144, 705 122 C 765 102, 825 95, 885 92"
+                  fill="none"
+                  stroke="#1E293B"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M 115 340 C 175 337, 235 329, 295 310 C 360 288, 425 256, 500 220 C 575 184, 640 144, 705 122 C 765 102, 825 95, 885 92"
+                  fill="none"
+                  stroke="url(#dxmm-curve-grad)"
+                  stroke-width="2"
+                  stroke-opacity="0.32"
+                  stroke-linecap="round"
+                />
+
+                <!-- Segmented Active Trajectory Overlay Paths (Highlighted up to Selected Stage) -->
+                <path id="scurve-seg-1" class="scurve-seg-track" d="M 115 340 C 175 337, 235 329, 295 310" fill="none" stroke="url(#dxmm-curve-grad)" stroke-width="4.5" stroke-linecap="round" filter="url(#dxmm-glow)" opacity="1" />
+                <path id="scurve-seg-2" class="scurve-seg-track" d="M 295 310 C 360 288, 425 256, 500 220" fill="none" stroke="url(#dxmm-curve-grad)" stroke-width="4.5" stroke-linecap="round" filter="url(#dxmm-glow)" opacity="1" />
+                <path id="scurve-seg-3" class="scurve-seg-track" d="M 500 220 C 575 184, 640 144, 705 122" fill="none" stroke="url(#dxmm-curve-grad)" stroke-width="4.5" stroke-linecap="round" filter="url(#dxmm-glow)" opacity="0.15" />
+                <path id="scurve-seg-4" class="scurve-seg-track" d="M 705 122 C 765 102, 825 95, 885 92" fill="none" stroke="url(#dxmm-curve-grad)" stroke-width="4.5" stroke-linecap="round" filter="url(#dxmm-glow)" opacity="0.15" />
+
+                <!-- Stage 03 Permanent Continuum Entry Point Beacon Ring & Callout -->
+                <g aria-hidden="true">
+                  <circle cx="500" cy="220" r="46" fill="url(#dxmm-entry-glow)" />
+                  <circle cx="500" cy="220" r="34" fill="none" stroke="#F59E0B" stroke-width="1.25" stroke-dasharray="4 3" stroke-opacity="0.8" />
+                  <circle cx="500" cy="220" r="28" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-opacity="0.85" />
+                  <line x1="500" y1="186" x2="500" y2="159" stroke="#2563EB" stroke-width="1.25" stroke-dasharray="3 2" />
+                  <rect x="415" y="135" width="170" height="24" rx="12" fill="#2563EB" stroke="#F59E0B" stroke-width="1" stroke-opacity="0.7" />
+                  <text x="500" y="150.5" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700" letter-spacing="1.1">CONTINUUM ENTRY POINT</text>
+                </g>
+
+                <!-- Interactive Stage Node 01: (115, 340) -->
+                <g id="stage-btn-1" role="button" tabindex="0" aria-label="Stage 01: Ad-Hoc" onclick="selectDxmmStage(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDxmmStage(1);}" class="stage-nav-btn cursor-pointer group">
+                  <circle id="stage-node-halo-1" cx="115" cy="340" r="30" fill="#EF4444" fill-opacity="0" />
+                  <circle cx="115" cy="340" r="26" fill="transparent" />
+                  <circle id="stage-node-ring-1" cx="115" cy="340" r="20" fill="#0F172A" stroke="#EF4444" stroke-width="2" />
+                  <text id="stage-node-num-1" x="115" y="344.5" text-anchor="middle" fill="#FCA5A5" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700">01</text>
+                  <!-- Label Above Stage 01 -->
+                  <text x="115" y="266" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1">STAGE 01</text>
+                  <text id="stage-node-title-1" x="115" y="284" text-anchor="middle" fill="#F8FAFC" font-family="'Instrument Serif', Georgia, serif" font-size="18">Ad-Hoc</text>
+                  <text x="115" y="299" text-anchor="middle" fill="#F87171" font-family="'JetBrains Mono', monospace" font-size="9.5">Shadow AI Sprawl</text>
+                </g>
+
+                <!-- Interactive Stage Node 02: (295, 310) -->
+                <g id="stage-btn-2" role="button" tabindex="0" aria-label="Stage 02: Piloting" onclick="selectDxmmStage(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDxmmStage(2);}" class="stage-nav-btn cursor-pointer group">
+                  <circle id="stage-node-halo-2" cx="295" cy="310" r="30" fill="#F59E0B" fill-opacity="0" />
+                  <circle cx="295" cy="310" r="26" fill="transparent" />
+                  <circle id="stage-node-ring-2" cx="295" cy="310" r="20" fill="#0F172A" stroke="#F59E0B" stroke-width="2" />
+                  <text id="stage-node-num-2" x="295" y="314.5" text-anchor="middle" fill="#FDE68A" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700">02</text>
+                  <!-- Label Above-Left Stage 02 -->
+                  <text x="278" y="236" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1">STAGE 02</text>
+                  <text id="stage-node-title-2" x="278" y="254" text-anchor="middle" fill="#F8FAFC" font-family="'Instrument Serif', Georgia, serif" font-size="18">Piloting</text>
+                  <text x="278" y="269" text-anchor="middle" fill="#F59E0B" font-family="'JetBrains Mono', monospace" font-size="9.5">Departmental Silos</text>
+                </g>
+
+                <!-- Interactive Stage Node 03 (Inflection Knee / Continuum Entry): (500, 220) -->
+                <g id="stage-btn-3" role="button" tabindex="0" aria-label="Stage 03: Governed CoE (Continuum Entry Point)" onclick="selectDxmmStage(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDxmmStage(3);}" class="stage-nav-btn active cursor-pointer group">
+                  <circle id="stage-node-halo-3" cx="500" cy="220" r="34" fill="#2563EB" fill-opacity="0.24" />
+                  <circle cx="500" cy="220" r="28" fill="transparent" />
+                  <circle id="stage-node-ring-3" cx="500" cy="220" r="22" fill="#2563EB" stroke="#F59E0B" stroke-width="2.5" />
+                  <text id="stage-node-num-3" x="500" y="225" text-anchor="middle" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="13.5" font-weight="700">03</text>
+                  <!-- Label Below-Right Stage 03 -->
+                  <text x="526" y="274" text-anchor="middle" fill="#60A5FA" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700" letter-spacing="1">STAGE 03</text>
+                  <text id="stage-node-title-3" x="526" y="294" text-anchor="middle" fill="#FFFFFF" font-family="'Instrument Serif', Georgia, serif" font-size="19">Governed CoE</text>
+                  <text x="526" y="310" text-anchor="middle" fill="#93C5FD" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="600">65% Cycle Latency Cut</text>
+                </g>
+
+                <!-- Interactive Stage Node 04: (705, 122) -->
+                <g id="stage-btn-4" role="button" tabindex="0" aria-label="Stage 04: Predictive" onclick="selectDxmmStage(4)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDxmmStage(4);}" class="stage-nav-btn cursor-pointer group">
+                  <circle id="stage-node-halo-4" cx="705" cy="122" r="30" fill="#10B981" fill-opacity="0" />
+                  <circle cx="705" cy="122" r="26" fill="transparent" />
+                  <circle id="stage-node-ring-4" cx="705" cy="122" r="20" fill="#0F172A" stroke="#10B981" stroke-width="2" />
+                  <text id="stage-node-num-4" x="705" y="126.5" text-anchor="middle" fill="#6EE7B7" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700">04</text>
+                  <!-- Label Below Stage 04 -->
+                  <text x="705" y="172" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1">STAGE 04</text>
+                  <text id="stage-node-title-4" x="705" y="191" text-anchor="middle" fill="#F8FAFC" font-family="'Instrument Serif', Georgia, serif" font-size="18">Predictive</text>
+                  <text x="705" y="206" text-anchor="middle" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9.5">P&amp;L Lift Validated</text>
+                </g>
+
+                <!-- Interactive Stage Node 05: (885, 92) -->
+                <g id="stage-btn-5" role="button" tabindex="0" aria-label="Stage 05: Autonomous Brand Guardrail Mesh" onclick="selectDxmmStage(5)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectDxmmStage(5);}" class="stage-nav-btn cursor-pointer group">
+                  <circle id="stage-node-halo-5" cx="885" cy="92" r="30" fill="#10B981" fill-opacity="0" />
+                  <circle cx="885" cy="92" r="26" fill="transparent" />
+                  <circle id="stage-node-ring-5" cx="885" cy="92" r="20" fill="#0F172A" stroke="#10B981" stroke-width="2" />
+                  <text id="stage-node-num-5" x="885" y="96.5" text-anchor="middle" fill="#6EE7B7" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700">05</text>
+                  <!-- Label Below Stage 05 -->
+                  <text x="885" y="143" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" letter-spacing="1">STAGE 05</text>
+                  <text id="stage-node-title-5" x="885" y="162" text-anchor="middle" fill="#F8FAFC" font-family="'Instrument Serif', Georgia, serif" font-size="18">Autonomous</text>
+                  <text x="885" y="177" text-anchor="middle" fill="#10B981" font-family="'JetBrains Mono', monospace" font-size="9.5">Brand Guardrail Mesh</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Mobile (<768px) High-Legibility Touch Stage Switcher Synced with S-Curve -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-4 md:hidden" role="group" aria-label="Mobile AI DXMM Stage Selector">
+              <button type="button" id="stage-mob-1" onclick="selectDxmmStage(1)" class="text-left px-3.5 py-2.5 rounded-lg border border-slate-800 bg-slate-900/60 flex items-center justify-between transition-all">
+                <div>
+                  <span class="font-mono text-[10px] text-red-400 font-bold block">STAGE 01</span>
+                  <span class="font-serif text-base text-white">Ad-Hoc</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-400">Shadow AI</span>
+              </button>
+              <button type="button" id="stage-mob-2" onclick="selectDxmmStage(2)" class="text-left px-3.5 py-2.5 rounded-lg border border-slate-800 bg-slate-900/60 flex items-center justify-between transition-all">
+                <div>
+                  <span class="font-mono text-[10px] text-amberGold font-bold block">STAGE 02</span>
+                  <span class="font-serif text-base text-white">Piloting</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-400">Siloed</span>
+              </button>
+              <button type="button" id="stage-mob-3" onclick="selectDxmmStage(3)" class="text-left px-3.5 py-2.5 rounded-lg border-2 border-cobalt bg-cobalt/20 sm:col-span-2 flex items-center justify-between transition-all">
+                <div>
+                  <span class="font-mono text-[10px] text-cobalt font-bold block">STAGE 03 // CONTINUUM ENTRY</span>
+                  <span class="font-serif text-base text-white font-semibold">Governed CoE</span>
+                </div>
+                <span class="font-mono text-[10px] text-cobalt font-bold">65% Faster</span>
+              </button>
+              <button type="button" id="stage-mob-4" onclick="selectDxmmStage(4)" class="text-left px-3.5 py-2.5 rounded-lg border border-slate-800 bg-slate-900/60 flex items-center justify-between transition-all">
+                <div>
+                  <span class="font-mono text-[10px] text-emeraldGuard font-bold block">STAGE 04</span>
+                  <span class="font-serif text-base text-white">Predictive</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-400">P&amp;L Lift</span>
+              </button>
+              <button type="button" id="stage-mob-5" onclick="selectDxmmStage(5)" class="text-left px-3.5 py-2.5 rounded-lg border border-slate-800 bg-slate-900/60 flex items-center justify-between transition-all">
+                <div>
+                  <span class="font-mono text-[10px] text-emeraldGuard font-bold block">STAGE 05</span>
+                  <span class="font-serif text-base text-white">Autonomous Mesh</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-400">Guardrails</span>
+              </button>
+            </div>
           </div>
 
           <!-- Dynamic Stage Detail Card -->
@@ -1017,21 +1155,73 @@
       }
     };
 
+    var STAGE_COLORS = {
+      1: { fill: '#EF4444', stroke: '#FCA5A5', num: '#FFFFFF', textMute: '#FCA5A5' },
+      2: { fill: '#F59E0B', stroke: '#FDE68A', num: '#090A0F', textMute: '#FDE68A' },
+      3: { fill: '#2563EB', stroke: '#F59E0B', num: '#FFFFFF', textMute: '#93C5FD' },
+      4: { fill: '#10B981', stroke: '#6EE7B7', num: '#090A0F', textMute: '#6EE7B7' },
+      5: { fill: '#10B981', stroke: '#F59E0B', num: '#090A0F', textMute: '#6EE7B7' }
+    };
+
     window.selectDxmmStage = function(s) {
       for (var i = 1; i <= 5; i++) {
+        var isSel = (i === s);
         var btn = document.getElementById('stage-btn-' + i);
         if (btn) {
-          if (i === s) {
-            btn.classList.add('border-2', 'border-cobalt', 'bg-cobalt/20', 'shadow-lg', 'shadow-cobalt/20', 'active');
-            btn.classList.remove('border', 'border-slate-800', 'bg-slate-900/40', 'bg-cobalt/15');
+          if (isSel) {
+            btn.classList.add('active');
           } else {
-            btn.classList.remove('border-2', 'border-cobalt', 'bg-cobalt/20', 'bg-cobalt/15', 'shadow-lg', 'shadow-cobalt/20', 'active');
-            btn.classList.add('border', 'border-slate-800', 'bg-slate-900/40');
+            btn.classList.remove('active');
           }
         }
+
+        // Update SVG Node Appearance on S-Curve
+        var ring = document.getElementById('stage-node-ring-' + i);
+        var halo = document.getElementById('stage-node-halo-' + i);
+        var num = document.getElementById('stage-node-num-' + i);
+        var palette = STAGE_COLORS[i] || STAGE_COLORS[3];
+        if (ring && halo && num) {
+          if (isSel) {
+            ring.setAttribute('fill', palette.fill);
+            ring.setAttribute('stroke', palette.stroke);
+            ring.setAttribute('stroke-width', '3');
+            ring.setAttribute('r', i === 3 ? '23' : '22');
+            halo.setAttribute('fill-opacity', '0.28');
+            num.setAttribute('fill', palette.num);
+          } else {
+            ring.setAttribute('fill', '#0F172A');
+            ring.setAttribute('stroke', palette.fill);
+            ring.setAttribute('stroke-width', i === 3 ? '2.25' : '1.75');
+            ring.setAttribute('r', i === 3 ? '21' : '19');
+            halo.setAttribute('fill-opacity', i === 3 ? '0.12' : '0');
+            num.setAttribute('fill', palette.textMute);
+          }
+        }
+
+        // Update S-Curve Active Trajectory Segments (segments 1..4)
+        if (i <= 4) {
+          var seg = document.getElementById('scurve-seg-' + i);
+          if (seg) {
+            seg.setAttribute('opacity', i < s ? '1' : '0.14');
+          }
+        }
+
+        // Update Mobile Stage Pills (<768px)
+        var mobBtn = document.getElementById('stage-mob-' + i);
+        if (mobBtn) {
+          if (isSel) {
+            mobBtn.classList.add('border-2', 'border-cobalt', 'bg-cobalt/20', 'shadow-md');
+            mobBtn.classList.remove('border', 'border-slate-800', 'bg-slate-900/60');
+          } else {
+            mobBtn.classList.remove('border-2', 'border-cobalt', 'bg-cobalt/20', 'shadow-md');
+            mobBtn.classList.add('border', 'border-slate-800', 'bg-slate-900/60');
+          }
+        }
+
+        // Update Maturity Matrix Table Row Highlight
         var row = document.getElementById('stage-row-' + i);
         if (row) {
-          if (i === s) {
+          if (isSel) {
             row.classList.add('bg-cobalt/15', 'border-l-4', 'border-l-cobalt');
           } else {
             row.classList.remove('bg-cobalt/15', 'border-l-4', 'border-l-cobalt');
@@ -3309,20 +3499,35 @@
       });
     });
 
-    // Hero Ambient Video Pause/Play Toggle
+    // Hero Ambient Video Pause/Play Toggle with Calibrated Luminance Sync
     window.toggleHeroAmbient = function() {
       const heroVid = document.getElementById('hero-ambient-video');
       const heroDot = document.getElementById('hero-ambient-dot');
       const heroLabel = document.getElementById('hero-ambient-label');
+      const heroBtn = document.getElementById('hero-ambient-toggle');
       if (!heroVid) return;
       if (heroVid.paused) {
         heroVid.play().catch(() => {});
+        heroVid.classList.remove('opacity-20', 'grayscale-[35%]', 'brightness-75');
+        heroVid.classList.add('opacity-60', 'contrast-[1.12]', 'brightness-[1.15]', 'saturate-[1.15]');
         if (heroDot) { heroDot.classList.add('bg-emeraldGuard'); heroDot.classList.remove('bg-slate-500'); }
         if (heroLabel) heroLabel.textContent = 'Pause Ambient Film';
+        if (heroBtn) {
+          heroBtn.setAttribute('aria-pressed', 'false');
+          heroBtn.classList.remove('border-amberGold/40');
+          heroBtn.classList.add('border-slate-700/80');
+        }
       } else {
         heroVid.pause();
+        heroVid.classList.remove('opacity-60', 'contrast-[1.12]', 'brightness-[1.15]', 'saturate-[1.15]');
+        heroVid.classList.add('opacity-20', 'grayscale-[35%]', 'brightness-75');
         if (heroDot) { heroDot.classList.remove('bg-emeraldGuard'); heroDot.classList.add('bg-slate-500'); }
         if (heroLabel) heroLabel.textContent = 'Play Ambient Film';
+        if (heroBtn) {
+          heroBtn.setAttribute('aria-pressed', 'true');
+          heroBtn.classList.remove('border-slate-700/80');
+          heroBtn.classList.add('border-amberGold/40');
+        }
       }
     };
 
